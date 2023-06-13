@@ -1,0 +1,102 @@
+.left-side-bar{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end; */
+    align-items: flex-start;
+    margin-left: 7rem;
+    margin-right: 3rem;
+    margin-top: 1rem;
+    font-size: x-large;
+}
+
+.pages{
+    margin-top: -1rem;
+   
+}
+
+.icons{
+    font-size:1.7rem;
+    padding-right: 0.5rem;
+}
+
+.platform-name{
+    font-size: xx-large;
+    font-weight: 500;
+    cursor: pointer;
+
+}
+
+.home-btn{
+ 
+    /* margin-left: 0rem;
+    margin-bottom: 2rem; */
+    text-decoration: none;
+    color:black;
+    padding: 10px 5px 15px 3px;
+    font-size: 1.3rem;
+    display: flex;
+    cursor: pointer;
+    
+}
+
+.home-btn:hover{
+    background-color: rgb(182, 182, 182,0.3);
+    border-radius: 15px;
+}
+
+.explore-btn{
+    text-decoration: none;
+    color:black;
+    padding: 10px 10px 15px 3px;
+    font-size: 1.3rem;
+    display: flex;
+    cursor: pointer;
+}
+.explore-btn:hover{
+    background-color: rgb(182, 182, 182,0.3);
+    border-radius: 10px;
+}
+
+.bookmarks-btn{
+    text-decoration: none;
+    color:black;
+    padding: 10px 10px 15px 3px;
+    font-size: 1.3rem;
+    display: flex;
+    cursor: pointer;
+}
+.bookmarks-btn:hover{
+    background-color: rgb(182, 182, 182,0.3);
+    border-radius: 10px;
+}
+
+.likedPost-btn{
+    text-decoration: none;
+    color:black;
+    padding: 10px 10px 15px 3px;
+    font-size: 1.3rem;
+    display: flex;
+    cursor: pointer;
+}
+
+.likedPost-btn:hover{
+    background-color: var(--light-gray);
+    border-radius: 10px;
+}
+
+.post-btn{
+    
+    margin-top: 1rem;
+    padding: 10px 50px;
+    font-size: large;
+    border-radius: 10px;
+    background-color: var(--light-blue) ;
+    color:var(--white);
+    cursor: pointer;
+    border:none;
+}
+
+.post-btn:hover{
+   
+    background-color:  var(--dark-blue);
+}

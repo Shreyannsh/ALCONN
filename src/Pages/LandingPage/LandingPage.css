@@ -1,0 +1,15 @@
+.landingPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 10rem 5rem; */
+
+}
+
+.loginPage{
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    width: 396px;
+}

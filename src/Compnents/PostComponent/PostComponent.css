@@ -1,0 +1,32 @@
+.postComponent{
+    border: 1px solid var(--light-gray);
+    display: flex;
+    flex-direction: column;
+    height: 12rem;
+    width:  32rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    position: relative;
+    border-radius: 5px;
+}
+
+.pageTitle{
+    text-align: left;
+    font-size: x-large;
+    margin-top: 3.5rem;
+}
+
+.postComponent .image-pic{
+    position: absolute;
+    margin: 0rem 0.5rem;
+    border-radius: 40px;
+    height: 4rem;
+    width:  4rem;
+}
+
+
+.postComponentFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
