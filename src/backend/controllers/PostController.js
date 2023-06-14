@@ -158,7 +158,7 @@ export const likePostHandler = function (schema, request) {
   try {
     if (!user) {
       return new Response(
-        404,
+        404, 
         {},
         {
           errors: [

@@ -6,6 +6,7 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import { GoComment } from "react-icons/go";
 import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
 import { MdOutlineBookmarkBorder, MdOutlineBookmark,MdOutlineShare } from "react-icons/md";
+import { featureContext } from '../../Context/FeatureContext/FeatureContext';
 
 
 
@@ -13,9 +14,11 @@ export default function PostComponent({postDetails}){
 
 
     const {authState} = useContext(authContext);
-    console.log(authState);
+    const {likePost} = useContext(featureContext);
+
+
     const user = authState.usersList.find(({username}) => username === postDetails.username);
-    console.log(user);
+
 
     const createdDate = new Date(user.createdAt);
 
@@ -34,7 +37,7 @@ export default function PostComponent({postDetails}){
                 <p className='content'>{postDetails.content}</p>
                
                <div className='postComponentFooter'>
-                    <span className='footer-icon'>< BsSuitHeart /></span>
+                    <span className='footer-icon' onClick={()=>likePost(postDetails._id)}>< BsSuitHeart/> {postDetails.likes.likeCount}</span>
                     <span className='footer-icon'>< GoComment /></span>
                     <span className='footer-icon'>< MdOutlineBookmarkBorder /></span>
                     <span className='footer-icon'>< MdOutlineShare  /></span>

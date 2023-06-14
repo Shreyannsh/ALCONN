@@ -18,7 +18,7 @@ export const posts = [
     },
     username: "shreyansh",
     createdAt: formatDate(),
-    updatedAt: formatDate(),
+    updatedAt: formatDate(), 
   },
   {
     _id: uuid(),

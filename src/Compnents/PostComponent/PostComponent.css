@@ -16,21 +16,21 @@
     position: absolute;
     margin: 0rem 0.5rem;
     border-radius: 40px;
-    height: 4rem;
-    width:  4rem;
+    height: 3.5rem;
+    width:  3.5rem;
 }
 
 .fullName{
    display: flex;
    justify-content: flex-start;
-   margin-left: 5.5rem;
+   margin-left: 4.9rem;
    font-size: 18px;
    font-weight: 500;
 }
 
 .createdDate{
    margin-top: -1.2rem;
-   margin-left: 3.5rem;
+   margin-left: 3rem;
    font-size: small;
 }
 
@@ -43,7 +43,7 @@
 
 .userName{
     margin-top: -0.2rem;
-    margin-left: -16rem;
+    margin-left: -17rem;
     color: rgb(168, 168, 168);
 }
 

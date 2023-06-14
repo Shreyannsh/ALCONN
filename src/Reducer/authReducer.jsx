@@ -13,8 +13,11 @@ export const authReducer =(state,action) =>{
 
             case 'postList':
                 return{...state, postList: action.payload }
-            
 
+            case 'allPostList':{
+                return{...state, allPostList: action.payload}
+            }    
+            
             case 'usersList':
                 return{...state,usersList: action.payload}
             

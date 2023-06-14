@@ -16,14 +16,14 @@ export default function AuthProvider({children}){
         userName:'',
         loginPassword:'',
         postList:[],
+        allPostList:[],
         usersList:[],
         singleUserDetail:{},
     });
 
+    console.log(authState);
+
     const [isLogin,setIsLogin] = useState(false);
-    // const [postList,setPostList] = useState([]);
-    // const [usersList,setUsersList] = useState([]);
-    // const [singleUserDetail, setSingleUserDetail] = useState({});
 
     const navigate = useNavigate();
 
@@ -42,6 +42,15 @@ export default function AuthProvider({children}){
             // findUser(authState.userName);
         }catch(error){
             console.log(error);
+        }
+    }
+
+    const allPosts = async() =>{
+        try{
+            const response = await axios.get('/api/posts');
+            authDispatch({type:'allPostList', payload: response.data.posts});
+        }catch(error){
+            console.log(error)
         }
     }
 
@@ -85,6 +94,7 @@ export default function AuthProvider({children}){
             // userList();
             userPostList();
             userDetail();
+            allPosts();
             // let from = location.state?.from?.pathname || '/';
             navigate('/home');
         }catch(error){

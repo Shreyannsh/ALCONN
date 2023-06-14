@@ -7,6 +7,7 @@ import { makeServer } from "./server";
 import {BrowserRouter as Router} from 'react-router-dom';
 import AuthProvider from './Context/authContext/authContext';
 import HomeProvider from './Context/homeContext/homeContext';
+import FeatureProvider from './Context/FeatureContext/FeatureContext';
 
 // Call make Server
 makeServer();
@@ -16,9 +17,11 @@ root.render(
   <React.StrictMode>
     <Router>
       <AuthProvider>
-        <HomeProvider>
+        <FeatureProvider>
+         <HomeProvider>
           <App />
-        </HomeProvider>
+         </HomeProvider>
+        </FeatureProvider>
       </AuthProvider>
     </Router>
   </React.StrictMode>

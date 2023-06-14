@@ -1,8 +1,23 @@
+import './Explore.css'
+
+import { useContext } from "react";
+
+import { authContext } from "../../Context/authContext/authContext";
+import PostComponent from "../../Compnents/PostComponent/PostComponent";
+
 
 export default function Explore(){
+
+    const {authState} = useContext(authContext);
+
     return(
-        <div>
-            <h1>This is Explore page</h1>
+        <div className="explorePage">
+            <p className='pageName'>Explore</p>
+           {authState?.allPostList?.map((post) => <li style={{listStyle:"none"}}>
+            <PostComponent postDetails={post} />
+           </li>)}
+
+
         </div>
     )
 }
