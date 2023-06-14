@@ -2,21 +2,17 @@
     border: 1px solid var(--light-gray);
     display: flex;
     flex-direction: column;
-    height: 12rem;
+    height: 11rem;
     width:  32rem;
     margin-top: 2rem;
-    padding-top: 1.5rem;
+    margin-bottom: 3rem;
+    padding-top: 1rem;
     position: relative;
     border-radius: 5px;
 }
 
-.pageTitle{
-    text-align: left;
-    font-size: x-large;
-    margin-top: 3.5rem;
-}
-
 .postComponent .image-pic{
+
     position: absolute;
     margin: 0rem 0.5rem;
     border-radius: 40px;
@@ -24,9 +20,49 @@
     width:  4rem;
 }
 
+.fullName{
+   display: flex;
+   justify-content: flex-start;
+   margin-left: 5.5rem;
+   font-size: 18px;
+   font-weight: 500;
+}
+
+.createdDate{
+   margin-top: -1.2rem;
+   margin-left: 3.5rem;
+   font-size: small;
+}
+
+.options{
+    margin-top: -1.4rem;
+    margin-left: 27rem;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+.userName{
+    margin-top: -0.2rem;
+    margin-left: -16rem;
+    color: rgb(168, 168, 168);
+}
+
+.content{
+    display: flex;
+    padding-left: 0.5rem;
+    font-size: 17px;
+}
 
 .postComponentFooter{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    padding-left: 15px;
+    margin-top: 1rem;
+}
+
+.footer-icon{
+    margin-right:2rem;
+    font-size: 21px;
+    cursor: pointer;
 }

@@ -9,3 +9,9 @@
 .postList{
     list-style: none;
 }
+
+.pageTitle{
+    text-align: left;
+    font-size: x-large;
+    margin-top: 3.5rem;
+}

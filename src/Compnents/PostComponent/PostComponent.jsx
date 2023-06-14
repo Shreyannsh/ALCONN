@@ -1,5 +1,13 @@
-import { useContext } from "react"
-import { authContext } from "../../Context/authContext/authContext"
+import './PostComponent.css'
+
+import { useContext } from "react";
+import { authContext } from "../../Context/authContext/authContext";
+import { HiDotsHorizontal } from "react-icons/hi";
+import { GoComment } from "react-icons/go";
+import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
+import { MdOutlineBookmarkBorder, MdOutlineBookmark,MdOutlineShare } from "react-icons/md";
+
+
 
 export default function PostComponent({postDetails}){
 
@@ -11,24 +19,28 @@ export default function PostComponent({postDetails}){
 
     const createdDate = new Date(user.createdAt);
 
-
-
-
     return(
         <div>
             <div className='postComponent'>
 
+                {/* <div className='postComponentHeader'> */}
                 <img  className='image-pic' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgtt3zOq6B9NnqaNv6ApPqWUmxmTf5hxtF_g&usqp=CAU'  alt='Pic' />
-                <p>{user.firstName} {user.lastName} {createdDate.toDateString()}</p>
-                <p>@{user.username}</p>
-               <p>{postDetails.content}</p>
+                <span className='fullName'> {user.firstName} {user.lastName} </span>
+                <span className='createdDate'> {createdDate.toDateString()} </span>
+                <span className='options'> < HiDotsHorizontal/> </span> 
+                <p className='userName'>@{user.username}</p>
+                {/* </div> */}
+
+                <p className='content'>{postDetails.content}</p>
                
                <div className='postComponentFooter'>
-                    <span className='photo-icon'></span>
-                    <button className='HomePost-btn'>Post</button>
+                    <span className='footer-icon'>< BsSuitHeart /></span>
+                    <span className='footer-icon'>< GoComment /></span>
+                    <span className='footer-icon'>< MdOutlineBookmarkBorder /></span>
+                    <span className='footer-icon'>< MdOutlineShare  /></span>
                </div>
        
             </div>
         </div>
     )
-}
+} 
