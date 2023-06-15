@@ -24,6 +24,10 @@ export const authReducer =(state,action) =>{
 
             case 'singleUserDetail':
                 return{...state,singleUserDetail: action.payload}
+               
+            case 'bookmarks':
+                return {...state, bookmarks: action.payload}
+            
             
             default:
                 return state;    

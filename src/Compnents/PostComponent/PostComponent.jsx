@@ -15,21 +15,31 @@ export default function PostComponent({postDetails}){
 
 
     const {authState} = useContext(authContext);
-    const {likePost} = useContext(featureContext);
+    const {likePost,dislikePost,addBookmark,removeBookmark} = useContext(featureContext);
 
 
     const user = authState.usersList.find(({username}) => username === postDetails.username);
 
-    const [postLiked,setPostLiked] = useState(false);
+    const likedBy = postDetails.likes.likedBy.find(({_id}) => _id === authState.singleUserDetail._id);
 
-    const likePostFunc = () =>{
-        setPostLiked(true);
+    const bookMarked = authState?.bookmarks?.find(({_id}) => _id === postDetails._id);
+
+    const likeDislike = () =>{
+       
+        if( likedBy){
+            dislikePost(postDetails._id);
+        }else{
+            likePost(postDetails._id);
+        }  
     }
 
-    console.log(postDetails);
-    console.log(authState.singleUserDetail._id);
-
-    const likedBy = postDetails.likes.likedBy.find(({_id}) => _id === authState.singleUserDetail._id);
+    const bookmarkThePost =() =>{
+        if(bookMarked){
+            removeBookmark(postDetails._id);
+        }else{
+           addBookmark(postDetails._id);
+        }
+    }
 
     const createdDate = new Date(user.createdAt);
 
@@ -48,9 +58,9 @@ export default function PostComponent({postDetails}){
                 <p className='content'>{postDetails.content}</p>
                
                <div className='postComponentFooter'>
-                    <span className='footer-icon' onClick={()=> likePost(postDetails._id)}>{ likedBy ? <BsSuitHeartFill style={{color:'red'}}/> : < BsSuitHeart/>}{postDetails.likes.likeCount}</span>
+                    <span className='footer-icon' onClick={()=>likeDislike()}>{ likedBy ? <BsSuitHeartFill style={{color:'red'}}/> : < BsSuitHeart/>}{postDetails.likes.likeCount}</span>
                     <span className='footer-icon'>< GoComment /></span>
-                    <span className='footer-icon'>< MdOutlineBookmarkBorder /></span>
+                    <span className='footer-icon' onClick={()=>bookmarkThePost()}> {bookMarked ?<MdOutlineBookmark />: < MdOutlineBookmarkBorder /> }</span>
                     <span className='footer-icon'>< MdOutlineShare  /></span>
                </div>
        

@@ -19,6 +19,7 @@ export default function AuthProvider({children}){
         allPostList:[],
         usersList:[],
         singleUserDetail:{},
+        bookmarks:[]
     });
 
     console.log(authState);

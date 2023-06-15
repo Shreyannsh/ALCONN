@@ -23,9 +23,55 @@ export default function FeatureProvider({children}){
             console.log(error)
         }
     }
+
+    const dislikePost = async(postId) =>{
+            try{
+                const response = await fetch(`/api/posts/dislike/${postId}`,{
+                    method:'POST',
+                    headers: {authorization: localStorage.getItem('encodedToken')},
+                    body:{},
+                })
+                const {posts} = await response.json();
+                authDispatch({type:'allPostList',payload:posts});
+                userPostList();
+            }catch(error){
+                console.log(error)
+            }
+    }
+
+
+    const addBookmark = async(postId) =>{
+        try{
+            const response = await fetch(`/api/users/bookmark/${postId}`,{
+                method:'POST',
+                headers:{authorization: localStorage.getItem('encodedToken')},
+                body:{}
+            })
+        const {bookmarks} = await response.json();
+        authDispatch({type:'bookmarks', payload: bookmarks })
+
+        }catch(error){
+            console.log(error)
+        }
+    }
+
+    const removeBookmark = async(postId) =>{
+        try{
+            const response = await fetch(`/api/users/remove-bookmark/${postId}`,{
+                method: 'POST',
+                headers:{authorization: localStorage.getItem('encodedToken')},
+                body:{}
+            })
+            const {bookmarks}  = await response.json();
+            authDispatch({type:'bookmarks', payload: bookmarks })
+        }catch(error){
+            console.log(error)
+        }
+    }
+
     return(
         <div>
-            <featureContext.Provider value={{likePost}}>
+            <featureContext.Provider value={{likePost,dislikePost,addBookmark,removeBookmark}}>
               {children}
             </featureContext.Provider>
            
