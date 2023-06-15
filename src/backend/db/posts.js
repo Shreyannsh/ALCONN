@@ -12,7 +12,7 @@ export const posts = [
     content:
       "Keep it simple and straight",
     likes: {
-      likeCount: 0,
+      likeCount: 39,
       likedBy: [],
       dislikedBy: [],
     },
@@ -25,7 +25,7 @@ export const posts = [
     content:
       "Keep beleiving in your yourself",
     likes: {
-      likeCount: 0,
+      likeCount: 80,
       likedBy: [],
       dislikedBy: [],
     },

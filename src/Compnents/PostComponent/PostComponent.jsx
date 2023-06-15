@@ -7,6 +7,7 @@ import { GoComment } from "react-icons/go";
 import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
 import { MdOutlineBookmarkBorder, MdOutlineBookmark,MdOutlineShare } from "react-icons/md";
 import { featureContext } from '../../Context/FeatureContext/FeatureContext';
+import { useState } from 'react';
 
 
 
@@ -19,6 +20,16 @@ export default function PostComponent({postDetails}){
 
     const user = authState.usersList.find(({username}) => username === postDetails.username);
 
+    const [postLiked,setPostLiked] = useState(false);
+
+    const likePostFunc = () =>{
+        setPostLiked(true);
+    }
+
+    console.log(postDetails);
+    console.log(authState.singleUserDetail._id);
+
+    const likedBy = postDetails.likes.likedBy.find(({_id}) => _id === authState.singleUserDetail._id);
 
     const createdDate = new Date(user.createdAt);
 
@@ -37,7 +48,7 @@ export default function PostComponent({postDetails}){
                 <p className='content'>{postDetails.content}</p>
                
                <div className='postComponentFooter'>
-                    <span className='footer-icon' onClick={()=>likePost(postDetails._id)}>< BsSuitHeart/> {postDetails.likes.likeCount}</span>
+                    <span className='footer-icon' onClick={()=> likePost(postDetails._id)}>{ likedBy ? <BsSuitHeartFill style={{color:'red'}}/> : < BsSuitHeart/>}{postDetails.likes.likeCount}</span>
                     <span className='footer-icon'>< GoComment /></span>
                     <span className='footer-icon'>< MdOutlineBookmarkBorder /></span>
                     <span className='footer-icon'>< MdOutlineShare  /></span>

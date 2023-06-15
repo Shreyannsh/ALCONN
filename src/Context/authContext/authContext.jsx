@@ -108,7 +108,7 @@ export default function AuthProvider({children}){
 
     return(
         <div>
-            <authContext.Provider value={{authState,authDispatch,login,isLogin}}>
+            <authContext.Provider value={{authState,authDispatch,login,isLogin,userPostList}}>
                 {children}
             </authContext.Provider>
             

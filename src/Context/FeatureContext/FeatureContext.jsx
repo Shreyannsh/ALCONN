@@ -1,11 +1,11 @@
-import { createContext, useContext } from "react"
+import { createContext, useContext,useState} from "react"
 import { authContext } from "../authContext/authContext";
 
 export const featureContext = createContext();
 
 export default function FeatureProvider({children}){
 
-    const {authDispatch} = useContext(authContext);
+    const {authDispatch,userPostList} = useContext(authContext);
 
     const likePost = async(postId) =>{
         try{
@@ -17,7 +17,7 @@ export default function FeatureProvider({children}){
             });
             const {posts} = await response.json();
             authDispatch({type:'allPostList',payload:posts});
-            
+            userPostList();
 
         }catch(error){
             console.log(error)
