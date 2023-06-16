@@ -27,6 +27,9 @@ export const authReducer =(state,action) =>{
                
             case 'bookmarks':
                 return {...state, bookmarks: action.payload}
+
+            case 'postContent':
+                return {...state, postContent: action.payload}    
             
             
             default:

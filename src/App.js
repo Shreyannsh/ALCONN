@@ -1,6 +1,7 @@
 import './App.css';
 
 import {Routes,Route} from 'react-router-dom'
+import Mockman from 'mockman-js';
 
 import SideBar from './Compnents/SideBar/SideBar';
 import Home from './Pages/Home/Home';
@@ -30,10 +31,10 @@ function App() {
           <Route path='/likedpost' element={< LikedPost/>} />
         </Routes>
         </div>
-       : <LandingPage />
+       : <LandingPage /> 
       }
      
-     
+     {/* <Mockman /> */}
       
       
   

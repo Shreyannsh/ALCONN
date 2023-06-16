@@ -1,4 +1,4 @@
-import { createContext, useState, useReducer, useContext,useEffect } from "react";
+import { createContext, useState, useReducer,useEffect } from "react";
 import axios from 'axios';
 
 
@@ -19,10 +19,11 @@ export default function AuthProvider({children}){
         allPostList:[],
         usersList:[],
         singleUserDetail:{},
-        bookmarks:[]
+        bookmarks:[],
+        postContent:''
     });
 
-    console.log(authState);
+    //console.log(authState);
 
     const [isLogin,setIsLogin] = useState(false);
 

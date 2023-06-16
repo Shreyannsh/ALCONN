@@ -13,16 +13,22 @@ import { useState } from 'react';
 
 export default function PostComponent({postDetails}){
 
-
     const {authState} = useContext(authContext);
     const {likePost,dislikePost,addBookmark,removeBookmark} = useContext(featureContext);
 
+    const [show,setShow] = useState('');
+    let postId;
+
+    const comment = (post_Id) =>{
+        setShow(true);
+        postId = post_Id;
+    }
 
     const user = authState.usersList.find(({username}) => username === postDetails.username);
 
     const likedBy = postDetails.likes.likedBy.find(({_id}) => _id === authState.singleUserDetail._id);
 
-    const bookMarked = authState?.bookmarks?.find(({_id}) => _id === postDetails._id);
+    const bookMarked = authState?.bookmarks?.find((_id) => _id === postDetails._id);
 
     const likeDislike = () =>{
        
@@ -34,9 +40,11 @@ export default function PostComponent({postDetails}){
     }
 
     const bookmarkThePost =() =>{
+        console.log('here')
         if(bookMarked){
             removeBookmark(postDetails._id);
         }else{
+            console.log('addBookMark')
            addBookmark(postDetails._id);
         }
     }
@@ -59,11 +67,10 @@ export default function PostComponent({postDetails}){
                
                <div className='postComponentFooter'>
                     <span className='footer-icon' onClick={()=>likeDislike()}>{ likedBy ? <BsSuitHeartFill style={{color:'red'}}/> : < BsSuitHeart/>}{postDetails.likes.likeCount}</span>
-                    <span className='footer-icon'>< GoComment /></span>
+                    <span className='footer-icon' onClick={()=>comment(postDetails._id)}>< GoComment /></span>
                     <span className='footer-icon' onClick={()=>bookmarkThePost()}> {bookMarked ?<MdOutlineBookmark />: < MdOutlineBookmarkBorder /> }</span>
                     <span className='footer-icon'>< MdOutlineShare  /></span>
                </div>
-       
             </div>
         </div>
     )

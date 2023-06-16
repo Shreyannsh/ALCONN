@@ -6,11 +6,14 @@ export default function Bookmarks(){
 
     const {authState} = useContext(authContext);
 
+    const bookMarkedPosts = authState.bookmarks.map((id) => authState.allPostList.find((post) => post._id === id))
+
+    console.log(bookMarkedPosts);
 
     return(
         <div>
             <h1>This is Bookmarks Page</h1>
-            {authState.bookmarks.map((post) => <li>
+            {bookMarkedPosts.map((post) => <li>
                 <PostComponent postDetails={post} />
             </li>)}
         </div>
