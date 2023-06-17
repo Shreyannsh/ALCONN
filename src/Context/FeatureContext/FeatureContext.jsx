@@ -92,9 +92,26 @@ export default function FeatureProvider({children}){
         }
     }
 
+    const deletePost = async(postId) =>{
+        try{
+            console.log(postId)
+            const response = await fetch(`/api/posts/${postId}`,{
+                method:'DELETE',
+                headers: {authorization: localStorage.getItem('encodedToken')},  
+            })
+
+            const {posts} = await response.json();
+            console.log(posts)
+            authDispatch({type:'allPostList', payload:posts})
+            userPostList();
+        }catch(error){
+            console.log(error)
+        }
+    }
+
     return(
         <div>
-            <featureContext.Provider value={{likePost,dislikePost,addBookmark,removeBookmark,addPost}}>
+            <featureContext.Provider value={{likePost,dislikePost,addBookmark,removeBookmark,addPost,deletePost}}>
               {children}
             </featureContext.Provider>
            
