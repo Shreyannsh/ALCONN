@@ -7,6 +7,7 @@ export default function FeatureProvider({children}){
 
     const {authDispatch,userPostList,authState} = useContext(authContext);
 
+    const [trending,setTrending] = useState(false);
 
     const addPost = async(postContent) =>{
         try{
@@ -21,10 +22,39 @@ export default function FeatureProvider({children}){
             const {posts} = await response.json();
             authDispatch({type:'allPostList',payload:posts});
             authDispatch({type:'postList',payload:posts});
+            if(trending){
+                const sortByLikes =posts.sort((a,b) => b.likes.likeCount - a.likes.likeCount );
+                authDispatch({type:'postList',payload:sortByLikes});
+            }
             authDispatch({type:'postContent', payload:''})
 
         }catch(error){
             console.log('error')
+        }
+    }
+
+    const editPost = async(postId,postContent) =>{
+        try{
+            console.log(postId,postContent);
+            
+            const response = await fetch(`/api/posts/edit/${postId}`,{
+                method:'POST',
+                headers: {authorization: localStorage.getItem('encodedToken')},
+                body: JSON.stringify({postData: {content: postContent}})
+            });
+
+            const {posts} = await response.json();
+
+            authDispatch({type:'allPostList',payload:posts});
+            authDispatch({type:'postList',payload:posts});
+            if(trending){
+                const sortByLikes =posts.sort((a,b) => b.likes.likeCount - a.likes.likeCount );
+                authDispatch({type:'postList',payload:sortByLikes});
+            }
+            authDispatch({type:'postContent', payload:''})
+
+        }catch(error){
+            console.log(error)
         }
     }
 
@@ -111,7 +141,7 @@ export default function FeatureProvider({children}){
 
     return(
         <div>
-            <featureContext.Provider value={{likePost,dislikePost,addBookmark,removeBookmark,addPost,deletePost}}>
+            <featureContext.Provider value={{likePost,dislikePost,addBookmark,removeBookmark,addPost,deletePost,setTrending,editPost}}>
               {children}
             </featureContext.Provider>
            

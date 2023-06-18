@@ -1,6 +1,6 @@
 import './PostComponent.css'
 
-import { useContext,useEffect } from "react";
+import { useContext, useState} from "react";
 import { authContext } from "../../Context/authContext/authContext";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { GoComment } from "react-icons/go";
@@ -8,26 +8,17 @@ import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
 import { MdOutlineBookmarkBorder, MdOutlineBookmark,MdOutlineShare } from "react-icons/md";
 import { featureContext } from '../../Context/FeatureContext/FeatureContext';
 import PostOptions from '../PostOptions/PostOptions';
-import { useState } from 'react';
-
-
 
 export default function PostComponent({postDetails}){
 
     const {authState} = useContext(authContext);
     const {likePost,dislikePost,addBookmark,removeBookmark} = useContext(featureContext);
 
-    const [show,setShow] = useState('');
-    const [showOptions,setShowOptions] = useState(true);
-    const [optionClicked,setOptionClicked] = useState(true);
+    const [showOptions,setShowOptions] = useState(false);
 
     let postId;
 
-    const comment = (post_Id) =>{
-        setShow(true);
-        postId = post_Id;
-    }
-
+   
     const user = authState.usersList.find(({username}) => username === postDetails.username);
 
     const likedBy = postDetails.likes.likedBy.find(({_id}) => _id === authState.singleUserDetail._id);
@@ -57,12 +48,7 @@ export default function PostComponent({postDetails}){
             setShowOptions(!showOptions);
     }
 
-    console.log(optionClicked, 'option Clicked')
-    console.log(showOptions, 'show option')
-    
-    useEffect(()=>{
-        postOptionBtn()
-    },[])
+    console.log(postDetails.content);
 
     const createdDate = new Date(user.createdAt);
 
@@ -77,15 +63,15 @@ export default function PostComponent({postDetails}){
                 <span className='options' onClick={()=>postOptionBtn()}> < HiDotsHorizontal/> </span> 
                 <p className='userName'>@{user.username}</p>
                 <div>
-                <PostOptions  show={showOptions} postId={postDetails._id}/>
+                <PostOptions  show={showOptions} postId={postDetails._id} postContent={postDetails.content}/>
                 </div>
-              
+               
 
                 <p className='content'>{postDetails.content}</p>
                
                <div className='postComponentFooter'>
                     <span className='footer-icon' onClick={()=>likeDislike()}>{ likedBy ? <BsSuitHeartFill style={{color:'red'}}/> : < BsSuitHeart/>}{postDetails.likes.likeCount}</span>
-                    <span className='footer-icon' onClick={()=>comment(postDetails._id)}>< GoComment /></span>
+                    <span className='footer-icon' >< GoComment /></span>
                     <span className='footer-icon' onClick={()=>bookmarkThePost()}> {bookMarked ?<MdOutlineBookmark />: < MdOutlineBookmarkBorder /> }</span>
                     <span className='footer-icon'>< MdOutlineShare  /></span>
                </div>

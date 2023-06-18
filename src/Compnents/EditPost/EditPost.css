@@ -1,0 +1,66 @@
+
+.parentModalEdit{
+    position: fixed;
+    inset:0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.editPostComponent{
+    border: 1px solid var(--light-gray);
+    display: flex;
+    flex-direction: column;
+    height: 13rem;
+    width:  31rem;
+    padding-top: 1rem;
+    position: relative;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.editPostTitle{
+    text-align: left;
+    margin-left: 2.3rem;
+    margin-top: 0rem;
+    margin-bottom: 0.2rem;
+    font-size: larger;
+}
+
+.editPostComponent .textArea{
+    height: 7rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: large;
+    background-color: var(--light-gray);
+    border: none;
+    resize: none;
+}
+
+.editPostComponentFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.photo-icon{
+    font-size: x-large;
+    margin-left: 2.3rem;
+    color: var(--dark-blue);
+    cursor: pointer;
+}
+
+.editPost-btn{
+    padding: 5px 25px;
+    margin-right: 2.2rem;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--light-blue);
+    color:var(--white);
+    cursor: pointer;
+}

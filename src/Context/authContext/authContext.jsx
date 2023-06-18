@@ -13,14 +13,15 @@ export default function AuthProvider({children}){
     //const {userDetail,userPostList} = useContext(homeContext);
 
     const [authState,authDispatch] = useReducer(authReducer,{
-        userName:'',
+        userName:'', 
         loginPassword:'',
         postList:[],
         allPostList:[],
         usersList:[],
         singleUserDetail:{},
         bookmarks:[],
-        postContent:''
+        postContent:'',
+        editedContent:''
     });
 
     //console.log(authState);

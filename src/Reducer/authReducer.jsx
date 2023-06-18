@@ -31,7 +31,9 @@ export const authReducer =(state,action) =>{
             case 'postContent':
                 return {...state, postContent: action.payload}    
             
-            
+            case 'editedContent':
+                return {...state, editedContent: action.payload}
+                
             default:
                 return state;    
 
