@@ -11,6 +11,7 @@ import LikedPost from './Pages/LikedPost/LikedPost';
 import LandingPage from './Pages/LandingPage/LandingPage';
 import { useContext, useState } from 'react';
 import { authContext } from './Context/authContext/authContext';
+import SuggestionList from './Compnents/SuggestionList/SuggestionList';
 
 
 function App() {
@@ -30,7 +31,12 @@ function App() {
           <Route path ='/bookmarks' element={<Bookmarks />} />
           <Route path='/likedpost' element={< LikedPost/>} />
         </Routes>
+
+       <div> <SuggestionList /> </div>
+       
         </div>
+   
+  
        : <LandingPage /> 
       }
      

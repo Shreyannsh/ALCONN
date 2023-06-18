@@ -139,6 +139,34 @@ export default function FeatureProvider({children}){
         }
     }
 
+    const follow = async(followUserId) =>{
+        try{
+            const response = await fetch(`/api/users/unfollow/${followUserId}`,{
+                method:'POST',
+                headers: {authorization: localStorage.getItem('encodedToken')},
+                body:{}
+            })
+            const {user,followUser} = await response.json();
+
+        }catch(error){
+            console.log(error);
+        }
+    }
+
+    const unFollow = async(followUserId) =>{
+        try{
+            const response = await fetch(`/api/users/follow/${followUserId}`,{
+                method:'POST',
+                headers: {authorization: localStorage.getItem('encodedToken')},
+                body:{}
+            })
+            const {user,followUser} = await response.json();
+            
+        }catch(error){
+            console.log(error);
+        }
+    }
+
     return(
         <div>
             <featureContext.Provider value={{likePost,dislikePost,addBookmark,removeBookmark,addPost,deletePost,setTrending,editPost}}>
