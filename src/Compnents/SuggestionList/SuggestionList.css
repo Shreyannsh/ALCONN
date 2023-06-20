@@ -1,69 +1,69 @@
-.followList{
-    margin-top: 2rem;
-    margin-left: 3rem;
+.followList {
+  margin-top: 3.3rem;
+  margin-left: 3rem;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-.followList .searchBox{
-    margin-left:1.5rem;
-    width: 14rem;
-    height:2.3rem;
-    border-radius: 20px;
-    border: none;
-    background-color: rgb(212, 212, 212);
-    font-size: medium;
-    padding-left: 1.5rem;
-    box-shadow: 0px 2px 2px 0px rgb(0,0,0,0.6);
+.followList .searchBox {
+  margin-left: 1rem;
+  width: 14rem;
+  height: 2.3rem;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(212, 212, 212);
+  font-size: medium;
+  padding-left: 1.5rem;
+  box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.6);
 }
 
-.followList .suggestionTitle{
-    margin-left: 2rem;
-    font-size: x-large;
+.followList .suggestionTitle {
+  margin-left: 1rem;
+  font-size: x-large;
 }
 
-.suggestedUser{
-    width: 18rem;
-    height: 3.8rem;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
+.suggestedUser {
+  width: 18rem;
+  height: 3.8rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 
-.suggestedUser .fullName{
-    margin-left: 3.5rem;
-    margin-top: -0rem;
+.suggestedUser .fullName {
+  margin-left: 3.5rem;
+  margin-top: -0rem;
 }
 
-.suggestedUser .userName{
-    margin-left: 3.4rem;
-    margin-top: -1.3rem;
+.suggestedUser .userName {
+  margin-left: 3.4rem;
+  margin-top: -1.3rem;
 }
 
-.suggestedUser .follow-btn{
-    display: flex;
-    align-self: flex-end;
-    margin-top: -3.5rem;
-    border: 1px solid;
-    padding: 5px 15px;
-    border-radius: 10px;
-    background-color: var(--light-blue) ;
-    color:var(--white);
-    cursor: pointer;
-    border:none;
-    box-shadow: 0px 2px 2px 0px rgb(0,0,0,0.6);
+.suggestedUser .follow-btn {
+  display: flex;
+  align-self: flex-end;
+  margin-top: -3.5rem;
+  border: 1px solid;
+  padding: 5px 15px;
+  border-radius: 10px;
+  background-color: var(--light-blue);
+  color: var(--white);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.6);
 }
 
-.follow-btn:hover{
-    background-color: var(--dark-blue);
+.follow-btn:hover {
+  background-color: var(--dark-blue);
 }
 
-
-.image-pic{
-    position: absolute;
-    margin: 0rem 0rem;
-    border-radius: 40px;
-    height: 3rem;
-    width:  3rem;
+.image-pic {
+  position: absolute;
+  margin: 0rem 0rem;
+  border-radius: 40px;
+  height: 3rem;
+  width: 3rem;
 }

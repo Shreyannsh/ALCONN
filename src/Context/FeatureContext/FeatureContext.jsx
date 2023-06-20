@@ -149,7 +149,7 @@ export default function FeatureProvider({ children }) {
     }
   };
 
-  const unFollow = async (followUserId) => {
+  const unfollow = async (followUserId) => {
     try {
       const response = await fetch(`/api/users/follow/${followUserId}`, {
         method: "POST",
@@ -174,6 +174,8 @@ export default function FeatureProvider({ children }) {
           deletePost,
           setTrending,
           editPost,
+          follow,
+          unfollow,
         }}
       >
         {children}
