@@ -1,41 +1,47 @@
-export const authReducer =(state,action) =>{
-        switch(action.type){
+export const authReducer = (state, action) => {
+  switch (action.type) {
+    case "userName":
+      return { ...state, userName: action.payload };
 
-            case'userName':
-                return {...state,userName: action.payload};
+    case "loginPassword":
+      return { ...state, loginPassword: action.payload };
 
-            case 'loginPassword':
-                return{...state,loginPassword:action.payload};
+    case "guestLogin":
+      return { ...state, userName: "shreyansh", loginPassword: "00001111" };
 
-            case 'guestLogin':
-                return{...state,userName:'shreyansh',
-            loginPassword:'00001111'}    
+    case "postList":
+      return { ...state, postList: action.payload };
 
-            case 'postList':
-                return{...state, postList: action.payload }
+    case "allPostList": {
+      return { ...state, allPostList: action.payload };
+    }
+    case "usersList":
+      return { ...state, usersList: action.payload };
 
-            case 'allPostList':{
-                return{...state, allPostList: action.payload}
-            }    
-            
-            case 'usersList':
-                return{...state,usersList: action.payload}
-            
+    case "singleUserDetail":
+      return { ...state, singleUserDetail: action.payload };
 
-            case 'singleUserDetail':
-                return{...state,singleUserDetail: action.payload}
-               
-            case 'bookmarks':
-                return {...state, bookmarks: action.payload}
+    case "bookmarks":
+      return { ...state, bookmarks: action.payload };
 
-            case 'postContent':
-                return {...state, postContent: action.payload}    
-            
-            case 'editedContent':
-                return {...state, editedContent: action.payload}
-                
-            default:
-                return state;    
+    case "postContent":
+      return { ...state, postContent: action.payload };
 
-        }   
-}
+    case "editedContent":
+      return { ...state, editedContent: action.payload };
+
+    case "UpdatedUserDetail":
+      console.log(action.payload);
+    //   const updatedList = state?.usersList.map((user) => {
+    //     if (user._id === action?.payload._id) {
+    //       return { ...user, ...action.payload };
+    //     }
+    //     return user;
+    //   });
+    //console.log(updatedList);
+    //return { ...state, usersList: updatedList };
+
+    default:
+      return state;
+  }
+};

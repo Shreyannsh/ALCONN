@@ -13,6 +13,7 @@ import { useContext, useState } from "react";
 import { authContext } from "./Context/authContext/authContext";
 import SuggestionList from "./Compnents/SuggestionList/SuggestionList";
 import ProfileOption from "./Compnents/ProfileOption/ProfileOption";
+import Profile from "./Pages/Profile.css/Profile";
 
 function App() {
   const { isLogin } = useContext(authContext);

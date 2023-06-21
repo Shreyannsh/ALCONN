@@ -4,7 +4,8 @@ import { authContext } from "../authContext/authContext";
 export const featureContext = createContext();
 
 export default function FeatureProvider({ children }) {
-  const { authDispatch, userPostList, authState } = useContext(authContext);
+  const { authDispatch, userPostList, authState, userDetail } =
+    useContext(authContext);
 
   const [trending, setTrending] = useState(false);
 
@@ -138,12 +139,18 @@ export default function FeatureProvider({ children }) {
 
   const follow = async (followUserId) => {
     try {
-      const response = await fetch(`/api/users/unfollow/${followUserId}`, {
+      console.log(followUserId);
+      const response = await fetch(`/api/users/follow/${followUserId}`, {
         method: "POST",
         headers: { authorization: localStorage.getItem("encodedToken") },
         body: {},
       });
-      const { user, followUser } = await response.json();
+      console.log(await response.json());
+
+      // const { user, followUser } = await response.json();
+      // console.log(user);
+      // authDispatch({ type: "UpdatedUserDetail", payload: user });
+      // userDetail();
     } catch (error) {
       console.log(error);
     }
@@ -151,7 +158,7 @@ export default function FeatureProvider({ children }) {
 
   const unfollow = async (followUserId) => {
     try {
-      const response = await fetch(`/api/users/follow/${followUserId}`, {
+      const response = await fetch(`/api/users/unfollow/${followUserId}`, {
         method: "POST",
         headers: { authorization: localStorage.getItem("encodedToken") },
         body: {},
