@@ -1,0 +1,39 @@
+.parentModal {
+  z-index: 4;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editProfileComponent {
+  width: 20rem;
+  height: 19.3rem;
+  border-radius: 15px;
+  background-color: #fff;
+  padding: 0px 20px;
+  padding-bottom: 1.5rem;
+}
+
+.editProfileComponent .textArea {
+  width: 15rem;
+  height: 3rem;
+  size: set;
+}
+
+.editProfileComponent .input {
+  font-size: medium;
+  width: 15rem;
+  height: 1.5rem;
+}
+
+.editFooter {
+  margin-top: 1rem;
+  text-align: right;
+}
+.editFooter button {
+  cursor: pointer;
+  margin: 0px 10px;
+}

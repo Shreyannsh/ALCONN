@@ -30,16 +30,75 @@ export const authReducer = (state, action) => {
     case "editedContent":
       return { ...state, editedContent: action.payload };
 
-    case "UpdatedUserDetail":
-      console.log(action.payload);
-    //   const updatedList = state?.usersList.map((user) => {
-    //     if (user._id === action?.payload._id) {
-    //       return { ...user, ...action.payload };
-    //     }
-    //     return user;
-    //   });
-    //console.log(updatedList);
-    //return { ...state, usersList: updatedList };
+    case "update":
+      const updatedDescription = {
+        bio:
+          action.payload.target.name === "bio"
+            ? action.payload.target.value
+            : "",
+        title:
+          action.payload.target.name === "title"
+            ? action.payload.target.value
+            : "",
+        website:
+          action.payload.target.name === "website"
+            ? action.payload.target.value
+            : "",
+      };
+      //console.log(updatedDescription);
+      return { ...state, descriptionUpdate: updatedDescription };
+
+    case "addTitle": {
+      return {
+        ...state,
+        descriptionUpdate: {
+          ...state.descriptionUpdate,
+          title: action.payload,
+        },
+      };
+    }
+
+    case "addBio": {
+      return {
+        ...state,
+        descriptionUpdate: {
+          ...state.descriptionUpdate,
+          bio: action.payload,
+        },
+      };
+    }
+
+    case "addWebsite": {
+      return {
+        ...state,
+        descriptionUpdate: {
+          ...state.descriptionUpdate,
+          website: action.payload,
+        },
+      };
+    }
+
+    case "updateDesc":
+      return {
+        ...state,
+        singleUserDetail: {
+          ...state.singleUserDetail,
+          title: state.descriptionUpdate.title,
+          bio: state.descriptionUpdate.bio,
+          website: state.descriptionUpdate.website,
+        },
+      };
+
+    case "prevDesc": {
+      return {
+        ...state,
+        descriptionUpdate: {
+          title: state.singleUserDetail.title,
+          bio: state.singleUserDetail.bio,
+          website: state.singleUserDetail.website,
+        },
+      };
+    }
 
     default:
       return state;

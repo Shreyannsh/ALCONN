@@ -16,6 +16,12 @@ export default function ProfileOption() {
     setShow(!show);
   };
 
+  const profilePage = () => {
+    setShow(!show);
+  };
+
+  console.log(authContext.singleUserDetail);
+
   return (
     <div className="profileOptionSection">
       <div onClick={() => profileOption()} className="profileOption">
@@ -33,8 +39,11 @@ export default function ProfileOption() {
         style={{ display: show ? "block" : "none" }}
         className="profileDropDown"
       >
-        <div className="profile">
-          <Link className="link">
+        <div className="profile" onClick={() => profilePage()}>
+          <Link
+            className="link"
+            to={`/profile/${authState.singleUserDetail._id}`}
+          >
             <span className="icon">
               <BsFillPersonFill />
             </span>

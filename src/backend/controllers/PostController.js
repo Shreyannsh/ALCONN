@@ -78,7 +78,7 @@ export const createPostHandler = function (schema, request) {
       );
     }
     const { postData } = JSON.parse(request.requestBody);
-    console.log(postData);
+    //console.log(postData);
     const post = {
       _id: uuid(),
       ...postData,
@@ -159,7 +159,7 @@ export const likePostHandler = function (schema, request) {
   try {
     if (!user) {
       return new Response(
-        404, 
+        404,
         {},
         {
           errors: [

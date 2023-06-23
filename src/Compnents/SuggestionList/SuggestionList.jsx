@@ -1,5 +1,7 @@
 import "./SuggestionList.css";
 
+import { Link } from "react-router-dom";
+
 import { useContext, useState, useEffect } from "react";
 
 import { authContext } from "../../Context/authContext/authContext";
@@ -8,7 +10,9 @@ import { featureContext } from "../../Context/FeatureContext/FeatureContext";
 
 export default function SuggestionList() {
   const { authState } = useContext(authContext);
-  const { follow, unfollow } = useContext(featureContext);
+  const { follow } = useContext(featureContext);
+  const [following, setFollowing] = useState(false);
+  const followingList = authState.singleUserDetail.following;
 
   const [filteredUsers, setFilteredUsers] = useState(
     authState?.usersList?.filter(
@@ -27,9 +31,8 @@ export default function SuggestionList() {
 
   const searchUser = (e) => {
     const value = e.target.value;
-    console.log(value);
+
     if (value) {
-      console.log("got it");
       setFilteredUsers(
         authState.usersList.filter(
           (user) =>
@@ -38,24 +41,43 @@ export default function SuggestionList() {
             user.lastName.toLowerCase().includes(value.toLowerCase())
         )
       );
-
-      console.log(filteredUsers);
     } else {
-      console.log("oh shit");
       setFilteredUsers(
         authState.usersList.filter(
           ({ _id }) => _id !== authState.singleUserDetail._id
         )
       );
-      console.log(filteredUsers);
     }
+  };
+
+  const followUnfollow = (id) => {
+    // if (following) {
+    //   unfollow(id);
+    //   setFollowing(false);
+    // } else {
+    //   setFollowing(true);
+    follow(id);
+    // const unFollowList = ;
+    setFilteredUsers(filteredUsers.filter(({ _id }) => _id !== id));
+
+    // const filtered = filteredUsers.filter((user) => {
+    //   const person = followingList.find(
+    //     (followingPerson) => followingPerson._id === user._id
+    //   );
+    //   console.log(person);
+    //   return user._id !== person._id;
+    // });
+    // setFilteredUsers(filtered);
+    //}
   };
 
   useEffect(() => {
     displayFilterList();
   }, []);
 
-  console.log(filteredUsers);
+  console.log(authState);
+  console.log(followingList);
+
   return (
     <div className="followList">
       <input
@@ -69,7 +91,7 @@ export default function SuggestionList() {
 
       {filteredUsers?.map(({ firstName, lastName, username, _id }) => (
         <li style={{ listStyle: "none" }} key={_id}>
-          <div className="suggestedUser">
+          <Link to={`/profile/${_id}`} className="suggestedUser">
             <img
               className="image-pic"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgtt3zOq6B9NnqaNv6ApPqWUmxmTf5hxtF_g&usqp=CAU"
@@ -78,11 +100,19 @@ export default function SuggestionList() {
               {firstName} {lastName}
             </p>
             <p className="userName">@{username}</p>
-            <span className="follow-btn" onClick={() => follow(_id)}>
+            <span
+              className="follow-btn"
+              onClick={() => {
+                followUnfollow(_id);
+              }}
+            >
               Follow
             </span>
-          </div>
+          </Link>
         </li>
+      ))}
+      {followingList?.map((user) => (
+        <li>{user.firstName}</li>
       ))}
     </div>
   );

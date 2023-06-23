@@ -20,19 +20,24 @@ export default function AuthProvider({ children }) {
     bookmarks: [],
     postContent: "",
     editedContent: "",
+    descriptionUpdate: {
+      title: "",
+      bio: "",
+      website: "",
+    },
   });
 
-  //console.log(authState);
+  ////console.log(authState);
 
   const [isLogin, setIsLogin] = useState(false);
 
   const navigate = useNavigate();
 
   // const findUser =(userName) =>{
-  //     console.log(userName);
-  //     console.log(usersList)
+  //     //console.log(userName);
+  //     //console.log(usersList)
   //     const user = usersList.find((user) => user.username === userName);
-  //     console.log(user);
+  //     //console.log(user);
   //     userDetail(user._id);
   //  }
 
@@ -42,7 +47,7 @@ export default function AuthProvider({ children }) {
       authDispatch({ type: "usersList", payload: response.data.users });
       // findUser(authState.userName);
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -51,7 +56,7 @@ export default function AuthProvider({ children }) {
       const response = await axios.get("/api/posts");
       authDispatch({ type: "allPostList", payload: response.data.posts });
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -60,20 +65,20 @@ export default function AuthProvider({ children }) {
       const response = await axios.get(`/api/posts/user/${authState.userName}`);
       authDispatch({ type: "postList", payload: response.data.posts });
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
   const userDetail = async () => {
     try {
-      console.log("userDetailsfunctionrun");
+      // //console.log("userDetailsfunctionrun");
       const user = authState.usersList.find(
         (user) => user.username === authState.userName
       );
       const response = await axios.get(`/api/users/${user._id}`);
       authDispatch({ type: "singleUserDetail", payload: response.data.user });
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -99,13 +104,15 @@ export default function AuthProvider({ children }) {
       // let from = location.state?.from?.pathname || '/';
       navigate("/home");
     } catch (error) {
-      console.error(error);
+      //console.error(error);
     }
   };
 
   useEffect(() => {
     userList();
   }, []);
+
+  //console.log(authState);
 
   return (
     <div>
@@ -117,6 +124,7 @@ export default function AuthProvider({ children }) {
           isLogin,
           userPostList,
           userDetail,
+          userList,
         }}
       >
         {children}

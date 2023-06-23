@@ -1,73 +1,78 @@
-.postComponent{
-    border: 1px solid var(--light-gray);
-    display: flex;
-    flex-direction: column;
-    height: 11rem;
-    width:  32rem;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-    padding-top: 1rem;
-    position: relative;
-    border-radius: 5px;
-    box-shadow: 0px 2px 2px 0px rgb(0,0,0,0.6);
+.postComponent {
+  border: 1px solid var(--light-gray);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 11rem;
+  min-width: 32rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  padding-top: 1rem;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.6);
 }
 
-.postComponent .image-pic{
-
-    position: absolute;
-    margin: 0rem 0.5rem;
-    border-radius: 40px;
-    height: 3.5rem;
-    width:  3.5rem;
+.postComponent .image-pic {
+  position: absolute;
+  margin: 0rem 0.5rem;
+  border-radius: 40px;
+  height: 3.5rem;
+  width: 3.5rem;
 }
 
-.fullName{
-   display: flex;
-   justify-content: flex-start;
-   margin-left: 4.9rem;
-   font-size: 18px;
-   font-weight: 500;
+.fullName {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 4.9rem;
+  font-size: 18px;
+  font-weight: 500;
 }
 
-.createdDate{
-   display: flex;
-   justify-content: flex-start;
-   margin-top: -1.2rem;
-   margin-left: 14rem;
-   font-size: small;
+.createdDate {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: -1.2rem;
+  margin-left: 14rem;
+  font-size: small;
 }
 
-.options{
-    margin-top: -1.4rem;
-    margin-left: 29rem;
-    font-size: x-large;
-    cursor: pointer;
+.options {
+  margin-top: -1.4rem;
+  margin-left: 29rem;
+  font-size: x-large;
+  cursor: pointer;
 }
 
-.userName{
-    display: flex;
-    justify-content: flex-start;
-    margin-top: -0.2rem;
-    margin-left: 5rem;
-    color: rgb(168, 168, 168);
+.userName {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: -0.2rem;
+  margin-left: 5rem;
+  color: rgb(168, 168, 168);
 }
 
-.content{
-    display: flex;
-    padding-left: 0.5rem;
-    font-size: 17px;
+.content {
+  display: flex;
+  padding-left: 0.5rem;
+  margin-right: 2rem;
+  font-size: 17px;
+  width: 25rem;
+  flex-wrap: wrap;
+  word-break: break-word;
 }
 
-.postComponentFooter{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding-left: 15px;
-    margin-top: 1rem;
+.postComponentFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 15px;
+  margin-top: 1rem;
 }
 
-.footer-icon{
-    margin-right:2rem;
-    font-size: 21px;
-    cursor: pointer;
+.footer-icon {
+  margin-right: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 21px;
+  cursor: pointer;
 }

@@ -1,0 +1,127 @@
+.profilePage {
+  min-width: 32rem;
+  margin-top: 3.5rem;
+  /* border: 1px solid; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.background-Image {
+  width: 32rem;
+  height: 8rem;
+  background: var(--light-blue);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.6);
+}
+
+.profilePage .image {
+  position: absolute;
+  margin: 2.5rem 11rem;
+  border-radius: 70px;
+  height: 9rem;
+  width: 9rem;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileInfo .name {
+  font-size: larger;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.profileInfo .username {
+  margin-top: -0.5rem;
+  margin-left: 5px;
+}
+
+.edit-btn {
+  position: absolute;
+  display: flex;
+  align-self: flex-end;
+  margin-top: 1.3rem;
+  margin-right: 2rem;
+  background-color: rgb(212, 212, 212);
+  box-shadow: 0px 0.5px 1px 0px rgb(0, 0, 0, 0.6);
+  color: rgb(65, 63, 63);
+  padding: 4px 6px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profilePage .follow-btn {
+  position: absolute;
+  font-size: large;
+  display: flex;
+  align-self: flex-end;
+  margin-top: 2rem;
+  margin-right: 2rem;
+  border: 1px solid;
+  padding: 5px 20px;
+  border-radius: 10px;
+  background-color: var(--light-blue);
+  color: var(--white);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.6);
+}
+
+.follow-btn:hover {
+  background-color: var(--dark-blue);
+  border: none;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: gray;
+  border: none;
+  color: white;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0rem;
+}
+
+.title {
+  margin-top: 0rem;
+  font-size: 22px;
+}
+
+.bio {
+  margin-top: -0.5rem;
+  font-size: medium;
+  align-items: left;
+  width: 13rem;
+}
+
+.website {
+  margin-top: 0rem;
+  color: var(--light-blue);
+}
+
+.profile-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  font-size: x-large;
+}
+
+.listHeadings {
+  display: flex;
+  justify-content: space-around;
+  margin-top: -1rem;
+}
+
+.listHeadings .postOptions {
+  padding: 10px 10px;
+  border-radius: 5px;
+  cursor: "pointer";
+}

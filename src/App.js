@@ -13,7 +13,7 @@ import { useContext, useState } from "react";
 import { authContext } from "./Context/authContext/authContext";
 import SuggestionList from "./Compnents/SuggestionList/SuggestionList";
 import ProfileOption from "./Compnents/ProfileOption/ProfileOption";
-import Profile from "./Pages/Profile.css/Profile";
+import Profile from "./Pages/Profile/Profile";
 
 function App() {
   const { isLogin } = useContext(authContext);
@@ -31,7 +31,8 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/bookmarks" element={<Bookmarks />} />
-            <Route path="/likedpost" element={<LikedPost />} />{" "}
+            <Route path="/likedpost" element={<LikedPost />} />
+            <Route path="/profile/:userId" element={<Profile />} />
           </Routes>{" "}
           <div>
             {" "}
