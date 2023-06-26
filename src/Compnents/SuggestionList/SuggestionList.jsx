@@ -9,26 +9,42 @@ import { authContext } from "../../Context/authContext/authContext";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
 
 export default function SuggestionList() {
-  const { authState } = useContext(authContext);
+  const { authState, filteredUsers, setFilteredUsers } =
+    useContext(authContext);
   const { follow } = useContext(featureContext);
   const [following, setFollowing] = useState(false);
   const followingList = authState.singleUserDetail.following;
 
-  const [filteredUsers, setFilteredUsers] = useState(
-    authState?.usersList?.filter(
-      ({ _id }) => _id !== authState.singleUserDetail._id
-    )
-  );
+  console.log(followingList);
 
   const displayFilterList = () => {
-    // const followList = authState?.usersList?.filter(({_id}) => _id !== authState.singleUserDetail._id)
+    // const followList = authState?.usersList?.filter(
+    //   ({ _id }) => _id !== authState.singleUserDetail._id
+    // );
+    // //console.log(followList);
+    // //console.log(authState.singleUserDetail);
+
+    //const isFollowing = authState.singleUserDetail.following.find(({_id}) => _id === )
+
+    const filteredSuggestionList = authState.usersList.reduce((acc, crr) => {
+      console.log(followingList?.includes(crr));
+      console.log(acc);
+
+      const match = followingList?.find((user) => user._id === crr._id);
+
+      return match ? acc : [...acc, crr];
+    }, []);
+
+    console.log(filteredSuggestionList);
+
+    //  setFilteredUsers(filteredSuggestionList);
     setFilteredUsers(
-      authState?.usersList?.filter(
+      filteredSuggestionList.filter(
         ({ _id }) => _id !== authState.singleUserDetail._id
       )
     );
   };
-
+  //_id !== authState.singleUserDetail._id
   const searchUser = (e) => {
     const value = e.target.value;
 
@@ -58,13 +74,14 @@ export default function SuggestionList() {
     //   setFollowing(true);
     follow(id);
     // const unFollowList = ;
+
     setFilteredUsers(filteredUsers.filter(({ _id }) => _id !== id));
 
     // const filtered = filteredUsers.filter((user) => {
     //   const person = followingList.find(
     //     (followingPerson) => followingPerson._id === user._id
     //   );
-    //   console.log(person);
+    //   //console.log(person);
     //   return user._id !== person._id;
     // });
     // setFilteredUsers(filtered);
@@ -73,10 +90,10 @@ export default function SuggestionList() {
 
   useEffect(() => {
     displayFilterList();
-  }, []);
+  }, [authState]);
 
-  console.log(authState);
-  console.log(followingList);
+  //console.log(authState);
+  //console.log(followingList);
 
   return (
     <div className="followList">
@@ -91,28 +108,29 @@ export default function SuggestionList() {
 
       {filteredUsers?.map(({ firstName, lastName, username, _id }) => (
         <li style={{ listStyle: "none" }} key={_id}>
-          <Link to={`/profile/${_id}`} className="suggestedUser">
-            <img
-              className="image-pic"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgtt3zOq6B9NnqaNv6ApPqWUmxmTf5hxtF_g&usqp=CAU"
-            />
-            <p className="fullName">
-              {firstName} {lastName}
-            </p>
-            <p className="userName">@{username}</p>
-            <span
-              className="follow-btn"
-              onClick={() => {
-                followUnfollow(_id);
-              }}
-            >
-              Follow
-            </span>
-          </Link>
+          <div className="suggestedUser">
+            <Link className="link" to={`/profile/${_id}`}>
+              <img
+                className="image-pic"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgtt3zOq6B9NnqaNv6ApPqWUmxmTf5hxtF_g&usqp=CAU"
+              />
+              <p className="fullName">
+                {firstName} {lastName}
+              </p>
+              <p className="userName">@{username}</p>
+            </Link>
+            {authState.singleUserDetail._id !== _id && (
+              <span
+                className="follow-btn"
+                onClick={() => {
+                  followUnfollow(_id);
+                }}
+              >
+                Follow
+              </span>
+            )}
+          </div>
         </li>
-      ))}
-      {followingList?.map((user) => (
-        <li>{user.firstName}</li>
       ))}
     </div>
   );

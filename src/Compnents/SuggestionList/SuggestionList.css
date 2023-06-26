@@ -30,21 +30,24 @@
   flex-direction: column;
   margin-left: 1rem;
   margin-bottom: 1rem;
-  color: black;
+}
+.suggestedUser .link {
   text-decoration: none;
 }
 
 .suggestedUser .fullName {
   margin-left: 3.5rem;
   margin-top: -0rem;
+  color: black;
 }
 
 .suggestedUser .userName {
+  text-decoration: none;
   margin-left: 3.4rem;
   margin-top: -1.3rem;
 }
 
-.suggestedUser .follow-btn {
+.followList .follow-btn {
   display: flex;
   align-self: flex-end;
   margin-top: -3.5rem;
@@ -60,6 +63,14 @@
 
 .follow-btn:hover {
   background-color: var(--dark-blue);
+}
+
+.image-pic {
+  position: absolute;
+  margin: 0rem 0rem;
+  border-radius: 40px;
+  height: 3rem;
+  width: 3rem;
 }
 
 .image-pic {

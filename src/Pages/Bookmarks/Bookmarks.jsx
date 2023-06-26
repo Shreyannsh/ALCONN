@@ -11,7 +11,7 @@ export default function Bookmarks() {
     authState.allPostList.find((post) => post._id === id)
   );
 
-  //console.log(bookMarkedPosts);
+  ////console.log(bookMarkedPosts);
 
   return (
     <div className="bookMarkPage">

@@ -45,7 +45,7 @@ export const authReducer = (state, action) => {
             ? action.payload.target.value
             : "",
       };
-      //console.log(updatedDescription);
+      ////console.log(updatedDescription);
       return { ...state, descriptionUpdate: updatedDescription };
 
     case "addTitle": {

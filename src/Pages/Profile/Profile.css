@@ -18,7 +18,7 @@
 
 .profilePage .image {
   position: absolute;
-  margin: 2.5rem 11rem;
+  margin: 2.5rem 11.5rem;
   border-radius: 70px;
   height: 9rem;
   width: 9rem;
@@ -38,6 +38,16 @@
 .profileInfo .username {
   margin-top: -0.5rem;
   margin-left: 5px;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+  border: 1px solid;
+  padding: 5rem 0rem;
+  border-radius: 10px;
 }
 
 .edit-btn {
@@ -93,6 +103,7 @@
 .title {
   margin-top: 0rem;
   font-size: 22px;
+  text-align: center;
 }
 
 .bio {

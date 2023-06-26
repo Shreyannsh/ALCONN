@@ -3,20 +3,19 @@ import "./PostOptions.css";
 import { useContext, useState } from "react";
 
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
-import EditPost from "../EditPost/EditPost";
 
 export default function PostOptions(props) {
-  const { deletePost } = useContext(featureContext);
-  const [showEdit, setShowEdit] = useState(false);
+  const { deletePost, showEdit, setShowEdit } = useContext(featureContext);
 
-  const editPost = () => {
-    setShowEdit(true);
-  };
-
-  // //console.log(props)
+  // ////console.log(props)
   if (!props.show) {
     return null;
   }
+
+  const editPost = () => {
+    setShowEdit(true);
+    props.onClose();
+  };
 
   return (
     <div className="postOptionsParent">
@@ -30,12 +29,6 @@ export default function PostOptions(props) {
           Delete Post
         </p>
       </div>
-      <EditPost
-        onClose={() => setShowEdit(false)}
-        show={showEdit}
-        postId={props.postId}
-        postContent={props.postContent}
-      />
     </div>
   );
 }

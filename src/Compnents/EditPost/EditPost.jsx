@@ -19,11 +19,12 @@ export default function EditPost(props) {
     props.onClose();
   };
 
-  //console.log(props);
+  ////console.log(props);
 
   return (
     <div className="parentModalEdit">
-      <div className="editPostComponent">
+      <div onClick={() => props.onClose()} className="editPostComponent">
+        <span className="cancel">X</span>
         <p className="editPostTitle">Edit Post</p>
         <textarea
           onChange={(e) =>

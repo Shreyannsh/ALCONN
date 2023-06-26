@@ -8,7 +8,7 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { GoSignOut } from "react-icons/go";
 
 export default function ProfileOption() {
-  const { authState } = useContext(authContext);
+  const { authState, setIsLogin } = useContext(authContext);
 
   const [show, setShow] = useState(false);
 
@@ -20,7 +20,11 @@ export default function ProfileOption() {
     setShow(!show);
   };
 
-  console.log(authContext.singleUserDetail);
+  const signOut = () => {
+    setIsLogin(false);
+  };
+
+  //console.log(authContext.singleUserDetail);
 
   return (
     <div className="profileOptionSection">
@@ -50,7 +54,7 @@ export default function ProfileOption() {
             Profile
           </Link>
         </div>
-        <p className="signout">
+        <p onClick={() => signOut()} className="signout">
           <span className="icon">
             <GoSignOut />
           </span>

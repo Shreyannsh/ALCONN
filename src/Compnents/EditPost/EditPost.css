@@ -20,6 +20,17 @@
   background-color: rgb(112, 160, 248);
 }
 
+.editPostComponent .cancel {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  font-size: medium;
+  font-weight: 600;
+  background-color: tomato;
+  padding: 0px 6px;
+  cursor: pointer;
+}
+
 .editPostTitle {
   text-align: left;
   margin-left: 2.3rem;

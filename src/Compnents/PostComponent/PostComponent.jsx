@@ -12,20 +12,29 @@ import {
 } from "react-icons/md";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
 import PostOptions from "../PostOptions/PostOptions";
+import EditPost from "../EditPost/EditPost";
 
 export default function PostComponent({ postDetails }) {
   const { authState } = useContext(authContext);
-  const { likePost, dislikePost, addBookmark, removeBookmark } =
-    useContext(featureContext);
+  const {
+    likePost,
+    dislikePost,
+    addBookmark,
+    removeBookmark,
+    showEdit,
+    setShowEdit,
+  } = useContext(featureContext);
 
   const [showOptions, setShowOptions] = useState(false);
 
-  let postId;
-
-  const user = authState.usersList.find(
+  const user = authState?.usersList?.find(
     ({ username }) => username === postDetails.username
   );
 
+  const accountHolder = authState.singleUserDetail.username.includes(
+    postDetails.username
+  );
+  //console.log(accountHolder);
   const likedBy = postDetails.likes.likedBy.find(
     ({ _id }) => _id === authState.singleUserDetail._id
   );
@@ -46,7 +55,7 @@ export default function PostComponent({ postDetails }) {
     if (bookMarked) {
       removeBookmark(postDetails._id);
     } else {
-      //console.log("addBookMark");
+      ////console.log("addBookMark");
       addBookmark(postDetails._id);
     }
   };
@@ -55,9 +64,10 @@ export default function PostComponent({ postDetails }) {
     setShowOptions(!showOptions);
   };
 
-  // //console.log(postDetails.content);
-
   const createdDate = new Date(user.createdAt);
+
+  const presentDate = new Date();
+  //console.log(presentDate);
 
   return (
     <div>
@@ -73,16 +83,21 @@ export default function PostComponent({ postDetails }) {
           {user.firstName} {user.lastName}{" "}
         </span>
         <span className="createdDate"> {createdDate.toDateString()} </span>
-        <span className="options" onClick={() => postOptionBtn()}>
-          {" "}
-          <HiDotsHorizontal />{" "}
-        </span>
+
+        {accountHolder ? (
+          <span className="options" onClick={() => postOptionBtn()}>
+            {" "}
+            <HiDotsHorizontal />{" "}
+          </span>
+        ) : (
+          ""
+        )}
         <p className="userName">@{user.username}</p>
         <div>
           <PostOptions
+            onClose={() => setShowOptions(false)}
             show={showOptions}
             postId={postDetails._id}
-            postContent={postDetails.content}
           />
         </div>
 
@@ -95,7 +110,7 @@ export default function PostComponent({ postDetails }) {
             ) : (
               <BsSuitHeart />
             )}
-            {postDetails.likes.likeCount}
+            <span className="likeCount">{postDetails.likes.likeCount}</span>
           </span>
           <span className="footer-icon">
             <GoComment />
@@ -108,6 +123,12 @@ export default function PostComponent({ postDetails }) {
             <MdOutlineShare />
           </span>
         </div>
+        <EditPost
+          onClose={() => setShowEdit(false)}
+          show={showEdit}
+          postId={postDetails._id}
+          postContent={postDetails.content}
+        />
       </div>
     </div>
   );

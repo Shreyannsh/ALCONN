@@ -9,9 +9,9 @@ export default function HomeProvider({ children }) {
 
   // const [userDetails,setUserDetails] = useState();
 
-  // //console.log(authState);
+  // ////console.log(authState);
   // const username =authState.userName;
-  // // //console.log(username);
+  // // ////console.log(username);
 
   // // if(isLogin){
   // //     userPostList(username);

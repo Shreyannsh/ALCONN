@@ -18,11 +18,13 @@ export default function Home() {
     setSortingOptions(!showSortingOptions);
   };
 
+  //console.log(authState);
+
   return (
     <div>
       <p className="pageTitle">Home</p>
 
-      <AddPost />
+      <AddPost show={true} />
 
       <p className="heading-latestPost">
         Latest Posts{" "}

@@ -9,9 +9,11 @@ export default function FeatureProvider({ children }) {
 
   const [trending, setTrending] = useState(false);
 
+  const [showEdit, setShowEdit] = useState(false);
+
   const addPost = async (postContent) => {
     try {
-      //console.log(postContent);
+      ////console.log(postContent);
       const response = await fetch("/api/posts", {
         method: "POST",
         headers: { authorization: localStorage.getItem("encodedToken") },
@@ -29,13 +31,13 @@ export default function FeatureProvider({ children }) {
       }
       authDispatch({ type: "postContent", payload: "" });
     } catch (error) {
-      //console.log("error");
+      ////console.log("error");
     }
   };
 
   const editPost = async (postId, postContent) => {
     try {
-      //console.log(postId, postContent);
+      ////console.log(postId, postContent);
 
       const response = await fetch(`/api/posts/edit/${postId}`, {
         method: "POST",
@@ -55,13 +57,13 @@ export default function FeatureProvider({ children }) {
       }
       authDispatch({ type: "postContent", payload: "" });
     } catch (error) {
-      //console.log(error);
+      ////console.log(error);
     }
   };
 
   const likePost = async (postId) => {
     try {
-      //console.log(postId);
+      ////console.log(postId);
       const response = await fetch(`/api/posts/like/${postId}`, {
         method: "POST",
         headers: { authorization: localStorage.getItem("encodedToken") },
@@ -71,7 +73,7 @@ export default function FeatureProvider({ children }) {
       authDispatch({ type: "allPostList", payload: posts });
       userPostList();
     } catch (error) {
-      //console.log(error);
+      ////console.log(error);
     }
   };
 
@@ -86,23 +88,23 @@ export default function FeatureProvider({ children }) {
       authDispatch({ type: "allPostList", payload: posts });
       userPostList();
     } catch (error) {
-      //console.log(error);
+      ////console.log(error);
     }
   };
 
   const addBookmark = async (postId) => {
     try {
-      //console.log(postId);
+      ////console.log(postId);
       const response = await fetch(`/api/users/bookmark/${postId}`, {
         method: "POST",
         headers: { authorization: localStorage.getItem("encodedToken") },
         body: {},
       });
       const { bookmarks } = await response.json();
-      //console.log(bookmarks);
+      ////console.log(bookmarks);
       authDispatch({ type: "bookmarks", payload: bookmarks });
     } catch (error) {
-      //console.log(error);
+      ////console.log(error);
     }
   };
 
@@ -116,42 +118,42 @@ export default function FeatureProvider({ children }) {
       const { bookmarks } = await response.json();
       authDispatch({ type: "bookmarks", payload: bookmarks });
     } catch (error) {
-      //console.log(error);
+      ////console.log(error);
     }
   };
 
   const deletePost = async (postId) => {
     try {
-      //console.log(postId);
+      ////console.log(postId);
       const response = await fetch(`/api/posts/${postId}`, {
         method: "DELETE",
         headers: { authorization: localStorage.getItem("encodedToken") },
       });
 
       const { posts } = await response.json();
-      //console.log(posts);
+      ////console.log(posts);
       authDispatch({ type: "allPostList", payload: posts });
       userPostList();
     } catch (error) {
-      //console.log(error);
+      ////console.log(error);
     }
   };
 
   const follow = async (followUserId) => {
     try {
-      //console.log(followUserId);
+      ////console.log(followUserId);
       const response = await fetch(`/api/users/follow/${followUserId}`, {
         method: "POST",
         headers: { authorization: localStorage.getItem("encodedToken") },
         body: {},
       });
-      // //console.log(await response.json());
+      // ////console.log(await response.json());
 
       const { user, followUser } = await response.json();
       userList();
       userDetail();
     } catch (error) {
-      //console.log(error);
+      ////console.log(error);
     }
   };
 
@@ -166,7 +168,7 @@ export default function FeatureProvider({ children }) {
       userList();
       userDetail();
     } catch (error) {
-      //console.log(error);
+      ////console.log(error);
     }
   };
 
@@ -184,6 +186,8 @@ export default function FeatureProvider({ children }) {
           editPost,
           follow,
           unfollow,
+          showEdit,
+          setShowEdit,
         }}
       >
         {children}
