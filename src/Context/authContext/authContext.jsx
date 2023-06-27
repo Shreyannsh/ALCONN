@@ -25,6 +25,14 @@ export default function AuthProvider({ children }) {
       bio: "",
       website: "",
     },
+    signUpDetails: {
+      firstName: "",
+      lastName: "",
+      emailAddress: "",
+      username: "",
+      password: "",
+      rePassword: "",
+    },
   });
 
   const [filteredUsers, setFilteredUsers] = useState();
@@ -112,6 +120,26 @@ export default function AuthProvider({ children }) {
     }
   };
 
+  const signUp = async () => {
+    const cred = {
+      username: authState.signUpDetails.username,
+      password: authState.signUpDetails.password,
+      firstName: authState.signUpDetails.username.firstName,
+      lastName: authState.signUpDetails.username.lastName,
+    };
+
+    try {
+      const response = await axios.post("/api/auth/signup", cred);
+      const encodedToken = response.data.encodedToken;
+      localStorage.setItem("encodedToken", encodedToken);
+      authDispatch({ type: "userName", payload: cred.username });
+      authDispatch({ type: "loginPassword", payload: cred.password });
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     userList();
   }, []);
@@ -132,6 +160,7 @@ export default function AuthProvider({ children }) {
           userList,
           filteredUsers,
           setFilteredUsers,
+          signUp,
         }}
       >
         {children}

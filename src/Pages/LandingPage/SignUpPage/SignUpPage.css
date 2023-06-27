@@ -1,0 +1,109 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2px;
+  background-color: rgb(248, 252, 252);
+}
+
+.parent .title {
+  color: var(--light-blue);
+  font-size: 3rem;
+  text-align: center;
+}
+
+.signUpPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid; */
+  width: 400px;
+  padding: 0rem 2rem 1rem 2rem;
+  margin-bottom: 1rem;
+  margin-top: -1rem;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.subHeading {
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 0.8rem;
+  margin-bottom: 2rem;
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+}
+
+.fullName {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.firstName {
+  margin-right: 10px;
+  font-size: larger;
+  margin-left: -4.3rem;
+  width: 11.8rem;
+  padding: 08px 5px;
+  font-size: 16px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border: 1.5px solid rgb(216, 215, 215);
+}
+
+.lastName {
+  margin-right: 0.3rem;
+  width: 11.8rem;
+  padding: 08px 5px;
+  font-size: 16px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border: 1.5px solid rgb(216, 215, 215);
+}
+
+.signUpPage .input {
+  width: 25rem;
+  padding: 08px 5px;
+  font-size: 16px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border: 1.5px solid rgb(216, 215, 215);
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.footerContext {
+  font-size: 12px;
+  margin-left: -4px;
+  color: grey;
+  font-family: Helvetica, Arial, sans-serif;
+}
+.blue {
+  color: rgb(20, 111, 230);
+}
+
+.signupBtn {
+  background-color: rgb(66, 183, 42);
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  border-radius: 6px;
+  padding: 8px 75px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.signupBtn:hover {
+  background-color: rgb(39, 145, 18);
+}
+
+.alreadyHaveAnAccount {
+  color: rgb(13, 109, 235);
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.alreadyHaveAnAccount:hover {
+  text-decoration: underline;
+}

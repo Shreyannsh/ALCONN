@@ -39,7 +39,7 @@
 
 .loginTitle {
   margin-bottom: 3.5rem;
-  font-size: 18px;
+  font-size: 19px;
   margin-top: 0.5rem;
   font-weight: 500;
   /* color: var(--light-blue); */
@@ -110,7 +110,10 @@
   color: white;
   border-radius: 6px;
   padding: 8px 15px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .signup:hover {

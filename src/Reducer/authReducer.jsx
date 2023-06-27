@@ -100,6 +100,44 @@ export const authReducer = (state, action) => {
       };
     }
 
+    //signUp Info
+
+    case "signUpFirstName":
+      return {
+        ...state,
+        signUpDetails: { ...state.signUpDetails, firstName: action.payload },
+      };
+
+    case "signUpLastName":
+      return {
+        ...state,
+        signUpDetails: { ...state.signUpDetails, lastName: action.payload },
+      };
+
+    case "signUpUserName":
+      return {
+        ...state,
+        signUpDetails: { ...state.signUpDetails, username: action.payload },
+      };
+
+    case "signUpEmailAddress":
+      return {
+        ...state,
+        signUpDetails: { ...state.signUpDetails, emailAddress: action.payload },
+      };
+
+    case "signUpPassword":
+      return {
+        ...state,
+        signUpDetails: { ...state.signUpDetails, password: action.payload },
+      };
+
+    case "signUpRePassword":
+      return {
+        ...state,
+        signUpDetails: { ...state.signUpDetails, rePassword: action.payload },
+      };
+
     default:
       return state;
   }

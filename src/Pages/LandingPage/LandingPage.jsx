@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import "./LandingPage.css";
 import { authContext } from "../../Context/authContext/authContext";
 
@@ -48,7 +49,9 @@ export default function LandingPage() {
           <div className="loginFooter">
             {" "}
             <p className="forgottenAccount">Forgotten password?</p>{" "}
-            <p className="signup">Sign up for Alconn</p>{" "}
+            <Link to="/signup" className="signup">
+              Sign up for Alconn
+            </Link>{" "}
           </div>
         </div>
       </div>

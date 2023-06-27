@@ -14,13 +14,19 @@ import { authContext } from "./Context/authContext/authContext";
 import SuggestionList from "./Compnents/SuggestionList/SuggestionList";
 import ProfileOption from "./Compnents/ProfileOption/ProfileOption";
 import Profile from "./Pages/Profile/Profile";
+import SignUpPage from "./Pages/LandingPage/SignUpPage/SignUpPage";
 
 function App() {
   const { isLogin } = useContext(authContext);
 
   return (
     <div className="App">
-      {isLogin ? (
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+      </Routes>
+
+      {isLogin && (
         <div className="mainPage">
           {" "}
           <div>
@@ -42,8 +48,6 @@ function App() {
             <ProfileOption />
           </div>
         </div>
-      ) : (
-        <LandingPage />
       )}
 
       {/* <Mockman /> */}
