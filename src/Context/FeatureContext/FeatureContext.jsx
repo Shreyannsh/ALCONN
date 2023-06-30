@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { authContext } from "../authContext/authContext";
+import { toast } from "react-toastify";
 
 export const featureContext = createContext();
 
@@ -13,7 +14,6 @@ export default function FeatureProvider({ children }) {
 
   const addPost = async (postContent) => {
     try {
-      ////console.log(postContent);
       const response = await fetch("/api/posts", {
         method: "POST",
         headers: { authorization: localStorage.getItem("encodedToken") },
@@ -31,7 +31,7 @@ export default function FeatureProvider({ children }) {
       }
       authDispatch({ type: "postContent", payload: "" });
     } catch (error) {
-      ////console.log("error");
+      toast(error.response.data.errors[0]);
     }
   };
 
@@ -56,8 +56,9 @@ export default function FeatureProvider({ children }) {
         authDispatch({ type: "postList", payload: sortByLikes });
       }
       authDispatch({ type: "postContent", payload: "" });
+      toast("Post Edited Successfully");
     } catch (error) {
-      ////console.log(error);
+      toast.error(error.response.data.errors[0]);
     }
   };
 
@@ -72,8 +73,9 @@ export default function FeatureProvider({ children }) {
       const { posts } = await response.json();
       authDispatch({ type: "allPostList", payload: posts });
       userPostList();
+      toast("Post Liked !");
     } catch (error) {
-      ////console.log(error);
+      toast.error(error.response.data.errors[0]);
     }
   };
 
@@ -87,8 +89,9 @@ export default function FeatureProvider({ children }) {
       const { posts } = await response.json();
       authDispatch({ type: "allPostList", payload: posts });
       userPostList();
+      toast("Post Disliked !");
     } catch (error) {
-      ////console.log(error);
+      toast.error(error.response.data.errors[0]);
     }
   };
 
@@ -103,8 +106,9 @@ export default function FeatureProvider({ children }) {
       const { bookmarks } = await response.json();
       ////console.log(bookmarks);
       authDispatch({ type: "bookmarks", payload: bookmarks });
+      toast("Post Bookmarked !");
     } catch (error) {
-      ////console.log(error);
+      toast.error(error.response.data.errors[0]);
     }
   };
 
@@ -117,8 +121,9 @@ export default function FeatureProvider({ children }) {
       });
       const { bookmarks } = await response.json();
       authDispatch({ type: "bookmarks", payload: bookmarks });
+      toast("Post removed from Bookmark !");
     } catch (error) {
-      ////console.log(error);
+      toast.error(error.response.data.errors[0]);
     }
   };
 
@@ -134,8 +139,9 @@ export default function FeatureProvider({ children }) {
       ////console.log(posts);
       authDispatch({ type: "allPostList", payload: posts });
       userPostList();
+      toast("Post Deleted!");
     } catch (error) {
-      ////console.log(error);
+      toast.error(error.response.data.errors[0]);
     }
   };
 
@@ -153,7 +159,7 @@ export default function FeatureProvider({ children }) {
       userList();
       userDetail();
     } catch (error) {
-      ////console.log(error);
+      toast.error(error.response.data.errors[0]);
     }
   };
 
@@ -168,7 +174,7 @@ export default function FeatureProvider({ children }) {
       userList();
       userDetail();
     } catch (error) {
-      ////console.log(error);
+      toast.error(error.response.data.errors[0]);
     }
   };
 

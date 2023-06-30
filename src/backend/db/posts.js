@@ -17,7 +17,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "shreyansh",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM July 12,  2022",
     updatedAt: formatDate(),
   },
   {
@@ -29,7 +29,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "shreyansh",
-    createdAt: formatDate(),
+    createdAt: " 12:00 PM August 13, 2022",
     updatedAt: formatDate(),
   },
   {
@@ -41,7 +41,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "adarshbalika",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM March 23, 2023",
     updatedAt: formatDate(),
   },
   {
@@ -53,7 +53,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "adarshbalika",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM  April 14, 2023",
     updatedAt: formatDate(),
   },
   {
@@ -65,7 +65,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "ranbir_kapoor",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM  October 18, 2022",
     updatedAt: formatDate(),
   },
   {
@@ -77,7 +77,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "ranbir_kapoor",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM  December 12, 2022",
     updatedAt: formatDate(),
   },
   {
@@ -89,7 +89,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "guru007",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM  January 21, 2023",
     updatedAt: formatDate(),
   },
   {
@@ -101,7 +101,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "guru007",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM  March 23, 2023",
     updatedAt: formatDate(),
   },
   {
@@ -114,7 +114,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "Arijit",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM  May 05, 2023",
     updatedAt: formatDate(),
   },
   {
@@ -126,7 +126,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "Arijit",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM  July 01, 2023",
     updatedAt: formatDate(),
   },
   {
@@ -138,7 +138,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "I_am_Katrina",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM  September  05, 2023",
     updatedAt: formatDate(),
   },
   {
@@ -150,7 +150,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "I_am_Katrina",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM  July 22, 2023",
     updatedAt: formatDate(),
   },
   {
@@ -162,7 +162,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "its_Alia_Bhatt",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM  May 27, 2023",
     updatedAt: formatDate(),
   },
   {
@@ -174,7 +174,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "its_Alia_Bhatt",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM  November 28, 2022",
     updatedAt: formatDate(),
   },
   {
@@ -186,7 +186,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "A_R_Rehman",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM  December 31, 2022",
     updatedAt: formatDate(),
   },
   {
@@ -198,7 +198,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "A_R_Rehman",
-    createdAt: formatDate(),
+    createdAt: "12:00 PM February 21, 2023",
     updatedAt: formatDate(),
   },
 ];

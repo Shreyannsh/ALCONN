@@ -14,8 +14,12 @@
   box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.5);
 }
 
-.postComponent .image-pic {
-  position: absolute;
+.header {
+  display: flex;
+}
+
+.header .postImagePic {
+  /* position: absolute; */
   margin: 0rem 0.5rem;
   border-radius: 40px;
   height: 3.3rem;
@@ -23,18 +27,14 @@
 }
 
 .fullName {
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 4.4rem;
+  margin-right: 7px;
+  margin-top: -3px;
   font-size: 18px;
   font-weight: 500;
 }
 
 .createdDate {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: -1.2rem;
-  margin-left: 14rem;
+  margin-top: 3px;
   font-size: small;
 }
 
@@ -48,7 +48,7 @@
 .userName {
   display: flex;
   justify-content: flex-start;
-  margin-top: 0rem;
+  margin-top: -2rem;
   margin-left: 4.3rem;
   color: rgb(168, 168, 168);
 }

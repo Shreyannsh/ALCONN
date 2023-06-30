@@ -8,6 +8,7 @@ import { authContext } from "../../Context/authContext/authContext";
 import { EditProfile } from "../../Compnents/editProfile/editProfile";
 import PostComponent from "../../Compnents/PostComponent/PostComponent";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
+import { toast } from "react-toastify";
 
 export default function Profile() {
   const { authState, authDispatch, filteredUsers, setFilteredUsers } =
@@ -53,7 +54,7 @@ export default function Profile() {
   //console.log(followingMatched, "FollowingMatched");
 
   const filteredPost = authState?.allPostList?.filter(
-    (post) => post.username === userDetail.username
+    (post) => post?.username === userDetail?.username
   );
 
   const [values, setValues] = useState({
@@ -66,10 +67,12 @@ export default function Profile() {
     if (following) {
       // setFollowing(!following);
       unfollow(userId);
+      toast(`Unfollowed ${userDetail.username}`);
       setFilteredUsers([...filteredUsers, userDetail]);
     } else {
       // setFollowing(!following);
       follow(userId);
+      toast(`Following ${userDetail.username}`);
       setFilteredUsers(
         authState?.usersList?.filter(({ _id }) => _id !== userDetail._id)
       );
@@ -138,7 +141,7 @@ export default function Profile() {
           </p>
         ) : (
           <p className="follow-btn" onClick={() => followBtn()}>
-            {followingMatched ? "Unfollow" : "Follow"}
+            {followingMatched ? "Following" : "Follow"}
           </p>
         )}
 
@@ -153,11 +156,10 @@ export default function Profile() {
         </div>
 
         <p className="profile-footer">
-          <span> {authState.postList.length} Posts </span> |
+          <span> {authState.postList.length} Posts </span>{" "}
           <span onClick={() => followingFollowerList("following")}>
             {userDetail?.following?.length} Following{" "}
           </span>
-          |
           <span onClick={() => followingFollowerList("follower")}>
             {" "}
             {userDetail?.followers?.length} Follower{" "}
@@ -203,11 +205,15 @@ export default function Profile() {
       </div>
 
       <div style={{ display: showPosts ? "block" : "none" }}>
-        {filteredPost.map((post) => (
-          <li key={post._id} className="postList">
-            <PostComponent postDetails={post} />
-          </li>
-        ))}
+        {filteredPost.length > 0 ? (
+          filteredPost.map((post) => (
+            <li key={post._id} className="postList">
+              <PostComponent postDetails={post} />
+            </li>
+          ))
+        ) : (
+          <h2 className="emptyMsg">Add a Post!</h2>
+        )}
       </div>
       <div style={{ display: showLikedPosts ? "block" : "none" }}>
         {likedPostByUser.length > 0 ? (
@@ -217,7 +223,7 @@ export default function Profile() {
             </li>
           ))
         ) : (
-          <h2>No Liked Posts!</h2>
+          <h2 className="emptyMsg">No Liked Posts!</h2>
         )}
       </div>
 
@@ -229,7 +235,7 @@ export default function Profile() {
             </li>
           ))
         ) : (
-          <h2>No Bookmark Posts!</h2>
+          <h2 className="emptyMsg">No Bookmark Posts!</h2>
         )}
       </div>
     </div>

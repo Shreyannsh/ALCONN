@@ -1,19 +1,23 @@
-
-.heading-latestPost{
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.5rem;
-    padding: 5px 15px;
-    margin-bottom: 2rem;
+.heading-latestPost {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  padding: 5px 15px;
+  margin-bottom: 2rem;
 }
 
-.postList{
-    list-style: none;
+.postList {
+  list-style: none;
 }
 
-.pageTitle{
-    text-align: left;
-    font-size: x-large;
-    margin-top: 3.5rem;
-    font-weight: 400;
+.pageTitle {
+  text-align: left;
+  font-size: x-large;
+  margin-top: 3.5rem;
+  font-weight: 400;
+}
+
+.systemBtn:hover {
+  color: var(--dark-blue);
+  cursor: pointer;
 }

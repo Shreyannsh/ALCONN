@@ -1,35 +1,43 @@
-import { useContext } from 'react';
-import './SortingPost.css';
+import { useContext } from "react";
+import "./SortingPost.css";
 
-import { authContext } from '../../Context/authContext/authContext';
-import { featureContext } from '../../Context/FeatureContext/FeatureContext';
+import { authContext } from "../../Context/authContext/authContext";
+import { featureContext } from "../../Context/FeatureContext/FeatureContext";
 
-export default function SortingPost(props){
+export default function SortingPost(props) {
+  const { authState, authDispatch } = useContext(authContext);
+  const { setTrending } = useContext(featureContext);
 
-    const {authState, authDispatch} = useContext(authContext);
-    const {setTrending} = useContext(featureContext);
+  if (!props.show) {
+    return null;
+  }
 
-    if(!props.show){
-        return null;
-    }
+  const sortByLikes = () => {
+    setTrending(true);
+    const sortByLikes = authState.allPostList.sort(
+      (a, b) => b.likes.likeCount - a.likes.likeCount
+    );
+    authDispatch({ type: "allPostList", payload: sortByLikes });
+  };
 
-    const sortByLikes =() =>{
-        setTrending(true)
-        const sortByLikes = authState.postList.sort((a,b) => b.likes.likeCount - a.likes.likeCount );
-        authDispatch({type:'postList', payload:sortByLikes});
-    }
+  const sortByDate = () => {
+    const sortByDate = authState.allPostList.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+    console.log(sortByDate);
+    authDispatch({ type: "allPostList", payload: sortByDate });
+  };
 
-    const sortByDate =() =>{
-        const sortByDate = authState.postList.sort((a,b) => b.createdAt - a.createdAt );
-        authDispatch({type:'postList', payload:sortByDate});
-    }
-
-    return(
-        <div className="sortingOptionsParent">
-            <div className="sortingOptions">
-                <button className="sortingOption" onClick={() =>sortByLikes()}>Trending</button>
-                <button className="sortingOption" onClick={() =>sortByDate()}>Latest</button>
-            </div>
-        </div>
-    )
+  return (
+    <div className="sortingOptionsParent">
+      <div className="sortingOptions">
+        <button className="sortingOption" onClick={() => sortByLikes()}>
+          Trending
+        </button>
+        <button className="sortingOption" onClick={() => sortByDate()}>
+          Latest
+        </button>
+      </div>
+    </div>
+  );
 }

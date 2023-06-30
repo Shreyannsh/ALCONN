@@ -1,18 +1,16 @@
 .mainPage {
   /* text-align: center; */
   display: flex;
-  /* justify-content: center; */
+  justify-content: space-around;
   /* padding: 5rem; */
 }
 
-:root{
-  --light-gray:  rgb(182, 182, 182,0.3);
+:root {
+  --light-gray: rgb(182, 182, 182, 0.3);
   --light-blue: rgb(0, 81, 255);
-  --dark-blue:rgb(0, 60, 255);
+  --dark-blue: rgb(0, 60, 255);
   --white: rgb(255, 255, 255);
-
 }
-
 
 /* .App-logo {
   height: 40vmin;

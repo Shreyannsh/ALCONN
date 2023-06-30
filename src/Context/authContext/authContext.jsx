@@ -1,9 +1,9 @@
 import { createContext, useState, useReducer, useEffect } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 import { authReducer } from "../../Reducer/authReducer";
 import { useNavigate } from "react-router-dom";
-import { homeContext } from "../homeContext/homeContext";
 
 export const authContext = createContext();
 
@@ -57,7 +57,7 @@ export default function AuthProvider({ children }) {
       authDispatch({ type: "usersList", payload: response.data.users });
       // findUser(authState.userName);
     } catch (error) {
-      ////console.log(error);
+      toast(error.response.data.errors[0]);
     }
   };
 
@@ -66,7 +66,7 @@ export default function AuthProvider({ children }) {
       const response = await axios.get("/api/posts");
       authDispatch({ type: "allPostList", payload: response.data.posts });
     } catch (error) {
-      ////console.log(error);
+      toast(error.response.data.errors[0]);
     }
   };
 
@@ -75,7 +75,7 @@ export default function AuthProvider({ children }) {
       const response = await axios.get(`/api/posts/user/${authState.userName}`);
       authDispatch({ type: "postList", payload: response.data.posts });
     } catch (error) {
-      ////console.log(error);
+      toast(error.response.data.errors[0]);
     }
   };
 
@@ -90,7 +90,7 @@ export default function AuthProvider({ children }) {
       //console.log(response);
       authDispatch({ type: "singleUserDetail", payload: response.data.user });
     } catch (error) {
-      ////console.log(error);
+      toast.error(error.response.data.errors[0]);
     }
   };
 
@@ -102,9 +102,9 @@ export default function AuthProvider({ children }) {
         username: authState.userName,
         password: authState.loginPassword,
       };
-
+      console.log("reachLogin");
       const response = await axios.post("/api/auth/login", credentials);
-
+      console.log(response.data);
       const encodedToken = response.data.encodedToken;
 
       localStorage.setItem("encodedToken", encodedToken);
@@ -113,10 +113,12 @@ export default function AuthProvider({ children }) {
       userPostList();
       userDetail();
       allPosts();
-      // let from = location.state?.from?.pathname || '/';
+      console.log(isLogin);
+      toast("Successfully Logged In");
       navigate("/home");
     } catch (error) {
-      ////console.error(error);
+      toast.error(error.response.data.errors[0]);
+      console.log(error);
     }
   };
 
@@ -124,19 +126,23 @@ export default function AuthProvider({ children }) {
     const cred = {
       username: authState.signUpDetails.username,
       password: authState.signUpDetails.password,
-      firstName: authState.signUpDetails.username.firstName,
-      lastName: authState.signUpDetails.username.lastName,
+      firstName: authState.signUpDetails.firstName,
+      lastName: authState.signUpDetails.lastName,
     };
 
     try {
       const response = await axios.post("/api/auth/signup", cred);
+
+      console.log(response.data);
       const encodedToken = response.data.encodedToken;
       localStorage.setItem("encodedToken", encodedToken);
+      userList();
       authDispatch({ type: "userName", payload: cred.username });
       authDispatch({ type: "loginPassword", payload: cred.password });
+      toast("Signed Up Successfully");
       navigate("/");
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.errors[0]);
     }
   };
 
@@ -144,7 +150,7 @@ export default function AuthProvider({ children }) {
     userList();
   }, []);
 
-  //console.log(authState);
+  console.log(authState);
 
   return (
     <div>

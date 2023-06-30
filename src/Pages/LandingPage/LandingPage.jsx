@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./LandingPage.css";
 import { authContext } from "../../Context/authContext/authContext";
 
+import { toast } from "react-toastify";
+
 export default function LandingPage() {
   const { authState, authDispatch, login } = useContext(authContext);
 
@@ -10,13 +12,21 @@ export default function LandingPage() {
     authDispatch({ type: "guestLogin" });
   };
 
+  const loginBtn = () => {
+    if (!authState.userName || !authState.loginPassword) {
+      toast.error("Invaild Credentials");
+    } else {
+      login();
+    }
+  };
+
   return (
     <div className="landingPage">
       <div className="landingImage">
-        <img
-          src="https://w7.pngwing.com/pngs/730/139/png-transparent-network-connections-communication-digital-internet-technology-computer-networking-knot-round-thumbnail.png"
-          alt=""
-        />
+        <img className="landingPageImage" src="../../assets/blue.png" alt="" />
+        <p>
+          <i>Stay Always Connceted</i>
+        </p>
       </div>
       <div>
         <h1>ALCONN</h1>
@@ -43,7 +53,7 @@ export default function LandingPage() {
             type="password"
             placeholder="Password"
           />
-          <button onClick={() => login()} className="login-btn">
+          <button onClick={() => loginBtn()} className="login-btn">
             Log in
           </button>
           <div className="loginFooter">

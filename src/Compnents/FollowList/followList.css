@@ -5,10 +5,11 @@
   display: flex;
   flex-direction: column;
   background-color: azure;
-  border-radius: 10px;
   position: relative;
   width: 20rem;
   min-height: 15rem;
+  max-height: 30rem;
+  overflow-y: scroll;
 }
 
 .followList .fTitle {
@@ -22,16 +23,21 @@
 }
 .cancel {
   position: absolute;
+  border-radius: 3px;
   right: 2rem;
-  top: 1.2rem;
+  top: 1.5rem;
   font-size: larger;
   font-weight: 600;
-  background-color: tomato;
+  background-color: rgb(255, 38, 0);
   padding: 0px 8px;
   cursor: pointer;
 }
 
-.suggestedUser {
+.cancel:hover {
+  border: 2px solid;
+}
+
+.followList .suggestedUser {
   width: 17rem;
   height: 3.8rem;
   display: flex;
@@ -40,6 +46,9 @@
   margin-bottom: 1rem;
   color: black;
   text-decoration: none;
+  padding-top: 5px;
+  padding-left: 5px;
+  border-radius: 5px;
 }
 
 .suggestedUser .fullName {
@@ -50,4 +59,8 @@
 .suggestedUser .userName {
   margin-left: 3.4rem;
   margin-top: -1.3rem;
+}
+
+.followList .suggestedUser:hover {
+  background-color: antiquewhite;
 }

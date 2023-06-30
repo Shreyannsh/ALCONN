@@ -1,11 +1,23 @@
 import { useContext } from "react";
 import "./SignUpPage.css";
-
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { authContext } from "../../../Context/authContext/authContext";
 
 export default function SignUpPage() {
   const { authDispatch, authState, signUp } = useContext(authContext);
+
+  const signUpBtn = () => {
+    const signUpValues = Object.values(authState.signUpDetails).includes("");
+
+    console.log(signUpValues);
+
+    if (signUpValues) {
+      toast.error(" Enter all fields to signup ");
+    } else {
+      signUp();
+    }
+  };
 
   return (
     <div className="parent">
@@ -32,6 +44,7 @@ export default function SignUpPage() {
         </div>
 
         <input
+          type="email"
           onChange={(e) =>
             authDispatch({
               type: "signUpEmailAddress",
@@ -49,6 +62,7 @@ export default function SignUpPage() {
           placeholder="Username"
         />
         <input
+          type="password"
           onChange={(e) =>
             authDispatch({ type: "signUpPassword", payload: e.target.value })
           }
@@ -56,6 +70,7 @@ export default function SignUpPage() {
           placeholder="Password"
         />
         <input
+          type="password"
           onChange={(e) =>
             authDispatch({ type: "signUpRePassword", payload: e.target.value })
           }
@@ -70,11 +85,11 @@ export default function SignUpPage() {
           notifications from us and can opt out at any time.
         </p>
 
-        <p className="signupBtn" onClick={() => signUp()}>
+        <p className="signupBtn" onClick={() => signUpBtn()}>
           Sign Up
         </p>
         <Link className="alreadyHaveAnAccount" to="/">
-          Alreay have an account?
+          Already have an account?
         </Link>
       </div>
     </div>

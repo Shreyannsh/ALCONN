@@ -4,16 +4,26 @@ import "./AddPost.css";
 import { BsImageFill } from "react-icons/bs";
 import { authContext } from "../../Context/authContext/authContext";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
+import { toast } from "react-toastify";
 
 export default function AddPost(props) {
   const { authState, authDispatch } = useContext(authContext);
   const { addPost } = useContext(featureContext);
   const [postData, setPostData] = useState(null);
-  //////console.log(authState.postContent)
-  //console.log(postData);
+
   if (!props.show) {
     return null;
   }
+
+  const addPostBtn = () => {
+    if (authState.postContent || postData) {
+      addPost(authState.postContent);
+      toast("Post uploaded Successfully");
+    } else {
+      toast.error("Post is empty");
+    }
+  };
+
   return (
     <div className={props.mode === "sideBar" ? "parentModal" : ""}>
       <div className="addPostComponent">
@@ -55,10 +65,7 @@ export default function AddPost(props) {
             </button>
           )}
 
-          <button
-            onClick={() => addPost(authState.postContent)}
-            className="addPost-btn"
-          >
+          <button onClick={() => addPostBtn()} className="addPost-btn">
             Post
           </button>
         </div>

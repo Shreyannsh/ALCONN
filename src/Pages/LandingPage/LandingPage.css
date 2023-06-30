@@ -12,11 +12,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(248, 252, 252);
-  height: 36.5rem;
-  /* margin: 10rem 5rem; */
+  height: 25rem;
+  width: 25rem;
+  margin: 5.1rem 0rem 0rem 3rem;
 }
 
+.landingImage p {
+  font-size: 32px;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  text-decoration: wavy;
+  color: grey;
+}
+
+.landingPageImage {
+  height: 100%;
+  width: 100%;
+  filter: brightness(100%) saturate(150%) hue-rotate(347deg);
+}
 .landingPage h1 {
   color: var(--light-blue);
   font-size: 3rem;

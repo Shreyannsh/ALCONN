@@ -16,11 +16,15 @@ export default function Bookmarks() {
   return (
     <div className="bookMarkPage">
       <h1 className="pageTitle">Your Bookmarks</h1>
-      {bookMarkedPosts.map((post) => (
-        <li>
-          <PostComponent postDetails={post} />
-        </li>
-      ))}
+      {bookMarkedPosts?.length > 0 ? (
+        bookMarkedPosts?.map((post) => (
+          <li>
+            <PostComponent postDetails={post} />
+          </li>
+        ))
+      ) : (
+        <h2 className="emptyMsg">No Bookmark Posts!</h2>
+      )}
     </div>
   );
 }

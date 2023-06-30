@@ -2,6 +2,7 @@ import "./editProfile.css";
 
 import { useContext, useState } from "react";
 import { authContext } from "../../Context/authContext/authContext";
+import { toast } from "react-toastify";
 
 export const EditProfile = (props) => {
   const { authDispatch, authState } = useContext(authContext);
@@ -20,7 +21,9 @@ export const EditProfile = (props) => {
   };
 
   const updateDesc = () => {
+    console.log("hey");
     authDispatch({ type: "updateDesc" });
+    toast("Description updated!");
     props.onClose();
   };
 

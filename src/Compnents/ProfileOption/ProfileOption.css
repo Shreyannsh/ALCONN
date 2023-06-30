@@ -1,8 +1,9 @@
 .profileOptionSection {
   display: flex;
   flex-direction: column;
-  margin-left: -1.5rem;
+  margin-left: 0rem;
   margin-top: 3rem;
+  position: relative;
 }
 
 .profileOption {
@@ -10,21 +11,19 @@
   display: flex;
   flex-direction: row;
   cursor: pointer;
-  justify-content: space-around;
+  justify-content: space-between;
   position: relative;
 }
 
 .profileOption .image-pic {
-  position: absolute;
   margin-top: 8px;
-  margin-left: -5.5rem;
   border-radius: 40px;
   height: 2.5rem;
   width: 2.5rem;
 }
 
 .profileOption .profileName {
-  margin-left: 3.5rem;
+  margin-left: 3rem;
 }
 
 .arrow {
@@ -33,8 +32,8 @@
 }
 
 .profileDropDown {
-  display: flex;
   display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;

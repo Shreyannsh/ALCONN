@@ -29,12 +29,12 @@ export default function Home() {
       <p className="heading-latestPost">
         Latest Posts{" "}
         <span onClick={() => sortingOptionsBtn()}>
-          <GiSettingsKnobs />
+          <GiSettingsKnobs className="systemBtn" />
         </span>
       </p>
       <SortingPost show={showSortingOptions} />
 
-      {authState?.postList?.map((post) => (
+      {authState?.allPostList?.map((post) => (
         <li key={post._id} className="postList">
           <PostComponent postDetails={post} />
         </li>

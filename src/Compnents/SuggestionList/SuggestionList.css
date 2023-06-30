@@ -1,12 +1,11 @@
-.followList {
+.suggestionList {
   margin-top: 3.3rem;
-  margin-left: 3rem;
-
+  margin-left: 1.5rem;
   display: flex;
   flex-direction: column;
 }
 
-.followList .searchBox {
+.suggestionList .searchBox {
   margin-left: 1rem;
   width: 14rem;
   height: 2.3rem;
@@ -18,7 +17,7 @@
   box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.6);
 }
 
-.followList .suggestionTitle {
+.suggestionList .suggestionTitle {
   margin-left: 1rem;
   font-size: x-large;
 }
@@ -47,7 +46,7 @@
   margin-top: -1.3rem;
 }
 
-.followList .follow-btn {
+.suggestionList .follow-btn {
   display: flex;
   align-self: flex-end;
   margin-top: -3.5rem;

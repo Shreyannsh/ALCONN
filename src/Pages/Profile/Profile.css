@@ -40,12 +40,13 @@
   margin-left: 5px;
 }
 
-h2 {
+.profilePage .emptyMsg {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 5rem;
-  border: 1px solid;
+  border: 1.5px solid gainsboro;
+  box-shadow: 0.5px 0.5px 2px 0px rgb(0, 0, 0, 0.6);
   padding: 5rem 0rem;
   border-radius: 10px;
 }
@@ -102,25 +103,30 @@ h2 {
 
 .title {
   margin-top: 0rem;
-  font-size: 22px;
+  font-size: 23px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   text-align: center;
 }
 
 .bio {
   margin-top: -0.5rem;
-  font-size: medium;
-  align-items: left;
-  width: 13rem;
+  font-size: 17px;
+  text-align: center;
+  width: 25rem;
 }
 
 .website {
+  display: flex;
+  justify-content: center;
   margin-top: 0rem;
+  text-align: center;
   color: var(--light-blue);
 }
 
 .profile-footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin-top: 1rem;
   font-size: x-large;
 }

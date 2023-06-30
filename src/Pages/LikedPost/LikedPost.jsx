@@ -13,11 +13,15 @@ export default function LikedPost() {
   return (
     <div className="likedPostPage">
       <h1 className="pageTitle">Liked Post</h1>
-      {likedPostByUser?.map((likedPost) => (
-        <li className="list">
-          <PostComponent postDetails={likedPost} />
-        </li>
-      ))}
+      {likedPostByUser.length > 0 ? (
+        likedPostByUser?.map((likedPost) => (
+          <li className="list">
+            <PostComponent postDetails={likedPost} />
+          </li>
+        ))
+      ) : (
+        <h2 className="emptyMsg">No Liked Posts!</h2>
+      )}
     </div>
   );
 }

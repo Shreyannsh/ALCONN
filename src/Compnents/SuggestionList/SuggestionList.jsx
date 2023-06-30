@@ -7,6 +7,7 @@ import { useContext, useState, useEffect } from "react";
 import { authContext } from "../../Context/authContext/authContext";
 
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
+import { toast } from "react-toastify";
 
 export default function SuggestionList() {
   const { authState, filteredUsers, setFilteredUsers } =
@@ -14,8 +15,6 @@ export default function SuggestionList() {
   const { follow } = useContext(featureContext);
   const [following, setFollowing] = useState(false);
   const followingList = authState.singleUserDetail.following;
-
-  console.log(followingList);
 
   const displayFilterList = () => {
     // const followList = authState?.usersList?.filter(
@@ -67,25 +66,12 @@ export default function SuggestionList() {
   };
 
   const followUnfollow = (id) => {
-    // if (following) {
-    //   unfollow(id);
-    //   setFollowing(false);
-    // } else {
-    //   setFollowing(true);
+    const person = authState.usersList.find((user) => user._id === id);
+
     follow(id);
-    // const unFollowList = ;
 
     setFilteredUsers(filteredUsers.filter(({ _id }) => _id !== id));
-
-    // const filtered = filteredUsers.filter((user) => {
-    //   const person = followingList.find(
-    //     (followingPerson) => followingPerson._id === user._id
-    //   );
-    //   //console.log(person);
-    //   return user._id !== person._id;
-    // });
-    // setFilteredUsers(filtered);
-    //}
+    toast(`Following ${person.username}`);
   };
 
   useEffect(() => {
@@ -96,7 +82,7 @@ export default function SuggestionList() {
   //console.log(followingList);
 
   return (
-    <div className="followList">
+    <div className="suggestionList">
       <input
         className="searchBox"
         placeholder="Search friend"

@@ -64,25 +64,26 @@ export default function PostComponent({ postDetails }) {
     setShowOptions(!showOptions);
   };
 
-  const createdDate = new Date(user.createdAt);
-
-  const presentDate = new Date();
-  //console.log(presentDate);
-
+  const createdDate = new Date(postDetails.createdAt);
+  const formattedDate = createdDate.toDateString();
+  console.log(typeof createdDate);
   return (
     <div>
       <div className="postComponent">
         {/* <div className='postComponentHeader'> */}
-        <img
-          className="image-pic"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgtt3zOq6B9NnqaNv6ApPqWUmxmTf5hxtF_g&usqp=CAU"
-          alt="Pic"
-        />
-        <span className="fullName">
-          {" "}
-          {user.firstName} {user.lastName}{" "}
-        </span>
-        <span className="createdDate"> {createdDate.toDateString()} </span>
+
+        <div className="header">
+          <img
+            className="postImagePic"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgtt3zOq6B9NnqaNv6ApPqWUmxmTf5hxtF_g&usqp=CAU"
+            alt="Pic"
+          />
+          <p className="fullName">
+            {" "}
+            {user.firstName} {user.lastName}{" "}
+          </p>
+          <p className="createdDate"> {formattedDate} </p>
+        </div>
 
         {accountHolder ? (
           <span className="options" onClick={() => postOptionBtn()}>
