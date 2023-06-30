@@ -112,7 +112,7 @@ export default function Profile() {
 
     setShow(!show);
   };
-  ////console.log(authState);
+  console.log(userDetail);
   return (
     <div className="profilePage">
       <FollowList
@@ -123,11 +123,9 @@ export default function Profile() {
       />
       <EditProfile values={values} onClose={() => setShow(!show)} show={show} />
       <div className="background-Image"></div>
-      <img
-        className="image"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgtt3zOq6B9NnqaNv6ApPqWUmxmTf5hxtF_g&usqp=CAU"
-        alt="Pic"
-      />
+
+      <img className="image" src={userDetail.profilePic} alt="Pic" />
+
       <div className="profileInfo">
         <p className="name">
           {userDetail?.firstName} {userDetail?.lastName}

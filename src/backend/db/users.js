@@ -12,6 +12,8 @@ export const users = [
     lastName: "Balika",
     username: "adarshbalika",
     password: "adarshBalika123",
+    profilePic:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0TpzHGV2uoqJI5G29SPSL-UIF85WgBVaz4w&usqp=CAU",
     bookmarks: [],
     title: "Aspiring Web Developer",
     bio: "Keep spreading joy.",
@@ -25,7 +27,7 @@ export const users = [
     lastName: "Tiwari",
     username: "shreyansh",
     password: "00001111",
-    profilePic: "",
+    profilePic: "../../assets/pic.jpg",
     bookmarks: [],
     title: "Software Developer",
     bio: "Play to win, Code to deploy!",
@@ -39,7 +41,6 @@ export const users = [
     lastName: "Kapoor",
     username: "ranbir_kapoor",
     password: "00001111",
-    profilePic: "",
     profilePic:
       "https://www.koimoi.com/wp-content/new-galleries/2023/03/box-office-ranbir-kapoor-scores-his-sixth-100-crore-club-earner-with-tu-jhoothi-main-makkaar-001.jpg",
     title: "Artist",
@@ -58,7 +59,8 @@ export const users = [
     lastName: "Randhawa",
     username: "guru007",
     password: "00001111",
-    profilePic: "",
+    profilePic:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqbYx2vmN0dcbK3KhdPx83rUDBfxvhBgwGt80mNs1-sw8TrfBV2bpaUj-0GxKOS1GrIWU&usqp=CAU",
     title: "Musician",
     bio: "Keep writing the good lines",
     website: "shreyashtiwarii.netlify.app",
@@ -72,7 +74,8 @@ export const users = [
     lastName: "Singh",
     username: "Arijit",
     password: "00001111",
-    profilePic: "",
+    profilePic:
+      "https://in.bmscdn.com/iedb/artist/images/website/poster/large/arijit-singh-1048083-24-03-2017-18-02-00.jpg",
     title: "Singer",
     bio: "There is no heart music can't breach",
     website: "shreyashtiwarii.netlify.app",
@@ -86,7 +89,8 @@ export const users = [
     lastName: "Kafe",
     username: "I_am_Katrina",
     password: "00001111",
-    profilePic: "",
+    profilePic:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwCPtt8gKlgnyvIrn-Ki1JVVJOvQza2OO8TbplAVBjAJnmWGCDE68x9Kct6hPeaB4aNVk&usqp=CAU",
     title: "Actress",
     bio: "Be bold Be Savage👒",
     website: "shreyashtiwarii.netlify.app",
@@ -100,7 +104,8 @@ export const users = [
     lastName: "Bhatt",
     username: "its_Alia_Bhatt",
     password: "00001111",
-    profilePic: "",
+    profilePic:
+      "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202211/34-sixteen_nine.jpg?size=948:533",
     title: "SomeOne",
     bio: "Create what is the vision",
     website: "shreyashtiwarii.netlify.app",
@@ -114,7 +119,8 @@ export const users = [
     lastName: "Rehman",
     username: "A_R_Rehman",
     password: "00001111",
-    profilePic: "",
+    profilePic:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWuu0RzSIpl1cVx9hXVL_Vtz4oUZ7FHYgS1A&usqp=CAU",
     title: "Artist",
     bio: "To fly I take fight. To rise above I meditate.",
     website: "shreyashtiwarii.netlify.app",
