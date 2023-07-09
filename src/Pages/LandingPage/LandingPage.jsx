@@ -1,12 +1,20 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
 import "./LandingPage.css";
-import { authContext } from "../../Context/authContext/authContext";
 
+import { useState, useContext } from "react";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
+
+import { authContext } from "../../Context/authContext/authContext";
 
 export default function LandingPage() {
   const { authState, authDispatch, login } = useContext(authContext);
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const showPasswordFunc = () => {
+    setShowPassword(!showPassword);
+  };
 
   const guestLogin = () => {
     authDispatch({ type: "guestLogin" });
@@ -44,15 +52,28 @@ export default function LandingPage() {
             type="email"
             placeholder="Email address"
           />
+
           <input
             onChange={(e) =>
               authDispatch({ type: "loginPassword", payload: e.target.value })
             }
             value={authState.loginPassword}
             className="password"
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
           />
+          <div className="hidePasswordComponent">
+            {showPassword ? (
+              <span className="eyeIcon">
+                <BsFillEyeFill onClick={() => showPasswordFunc()} />
+              </span>
+            ) : (
+              <span className="eyeIcon">
+                <BsFillEyeSlashFill onClick={() => showPasswordFunc()} />
+              </span>
+            )}
+          </div>
+
           <button onClick={() => loginBtn()} className="login-btn">
             Log in
           </button>

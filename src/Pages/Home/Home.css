@@ -1,9 +1,19 @@
+.homePage {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.addPostHome {
+  margin-top: -1.2rem;
+}
+
 .heading-latestPost {
   display: flex;
   justify-content: space-between;
   font-size: 1.5rem;
   padding: 5px 15px;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
 }
 
 .postList {
@@ -20,4 +30,10 @@
 .systemBtn:hover {
   color: var(--dark-blue);
   cursor: pointer;
+}
+
+@media (max-width: 962px) {
+  .addPostHome {
+    display: none;
+  }
 }

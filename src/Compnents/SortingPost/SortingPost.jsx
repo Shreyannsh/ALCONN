@@ -1,5 +1,6 @@
-import { useContext } from "react";
 import "./SortingPost.css";
+
+import { useContext } from "react";
 
 import { authContext } from "../../Context/authContext/authContext";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
@@ -24,7 +25,7 @@ export default function SortingPost(props) {
     const sortByDate = authState.allPostList.sort(
       (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
     );
-    console.log(sortByDate);
+
     authDispatch({ type: "allPostList", payload: sortByDate });
   };
 

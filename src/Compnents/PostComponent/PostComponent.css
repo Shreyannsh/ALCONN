@@ -3,8 +3,6 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  min-height: 11rem;
-  min-width: 32rem;
   margin-top: 2rem;
   margin-bottom: 3rem;
   padding-top: 1rem;
@@ -19,8 +17,8 @@
 }
 
 .header .postImagePic {
-  /* position: absolute; */
   margin: 0rem 0.5rem;
+  margin-top: -3px;
   border-radius: 40px;
   height: 3.3rem;
   width: 3.3rem;
@@ -28,7 +26,7 @@
 
 .fullName {
   margin-right: 7px;
-  margin-top: -3px;
+  margin-top: -2px;
   font-size: 18px;
   font-weight: 500;
 }
@@ -39,7 +37,8 @@
 }
 
 .options {
-  margin-top: -1.4rem;
+  position: absolute;
+  margin-top: 0rem;
   margin-left: 29rem;
   font-size: x-large;
   cursor: pointer;
@@ -61,6 +60,10 @@
   width: 25rem;
   flex-wrap: wrap;
   word-break: break-word;
+}
+
+.postImage {
+  width: 30rem;
 }
 
 .likeCount {

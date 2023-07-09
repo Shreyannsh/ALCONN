@@ -4,7 +4,6 @@
   align-items: stretch;
   background-color: rgb(248, 252, 252);
   height: 36.5rem;
-  /* margin: 10rem 5rem; */
 }
 
 .landingImage {
@@ -35,9 +34,16 @@
   font-size: 3rem;
   text-align: center;
 }
+.hidePasswordComponent {
+  position: absolute;
+  margin-top: 10.5rem;
+  margin-left: 80%;
+  font-size: larger;
+  cursor: pointer;
+  color: gray;
+}
 
 .loginPage {
-  /* border: 1px solid; */
   margin-top: 0rem;
   border-radius: 8px;
   display: flex;
@@ -48,6 +54,7 @@
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
   background-color: white;
+  position: relative;
 }
 
 .loginTitle {
@@ -55,7 +62,6 @@
   font-size: 19px;
   margin-top: 0.5rem;
   font-weight: 500;
-  /* color: var(--light-blue); */
 }
 
 .guestLogin {
@@ -131,4 +137,18 @@
 
 .signup:hover {
   background-color: rgb(39, 145, 18);
+}
+
+@media (max-width: 768px) {
+  .landingImage {
+    display: none;
+    height: 20rem;
+    width: 20rem;
+    margin-right: 2rem;
+    margin-top: 8rem;
+  }
+
+  .landingImage p {
+    font-size: 22px;
+  }
 }

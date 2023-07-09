@@ -1,19 +1,23 @@
 import "./PostOptions.css";
 
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
 
 export default function PostOptions(props) {
-  const { deletePost, showEdit, setShowEdit } = useContext(featureContext);
+  const { deletePost } = useContext(featureContext);
 
-  // ////console.log(props)
   if (!props.show) {
     return null;
   }
 
   const editPost = () => {
-    setShowEdit(true);
+    props.setEditModalShow(true);
+    props.onClose();
+  };
+
+  const deletepost = () => {
+    deletePost(props.postId);
     props.onClose();
   };
 
@@ -24,7 +28,7 @@ export default function PostOptions(props) {
           {" "}
           Edit Post
         </p>
-        <p className="option" onClick={() => deletePost(props.postId)}>
+        <p className="option" onClick={() => deletepost()}>
           {" "}
           Delete Post
         </p>

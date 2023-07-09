@@ -1,24 +1,27 @@
 import "./Bookmarks.css";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+
 import { authContext } from "../../Context/authContext/authContext";
 import PostComponent from "../../Compnents/PostComponent/PostComponent";
 
 export default function Bookmarks() {
-  const { authState } = useContext(authContext);
+  const { authState, setIsActive } = useContext(authContext);
 
   const bookMarkedPosts = authState.bookmarks.map((id) =>
     authState.allPostList.find((post) => post._id === id)
   );
 
-  ////console.log(bookMarkedPosts);
+  useEffect(() => {
+    setIsActive("bookmark");
+  }, []);
 
   return (
     <div className="bookMarkPage">
       <h1 className="pageTitle">Your Bookmarks</h1>
       {bookMarkedPosts?.length > 0 ? (
         bookMarkedPosts?.map((post) => (
-          <li>
+          <li style={{ listStyle: "none" }}>
             <PostComponent postDetails={post} />
           </li>
         ))

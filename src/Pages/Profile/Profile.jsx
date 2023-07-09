@@ -1,20 +1,27 @@
 import "./Profile.css";
 
-import { useParams } from "react-router";
-import { useContext, useState } from "react";
+import { toast } from "react-toastify";
+import { GoSignOut } from "react-icons/go";
+import { useContext, useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 import FollowList from "../../Compnents/FollowList/followList";
 import { authContext } from "../../Context/authContext/authContext";
 import { EditProfile } from "../../Compnents/editProfile/editProfile";
 import PostComponent from "../../Compnents/PostComponent/PostComponent";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
-import { toast } from "react-toastify";
 
 export default function Profile() {
-  const { authState, authDispatch, filteredUsers, setFilteredUsers } =
-    useContext(authContext);
+  const {
+    authState,
+    authDispatch,
+    filteredUsers,
+    setFilteredUsers,
+    setIsActive,
+    setIsLogin,
+  } = useContext(authContext);
+
   const { follow, unfollow } = useContext(featureContext);
-  //const [following, setFollowing] = useState(false);
   const [show, setShow] = useState("");
   const [showPosts, setShowPosts] = useState(true);
   const [showLikedPosts, setShowLikedPosts] = useState(false);
@@ -22,8 +29,43 @@ export default function Profile() {
   const [followList, setFollowList] = useState([]);
   const [followListShow, setFollowListShow] = useState(false);
   const [mode, setMode] = useState();
+  const [values, setValues] = useState({
+    bio: "",
+    title: "",
+    website: "",
+  });
+
+  const navigate = useNavigate();
 
   const { userId } = useParams();
+
+  useEffect(() => {
+    setIsActive("");
+  }, []);
+
+  const userDetail = authState?.usersList?.find((user) => user._id === userId);
+
+  const match = authState?.singleUserDetail?.username?.includes(
+    userDetail.username
+  );
+
+  const following = authState?.singleUserDetail?.following?.find(
+    ({ _id }) => _id === userDetail._id
+  );
+
+  const followingMatched = following?._id?.includes(userDetail?._id);
+
+  const filteredPost = authState?.allPostList?.filter(
+    (post) => post?.username === userDetail?.username
+  );
+
+  const bookMarkedPosts = userDetail?.bookmarks?.map((id) =>
+    authState.allPostList.find((post) => post._id === id)
+  );
+
+  const likedPostByUser = authState?.allPostList?.filter((post) =>
+    post.likes.likedBy.find(({ _id }) => _id === userDetail?._id)
+  );
 
   const followingFollowerList = (value) => {
     if (value === "following") {
@@ -37,40 +79,12 @@ export default function Profile() {
     }
   };
 
-  const userDetail = authState?.usersList?.find((user) => user._id === userId);
-  //console.log(userDetail);
-
-  const match = authState?.singleUserDetail?.username?.includes(
-    userDetail.username
-  );
-
-  const following = authState?.singleUserDetail?.following?.find(
-    ({ _id }) => _id === userDetail._id
-  );
-  //console.log(following);
-
-  const followingMatched = following?._id?.includes(userDetail?._id);
-
-  //console.log(followingMatched, "FollowingMatched");
-
-  const filteredPost = authState?.allPostList?.filter(
-    (post) => post?.username === userDetail?.username
-  );
-
-  const [values, setValues] = useState({
-    bio: "",
-    title: "",
-    website: "",
-  });
-
   const followBtn = () => {
     if (following) {
-      // setFollowing(!following);
       unfollow(userId);
       toast(`Unfollowed ${userDetail.username}`);
       setFilteredUsers([...filteredUsers, userDetail]);
     } else {
-      // setFollowing(!following);
       follow(userId);
       toast(`Following ${userDetail.username}`);
       setFilteredUsers(
@@ -95,24 +109,17 @@ export default function Profile() {
     setShowBookmarkedPosts(true);
   };
 
-  const bookMarkedPosts = userDetail?.bookmarks?.map((id) =>
-    authState.allPostList.find((post) => post._id === id)
-  );
-
-  const likedPostByUser = authState?.allPostList?.filter((post) =>
-    post.likes.likedBy.find(({ _id }) => _id === userDetail?._id)
-  );
   const editProfile = () => {
-    // setValues({
-    //   bio: singleUserDetail.bio,
-    //   title: singleUserDetail.title,
-    //   website: singleUserDetail.website,
-    // });
     authDispatch({ type: "prevDesc" });
-
     setShow(!show);
   };
-  console.log(userDetail);
+
+  const signOut = () => {
+    navigate("/");
+    setIsLogin(false);
+    toast("Successfully Logged Out");
+  };
+
   return (
     <div className="profilePage">
       <FollowList
@@ -123,6 +130,11 @@ export default function Profile() {
       />
       <EditProfile values={values} onClose={() => setShow(!show)} show={show} />
       <div className="background-Image"></div>
+      <p onClick={() => signOut()} className="signout">
+        <span className="icon">
+          <GoSignOut />
+        </span>
+      </p>
 
       <img className="image" src={userDetail.profilePic} alt="Pic" />
 
@@ -146,19 +158,29 @@ export default function Profile() {
         <div className="description">
           <div>
             <p className="title">{userDetail?.title}</p>
-            <p className="bio">{userDetail?.bio}</p>
-            <a href={userDetail?.website} target="_blank" className="website">
-              {userDetail?.website}
+            <p className="bio">{userDetail.bio}</p>
+            <a
+              href={authState.singleUserDetail?.website}
+              target="_blank"
+              className="website"
+            >
+              {authState?.singleUserDetail?.website}
             </a>
           </div>
         </div>
 
         <p className="profile-footer">
           <span> {authState.postList.length} Posts </span>{" "}
-          <span onClick={() => followingFollowerList("following")}>
+          <span
+            onClick={() => followingFollowerList("following")}
+            className="follow-Btn"
+          >
             {userDetail?.following?.length} Following{" "}
           </span>
-          <span onClick={() => followingFollowerList("follower")}>
+          <span
+            onClick={() => followingFollowerList("follower")}
+            className="follow-Btn"
+          >
             {" "}
             {userDetail?.followers?.length} Follower{" "}
           </span>

@@ -1,12 +1,13 @@
 import "./ProfileOption.css";
 
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { authContext } from "../../Context/authContext/authContext";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { Link, useNavigate } from "react-router-dom";
 import { BsFillPersonFill } from "react-icons/bs";
 import { GoSignOut } from "react-icons/go";
 import { toast } from "react-toastify";
+
+import { authContext } from "../../Context/authContext/authContext";
 
 export default function ProfileOption() {
   const { authState, setIsLogin } = useContext(authContext);
@@ -28,16 +29,14 @@ export default function ProfileOption() {
     toast("Successfully Logged Out");
   };
 
-  //console.log(authContext.singleUserDetail);
+  const loggedInUser = authState.usersList.find(
+    (user) => user._id === authState.singleUserDetail._id
+  );
 
   return (
     <div className="profileOptionSection">
       <div onClick={() => profileOption()} className="profileOption">
-        <img
-          className="image-pic"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgtt3zOq6B9NnqaNv6ApPqWUmxmTf5hxtF_g&usqp=CAU"
-          alt="Pic"
-        />
+        <img className="image-pic" src={loggedInUser?.profilePic} alt="Pic" />
         <p className="profileName">{authState?.singleUserDetail?.firstName}</p>
         <span className="arrow">
           {show ? <IoIosArrowUp /> : <IoIosArrowDown />}

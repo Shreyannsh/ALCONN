@@ -7,7 +7,11 @@ export const authReducer = (state, action) => {
       return { ...state, loginPassword: action.payload };
 
     case "guestLogin":
-      return { ...state, userName: "shreyansh", loginPassword: "00001111" };
+      return {
+        ...state,
+        userName: "Shreyansh007",
+        loginPassword: "000011112222",
+      };
 
     case "postList":
       return { ...state, postList: action.payload };
@@ -45,7 +49,6 @@ export const authReducer = (state, action) => {
             ? action.payload.target.value
             : "",
       };
-      ////console.log(updatedDescription);
       return { ...state, descriptionUpdate: updatedDescription };
 
     case "addTitle": {
@@ -79,14 +82,22 @@ export const authReducer = (state, action) => {
     }
 
     case "updateDesc":
+      const updatedUser = state.usersList.map((user) => {
+        if (user._id === state.singleUserDetail._id) {
+          return {
+            ...user,
+            title: state.descriptionUpdate.title,
+            bio: state.descriptionUpdate.bio,
+            website: state.descriptionUpdate.website,
+            profilePic: action.payload,
+          };
+        } else {
+          return user;
+        }
+      });
       return {
         ...state,
-        singleUserDetail: {
-          ...state.singleUserDetail,
-          title: state.descriptionUpdate.title,
-          bio: state.descriptionUpdate.bio,
-          website: state.descriptionUpdate.website,
-        },
+        usersList: updatedUser,
       };
 
     case "prevDesc": {

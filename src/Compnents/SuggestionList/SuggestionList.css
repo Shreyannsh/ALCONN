@@ -1,8 +1,10 @@
 .suggestionList {
   margin-top: 3.3rem;
-  margin-left: 1.5rem;
+  margin-right: -8rem;
+
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .suggestionList .searchBox {
@@ -29,6 +31,7 @@
   flex-direction: column;
   margin-left: 1rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 .suggestedUser .link {
   text-decoration: none;
@@ -65,14 +68,7 @@
 }
 
 .image-pic {
-  position: absolute;
-  margin: 0rem 0rem;
-  border-radius: 40px;
-  height: 3rem;
-  width: 3rem;
-}
-
-.image-pic {
+  z-index: 1;
   position: absolute;
   margin: 0rem 0rem;
   border-radius: 40px;

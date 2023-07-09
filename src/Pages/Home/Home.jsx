@@ -1,30 +1,35 @@
 import "./Home.css";
 
 import { GiSettingsKnobs } from "react-icons/gi";
+import { useContext, useEffect, useState } from "react";
 
-//import { homeContext } from '../../Context/homeContext/homeContext';
 import AddPost from "../../Compnents/AddPost/AddPost";
-import PostComponent from "../../Compnents/PostComponent/PostComponent";
-import { authContext } from "../../Context/authContext/authContext";
 import SortingPost from "../../Compnents/SortingPost/SortingPost";
-import { useContext, useState } from "react";
+import { authContext } from "../../Context/authContext/authContext";
+import PostComponent from "../../Compnents/PostComponent/PostComponent";
 
 export default function Home() {
-  // const {postList,userDetail,userPostList} = useContext(homeContext);
-  const { authState } = useContext(authContext);
+  const { authState, setIsActive, userDetail } = useContext(authContext);
   const [showSortingOptions, setSortingOptions] = useState(false);
 
   const sortingOptionsBtn = () => {
     setSortingOptions(!showSortingOptions);
   };
 
-  //console.log(authState);
+  useEffect(() => {
+    userDetail();
+  }, []);
+
+  useEffect(() => {
+    setIsActive("home");
+  }, []);
 
   return (
-    <div>
+    <div className="homePage">
       <p className="pageTitle">Home</p>
-
-      <AddPost show={true} />
+      <div className="addPostHome">
+        <AddPost show={true} />
+      </div>
 
       <p className="heading-latestPost">
         Latest Posts{" "}

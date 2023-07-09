@@ -1,40 +1,35 @@
 import "./PostComponent.css";
 
-import { useContext, useState } from "react";
-import { authContext } from "../../Context/authContext/authContext";
-import { HiDotsHorizontal } from "react-icons/hi";
-import { GoComment } from "react-icons/go";
-import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
 import {
   MdOutlineBookmarkBorder,
   MdOutlineBookmark,
   MdOutlineShare,
 } from "react-icons/md";
+import { useContext, useState } from "react";
+import { HiDotsHorizontal } from "react-icons/hi";
+import { GoComment } from "react-icons/go";
+import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
+
+import { authContext } from "../../Context/authContext/authContext";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
 import PostOptions from "../PostOptions/PostOptions";
 import EditPost from "../EditPost/EditPost";
 
 export default function PostComponent({ postDetails }) {
-  const { authState } = useContext(authContext);
-  const {
-    likePost,
-    dislikePost,
-    addBookmark,
-    removeBookmark,
-    showEdit,
-    setShowEdit,
-  } = useContext(featureContext);
-
+  const { likePost, dislikePost, addBookmark, removeBookmark } =
+    useContext(featureContext);
+  const [editModalShow, setEditModalShow] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
+  const { authState } = useContext(authContext);
 
   const user = authState?.usersList?.find(
     ({ username }) => username === postDetails.username
   );
 
-  const accountHolder = authState.singleUserDetail.username.includes(
+  const accountHolder = authState?.singleUserDetail?.username?.includes(
     postDetails.username
   );
-  //console.log(accountHolder);
+
   const likedBy = postDetails.likes.likedBy.find(
     ({ _id }) => _id === authState.singleUserDetail._id
   );
@@ -55,7 +50,6 @@ export default function PostComponent({ postDetails }) {
     if (bookMarked) {
       removeBookmark(postDetails._id);
     } else {
-      ////console.log("addBookMark");
       addBookmark(postDetails._id);
     }
   };
@@ -65,22 +59,17 @@ export default function PostComponent({ postDetails }) {
   };
 
   const createdDate = new Date(postDetails.createdAt);
+
   const formattedDate = createdDate.toDateString();
-  console.log(typeof createdDate);
+
   return (
     <div>
       <div className="postComponent">
-        {/* <div className='postComponentHeader'> */}
-
         <div className="header">
-          <img
-            className="postImagePic"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgtt3zOq6B9NnqaNv6ApPqWUmxmTf5hxtF_g&usqp=CAU"
-            alt="Pic"
-          />
+          <img className="postImagePic" src={user?.profilePic} alt="Pic" />
           <p className="fullName">
             {" "}
-            {user.firstName} {user.lastName}{" "}
+            {user?.firstName} {user?.lastName}{" "}
           </p>
           <p className="createdDate"> {formattedDate} </p>
         </div>
@@ -93,16 +82,25 @@ export default function PostComponent({ postDetails }) {
         ) : (
           ""
         )}
-        <p className="userName">@{user.username}</p>
+        <p className="userName">@{user?.username}</p>
         <div>
           <PostOptions
             onClose={() => setShowOptions(false)}
             show={showOptions}
+            setEditModalShow={setEditModalShow}
             postId={postDetails._id}
+          />
+          <EditPost
+            onClose={() => setEditModalShow(false)}
+            show={editModalShow}
+            postId={postDetails._id}
+            postContent={postDetails.content}
           />
         </div>
 
-        <p className="content">{postDetails.content}</p>
+        <p className="content">{postDetails?.content}</p>
+
+        <img src={postDetails?.image} alt="" className="postImage" />
 
         <div className="postComponentFooter">
           <span className="footer-icon" onClick={() => likeDislike()}>
@@ -124,12 +122,6 @@ export default function PostComponent({ postDetails }) {
             <MdOutlineShare />
           </span>
         </div>
-        <EditPost
-          onClose={() => setShowEdit(false)}
-          show={showEdit}
-          postId={postDetails._id}
-          postContent={postDetails.content}
-        />
       </div>
     </div>
   );

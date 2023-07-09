@@ -1,35 +1,128 @@
 import "./editProfile.css";
 
-import { useContext, useState } from "react";
-import { authContext } from "../../Context/authContext/authContext";
 import { toast } from "react-toastify";
+import { MdOutlinePhotoCamera } from "react-icons/md";
+import { useContext, useState, useEffect } from "react";
+
+import ChooseAvatar from "../ChooseAvatar/ChooseAvatar";
+import { authContext } from "../../Context/authContext/authContext";
+import { featureContext } from "../../Context/FeatureContext/FeatureContext";
 
 export const EditProfile = (props) => {
   const { authDispatch, authState } = useContext(authContext);
-  // const [profileDesc, setProfileDesc] = useState({
-  //   bio: "",
-  //   title: "",
-  //   website: "",
-  // });
+  const { editedImageUrl, setEditedImageUrl } = useContext(featureContext);
+  const [editImage, setEditImage] = useState(false);
+
+  const [imageLoading, setImageLoading] = useState(false);
+  const [uploadedImage, setUplaodedImage] = useState();
+  const [showAvatarList, setShowAvatarList] = useState(false);
+
+  const cancelBtn = () => {
+    setUplaodedImage(null);
+    setEditedImageUrl(null);
+    props.onClose();
+  };
+
+  const updateDesc = () => {
+    authDispatch({ type: "updateDesc", payload: editedImageUrl });
+    toast("Profile updated!");
+    props.onClose();
+  };
+
+  const loggedInUser = authState.usersList.find(
+    (user) => user._id === authState.singleUserDetail._id
+  );
+
+  const getImage = async () => {
+    if (uploadedImage) {
+      const imageData = new FormData();
+
+      imageData.append("file", uploadedImage);
+      imageData.append("upload_preset", "shreyansh");
+      imageData.append("cloud_name", "dtdvoqy09");
+
+      try {
+        setImageLoading(true);
+        setEditImage(!editImage);
+        const response = await fetch(
+          "https://api.cloudinary.com/v1_1/dtdvoqy09/image/upload",
+          {
+            method: "POST",
+            body: imageData,
+          }
+        );
+        const { url } = await response.json();
+        setEditedImageUrl(url);
+        setImageLoading(false);
+      } catch (error) {
+        toast.error("Server Error");
+      }
+    }
+  };
+
+  const close = () => {
+    setEditImage(false);
+    setShowAvatarList(!showAvatarList);
+  };
+
+  useEffect(() => {
+    getImage();
+  }, [uploadedImage]);
 
   if (!props.show) {
     return null;
   }
 
-  const cancelBtn = () => {
-    props.onClose();
-  };
-
-  const updateDesc = () => {
-    console.log("hey");
-    authDispatch({ type: "updateDesc" });
-    toast("Description updated!");
-    props.onClose();
-  };
-
   return (
     <div className="parentModal">
       <div className="editProfileComponent">
+        <div className="edit-pic-component">
+          {imageLoading ? (
+            <img
+              className="edit-pic"
+              src="https://gifdb.com/images/high/buffering-animated-text-icon-loading-u1h739who8u5mtw3.gif"
+              alt=""
+            />
+          ) : (
+            <div className="edit-pic-component">
+              <img
+                className="edit-pic"
+                src={editedImageUrl ? editedImageUrl : loggedInUser.profilePic}
+                alt=""
+              />
+              <MdOutlinePhotoCamera
+                className="pic-edit-btn"
+                onClick={() => setEditImage(!editImage)}
+              />
+            </div>
+          )}
+        </div>
+
+        <div
+          className="edit-Pic-Options"
+          style={{ display: editImage ? "block" : "none" }}
+        >
+          <div>
+            <label className="uploadBtn">
+              Upload{" "}
+              <input
+                type="file"
+                style={{ display: "contents" }}
+                onChange={(e) => setUplaodedImage(e?.target?.files[0])}
+              />
+            </label>
+          </div>
+          <p
+            className="uploadBtn"
+            onClick={() => setShowAvatarList(!showAvatarList)}
+          >
+            {" "}
+            Choose Avatar
+          </p>
+          <div style={{ display: showAvatarList ? "block" : "none" }}>
+            <ChooseAvatar onClose={() => close()} />
+          </div>
+        </div>
         <p>Title</p>
         <input
           className="input"
@@ -63,7 +156,12 @@ export const EditProfile = (props) => {
         <div className="editFooter">
           <button onClick={() => cancelBtn()}>Cancel</button>
 
-          <button onClick={() => updateDesc()}>Update</button>
+          <button
+            disabled={imageLoading ? true : false}
+            onClick={() => updateDesc()}
+          >
+            Update
+          </button>
         </div>
       </div>
     </div>

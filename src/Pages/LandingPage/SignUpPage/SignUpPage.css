@@ -3,11 +3,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 2px;
+  padding-top: 0;
+  margin-top: -1.8rem;
   background-color: rgb(248, 252, 252);
 }
 
-.parent .title {
+.parent h1 {
   color: var(--light-blue);
   font-size: 3rem;
   text-align: center;
@@ -17,7 +18,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: 1px solid; */
+  position: relative;
   width: 400px;
   padding: 0rem 2rem 1rem 2rem;
   margin-bottom: 1rem;
@@ -25,6 +26,24 @@
   border-radius: 8px;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.signUpPage .hidePasswordComponentSignUp {
+  position: absolute;
+  margin-top: 14rem;
+  margin-left: 80%;
+  font-size: larger;
+  cursor: pointer;
+  color: gray;
+}
+
+.signUpPage .hidePasswordComponentSignUp2 {
+  position: absolute;
+  margin-top: 17rem;
+  margin-left: 80%;
+  font-size: larger;
+  cursor: pointer;
+  color: gray;
 }
 
 .subHeading {
@@ -35,13 +54,14 @@
   font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
 }
 
-.fullName {
+.signUpPage .fullname {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-left: 4.5rem;
 }
 
-.firstName {
+.fullname .firstName {
   margin-right: 10px;
   font-size: larger;
   margin-left: -4.3rem;
@@ -53,7 +73,7 @@
   border: 1.5px solid rgb(216, 215, 215);
 }
 
-.lastName {
+.fullname .lastName {
   margin-right: 0.3rem;
   width: 11.8rem;
   padding: 08px 5px;

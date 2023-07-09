@@ -1,12 +1,13 @@
 .left-side-bar {
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-end; */
   align-items: flex-start;
-  margin-left: 4rem;
-  margin-right: 3rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
   margin-top: 1rem;
   font-size: x-large;
+  position: fixed;
+  min-width: 17rem;
 }
 
 .pages {
@@ -18,15 +19,21 @@
   padding-right: 0.5rem;
 }
 
+.page {
+  display: flex;
+  justify-content: space-between;
+}
+
 .platform-name {
   font-size: xx-large;
-  font-weight: 500;
+  font-weight: bolder;
   cursor: pointer;
+  color: var(--dark-blue);
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 
 .home-btn {
-  /* margin-left: 0rem;
-    margin-bottom: 2rem; */
   text-decoration: none;
   color: black;
   padding: 10px 5px 15px 3px;
@@ -98,4 +105,21 @@
 
 .post-btn:hover {
   background-color: var(--dark-blue);
+}
+
+.left-side-bar .profileOption {
+  margin-left: 2rem;
+  display: none;
+}
+
+@media (max-width: 1166px) {
+  .left-side-bar .profileOption {
+    display: block;
+  }
+}
+
+@media (max-width: 962px) {
+  .left-side-bar {
+    display: none;
+  }
 }
