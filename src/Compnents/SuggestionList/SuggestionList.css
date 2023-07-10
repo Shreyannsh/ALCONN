@@ -1,6 +1,7 @@
 .suggestionList {
   margin-top: 3.3rem;
   margin-right: -8rem;
+  margin-left: -2rem;
 
   display: flex;
   flex-direction: column;

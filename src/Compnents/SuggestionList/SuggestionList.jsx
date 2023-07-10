@@ -87,7 +87,7 @@ export default function SuggestionList(props) {
           <li style={{ listStyle: "none" }} key={_id}>
             <div className="suggestedUser">
               <Link className="link" to={`/profile/${_id}`}>
-                <img className="image-pic" src={profilePic} />
+                <img className="image-pic" src={profilePic} alt="" />
                 <p className="fullName">
                   {firstName} {lastName}
                 </p>

@@ -13,10 +13,10 @@ export default function SignUpPage() {
   const [showPassword2, setShowPassword2] = useState(false);
 
   const showPasswordFunc = (value) => {
-    if (value == "one") {
+    if (value === "one") {
       setShowPassword1(!showPassword1);
     }
-    if (value == "two") {
+    if (value === "two") {
       setShowPassword2(!showPassword2);
     }
   };

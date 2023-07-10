@@ -42,7 +42,6 @@ export default function AuthProvider({ children }) {
   const userList = async () => {
     try {
       const response = await axios.get("/api/users");
-      const list = response.data.users;
       authDispatch({ type: "usersList", payload: response.data.users });
     } catch (error) {
       toast(error?.response?.data?.errors[0]);
@@ -152,7 +151,6 @@ export default function AuthProvider({ children }) {
           filteredUsers,
           setFilteredUsers,
           signUp,
-          userDetail,
           isActive,
           setIsActive,
           allPosts,

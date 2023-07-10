@@ -25,6 +25,7 @@ export default function FollowList(props) {
                 <img
                   className="image-pic"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgtt3zOq6B9NnqaNv6ApPqWUmxmTf5hxtF_g&usqp=CAU"
+                  alt=""
                 />
                 <p className="fullName">
                   {user.firstName} {user.lastName}

@@ -8,10 +8,10 @@ import { authContext } from "../../Context/authContext/authContext";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
 
 export default function AddPost(props) {
-  const { authState, authDispatch } = useContext(authContext);
+  const { authState } = useContext(authContext);
   const { addPost, editPost } = useContext(featureContext);
   const [postData, setPostData] = useState({});
-  const [uploadedImage, setUploadedImage] = useState("");
+  const [uploadedImage, setUploadedImage] = useState();
   const [imageLoading, setImageLoading] = useState(false);
 
   const getImage = async () => {

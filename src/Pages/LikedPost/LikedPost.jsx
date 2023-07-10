@@ -6,7 +6,7 @@ import { authContext } from "../../Context/authContext/authContext";
 import PostComponent from "../../Compnents/PostComponent/PostComponent";
 
 export default function LikedPost() {
-  const { authState, setIsActive } = useContext(authContext);
+  const { authState, isActive, setIsActive } = useContext(authContext);
 
   const likedPostByUser = authState?.allPostList?.filter((post) =>
     post.likes.likedBy.find(({ _id }) => _id === authState.singleUserDetail._id)
@@ -14,7 +14,7 @@ export default function LikedPost() {
 
   useEffect(() => {
     setIsActive("liked");
-  }, []);
+  }, [isActive]);
 
   return (
     <div className="likedPostPage">

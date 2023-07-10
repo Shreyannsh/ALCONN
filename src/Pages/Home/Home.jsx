@@ -9,7 +9,8 @@ import { authContext } from "../../Context/authContext/authContext";
 import PostComponent from "../../Compnents/PostComponent/PostComponent";
 
 export default function Home() {
-  const { authState, setIsActive, userDetail } = useContext(authContext);
+  const { authState, isLogin, isActive, setIsActive, userDetail } =
+    useContext(authContext);
   const [showSortingOptions, setSortingOptions] = useState(false);
 
   const sortingOptionsBtn = () => {
@@ -18,11 +19,11 @@ export default function Home() {
 
   useEffect(() => {
     userDetail();
-  }, []);
+  }, [isLogin]);
 
   useEffect(() => {
     setIsActive("home");
-  }, []);
+  }, [isActive]);
 
   return (
     <div className="homePage">

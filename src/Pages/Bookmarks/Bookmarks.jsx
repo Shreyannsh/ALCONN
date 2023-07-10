@@ -6,7 +6,7 @@ import { authContext } from "../../Context/authContext/authContext";
 import PostComponent from "../../Compnents/PostComponent/PostComponent";
 
 export default function Bookmarks() {
-  const { authState, setIsActive } = useContext(authContext);
+  const { authState, isActive, setIsActive } = useContext(authContext);
 
   const bookMarkedPosts = authState.bookmarks.map((id) =>
     authState.allPostList.find((post) => post._id === id)
@@ -14,7 +14,7 @@ export default function Bookmarks() {
 
   useEffect(() => {
     setIsActive("bookmark");
-  }, []);
+  }, [isActive]);
 
   return (
     <div className="bookMarkPage">

@@ -42,9 +42,6 @@ export const users = [
     password: "00001111",
     profilePic:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcLn0HX2gU3mr2MN2LFzTqtY_Vff5SySY6nQ&usqp=CAU",
-    title: "Artist",
-    bio: "Always acting!!! haaa",
-    website: "shreyashtiwarii.netlify.app",
     bookmarks: [],
     title: "Actor",
     bio: "Have Fun with life.",

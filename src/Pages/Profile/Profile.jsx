@@ -29,11 +29,6 @@ export default function Profile() {
   const [followList, setFollowList] = useState([]);
   const [followListShow, setFollowListShow] = useState(false);
   const [mode, setMode] = useState();
-  const [values, setValues] = useState({
-    bio: "",
-    title: "",
-    website: "",
-  });
 
   const navigate = useNavigate();
 
@@ -128,7 +123,7 @@ export default function Profile() {
         list={followList}
         mode={mode}
       />
-      <EditProfile values={values} onClose={() => setShow(!show)} show={show} />
+      <EditProfile onClose={() => setShow(!show)} show={show} />
       <div className="background-Image"></div>
       <p onClick={() => signOut()} className="signout">
         <span className="icon">
@@ -162,6 +157,7 @@ export default function Profile() {
             <a
               href={authState.singleUserDetail?.website}
               target="_blank"
+              rel="noreferrer"
               className="website"
             >
               {authState?.singleUserDetail?.website}
