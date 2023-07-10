@@ -5,8 +5,8 @@
 Features -
 
 - User can upload images.
-  User can Like Post.
-  User can Comment & Reply on post.
+  -User can Like Post.
+  -User can Comment & Reply on post.
 - Edit & Delete Post
   User can edit and delete his/her post.
 - User Feed
