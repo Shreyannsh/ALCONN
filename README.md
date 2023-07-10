@@ -1,28 +1,43 @@
+# ALCONN
+
+### Description-:
+ALCONN is a Social Media App to connect with people. is a Social Media App to connect with people. 
+Hang out at https://alconn.vercel.app/
+
+![landing page](https://github.com/Shreyannsh/MySocialMediaLatestApp/assets/111145568/84a2ad5c-71fa-4b37-a5c1-05b538f5b02b)
+
 ### Concepts used -:
 
 1.Made on React 2. React hooks - a. useState b. useContext c. useReducer 3.React Router 5.Functional Programming 6. CSS properties includes - Flex,Grid and more
 
-Features -
-
-- User can upload images.
-  - User can Like Post.
-  - User can Comment & Reply on post.
+### Features -:
+- Create a Post
+- - User can insert text.
+  - User can upload images.
+  - User can Like, disLike Post.
 - Edit & Delete Post
-  User can edit and delete his/her post.
+  - User can edit and delete his/her post.
 - User Feed
-  Users can see posts on their feed whom they follow.
+  - Users can see posts on their feed whom they follow.
 - Sort by Date, Trending & Recent
-  Filters are given on home page to filter out desired post.
+  - Filters are given on home page to filter out desired post.
 - User Profile Page
-  Add Profile Picture
-  User can Add Bio
-  Add Portfolio URL
+  - Add Profile Picture
+  - User can Add Bio
+  - Add Portfolio URL
 - Follow/UnFollow
 - Explore Feed Page
-  Users can see posts of everyone on this page.
+  - Users can see posts of everyone on this page.
 - Bookmark Page
-  User can bookmark posts.
+  - User can bookmark posts.
 - Authentication
-  Sign-up
-  Login
-  Logout
+  - Sign-up
+  - Login
+  - Logout
+
+##Snaps
+
+![Uploading Home.JPG…]()  ![landing page](https://github.com/Shreyannsh/MySocialMediaLatestApp/assets/111145568/87438920-720e-486f-bbe5-db8a41f7c136)
+![Profile](https://github.com/Shreyannsh/MySocialMediaLatestApp/assets/111145568/65bb7518-c994-49e3-9f83-26a25136999c)
+![signup](https://github.com/Shreyannsh/MySocialMediaLatestApp/assets/111145568/22e41a07-fbbd-44bd-8716-5226f9fb9d90)
+
