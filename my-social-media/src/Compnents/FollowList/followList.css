@@ -1,0 +1,66 @@
+.parentModal .followList {
+  margin-top: 05rem;
+  margin-left: 0rem;
+  padding: 0.5rem 0rem 0rem 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: azure;
+  position: relative;
+  width: 20rem;
+  min-height: 15rem;
+  max-height: 30rem;
+  overflow-y: scroll;
+}
+
+.followList .fTitle {
+  margin-left: 1.5rem;
+  margin-top: 0.7rem;
+  margin-bottom: 2rem;
+}
+.followList h2 {
+  margin-left: 3rem;
+  margin-top: 2rem;
+}
+.cancel {
+  position: absolute;
+  border-radius: 3px;
+  right: 2rem;
+  top: 1.5rem;
+  font-size: larger;
+  font-weight: 600;
+  background-color: rgb(255, 38, 0);
+  padding: 0px 8px;
+  cursor: pointer;
+}
+
+.cancel:hover {
+  border: 2px solid;
+}
+
+.followList .suggestedUser {
+  width: 17rem;
+  height: 3.8rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  color: black;
+  text-decoration: none;
+  padding-top: 5px;
+  padding-left: 5px;
+  border-radius: 5px;
+}
+
+.suggestedUser .fullName {
+  margin-left: 3.5rem;
+  margin-top: -0rem;
+}
+
+.suggestedUser .userName {
+  margin-left: 3.4rem;
+  margin-top: -1.3rem;
+}
+
+.followList .suggestedUser:hover {
+  background-color: antiquewhite;
+}
