@@ -35,14 +35,14 @@ Hang out at https://alconn.vercel.app/
   - Login
   - Logout
 
-##Snaps
+## Snaps
 
-###Home
+### Home
 ![Home](https://github.com/Shreyannsh/MySocialMediaLatestApp/assets/111145568/4c53503c-f56c-4b9a-b789-6622233e2246)
 
-###Profile
+### Profile
 ![Profile](https://github.com/Shreyannsh/MySocialMediaLatestApp/assets/111145568/65bb7518-c994-49e3-9f83-26a25136999c)
 
-###SingUp 
+### SingUp 
 ![signup](https://github.com/Shreyannsh/MySocialMediaLatestApp/assets/111145568/22e41a07-fbbd-44bd-8716-5226f9fb9d90)
 
