@@ -125,11 +125,16 @@ export default function Profile() {
       />
       <EditProfile onClose={() => setShow(!show)} show={show} />
       <div className="background-Image"></div>
-      <p onClick={() => signOut()} className="signout">
-        <span className="icon">
-          <GoSignOut />
-        </span>
-      </p>
+
+      {match ? (
+        <p onClick={() => signOut()} className="signout">
+          <span className="icon">
+            <GoSignOut />
+          </span>
+        </p>
+      ) : (
+        ""
+      )}
 
       <img className="image" src={userDetail.profilePic} alt="Pic" />
 
