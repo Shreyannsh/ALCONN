@@ -19,6 +19,7 @@ import AddPost from "./Compnents/AddPost/AddPost";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdCancel } from "react-icons/md";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const { isLogin } = useContext(authContext);
