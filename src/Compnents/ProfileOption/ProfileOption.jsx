@@ -36,8 +36,14 @@ export default function ProfileOption() {
   return (
     <div className="profileOptionSection">
       <div onClick={() => profileOption()} className="profileOption">
-        <img className="image-pic" src={loggedInUser?.profilePic} alt="Pic" />
-        <p className="profileName">{authState?.singleUserDetail?.firstName}</p>
+        <img
+          className="image-pic-profileOption"
+          src={loggedInUser?.profilePic}
+          alt="Pic"
+        />
+        <p className="profileName-profileOption">
+          {authState?.singleUserDetail?.firstName}
+        </p>
         <span className="arrow">
           {show ? <IoIosArrowUp /> : <IoIosArrowDown />}
         </span>
@@ -46,17 +52,17 @@ export default function ProfileOption() {
         style={{ display: show ? "block" : "none" }}
         className="profileDropDown"
       >
-        <div className="profile" onClick={() => profilePage()}>
-          <Link
-            className="link"
-            to={`/profile/${authState.singleUserDetail._id}`}
-          >
+        <Link
+          className="link"
+          to={`/profile/${authState.singleUserDetail._id}`}
+        >
+          <div className="profile" onClick={() => profilePage()}>
             <span className="icon">
               <BsFillPersonFill />
             </span>
             Profile
-          </Link>
-        </div>
+          </div>
+        </Link>
         <p onClick={() => signOut()} className="signout">
           <span className="icon">
             <GoSignOut />

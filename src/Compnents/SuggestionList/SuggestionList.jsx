@@ -2,7 +2,7 @@ import "./SuggestionList.css";
 
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { authContext } from "../../Context/authContext/authContext";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
@@ -11,7 +11,9 @@ export default function SuggestionList(props) {
   const { authState, filteredUsers, setFilteredUsers } =
     useContext(authContext);
   const { follow } = useContext(featureContext);
-  const followingList = authState.singleUserDetail.following;
+  const [noUserFound, setNoUserFound] = useState(false);
+
+  const followingList = authState?.singleUserDetail?.following;
 
   const displayFilterList = () => {
     const filteredSuggestionList = authState.usersList?.reduce((acc, crr) => {
@@ -21,30 +23,46 @@ export default function SuggestionList(props) {
     }, []);
 
     setFilteredUsers(
-      filteredSuggestionList.filter(
+      filteredSuggestionList?.filter(
         ({ _id }) => _id !== authState.singleUserDetail._id
       )
     );
   };
 
   const searchUser = (e) => {
-    const value = props.searchText !== "" ? props.searchText : e?.target?.value;
+    const value =
+      props.searchText !== undefined ? props.searchText : e?.target?.value;
+    console.log(props.searchText, "props.searchText");
+    console.log(value);
 
     if (value) {
-      setFilteredUsers(
-        authState.usersList.filter(
-          (user) =>
-            user.username.toLowerCase().includes(value.toLowerCase()) ||
-            user.firstName.toLowerCase().includes(value.toLowerCase()) ||
-            user.lastName.toLowerCase().includes(value.toLowerCase())
-        )
+      const searchedUser = authState.usersList.filter(
+        (user) =>
+          user.username.toLowerCase().includes(value.toLowerCase()) ||
+          user.firstName.toLowerCase().includes(value.toLowerCase()) ||
+          user.lastName.toLowerCase().includes(value.toLowerCase())
       );
+
+      if (searchedUser.length === 0) {
+        setNoUserFound(true);
+      } else {
+        setNoUserFound(false);
+      }
+      setFilteredUsers(searchedUser);
     } else {
-      setFilteredUsers(
-        authState.usersList.filter(
-          ({ _id }) => _id !== authState.singleUserDetail._id
-        )
-      );
+      const followersIds = followingList?.map((user) => user._id);
+      const nonFollowedUsers = authState.usersList?.reduce((acc, crr) => {
+        if (
+          !followersIds?.includes(crr._id) &&
+          crr._id !== authState.singleUserDetail._id
+        ) {
+          acc = [...acc, crr];
+        }
+
+        return acc;
+      }, []);
+
+      setFilteredUsers(nonFollowedUsers);
     }
   };
 
@@ -81,32 +99,39 @@ export default function SuggestionList(props) {
       >
         Suggestions for you
       </h3>
-
-      {filteredUsers?.map(
-        ({ firstName, lastName, username, _id, profilePic }) => (
-          <li style={{ listStyle: "none" }} key={_id}>
-            <div className="suggestedUser">
-              <Link className="link" to={`/profile/${_id}`}>
-                <img className="image-pic" src={profilePic} alt="" />
-                <p className="fullName">
-                  {firstName} {lastName}
-                </p>
-                <p className="userName">@{username}</p>
-              </Link>
-              {authState.singleUserDetail._id !== _id && (
-                <span
-                  className="follow-btn"
-                  onClick={() => {
-                    followUnfollow(_id);
-                  }}
-                >
-                  Follow
-                </span>
-              )}
-            </div>
-          </li>
-        )
-      )}
+      <div className="suggestedUserList">
+        {filteredUsers?.length !== 0 ? (
+          filteredUsers?.map(
+            ({ firstName, lastName, username, _id, profilePic }) => (
+              <li style={{ listStyle: "none" }} key={_id}>
+                <div className="suggestedUser">
+                  <Link className="linkk" to={`/profile/${_id}`}>
+                    <img className="image-picc" src={profilePic} alt="" />
+                    <p className="fullNamee">
+                      {firstName} {lastName}
+                    </p>
+                    <p className="userNamee">@{username}</p>
+                  </Link>
+                  {authState.singleUserDetail._id !== _id && (
+                    <span
+                      className="follow-btnn"
+                      onClick={() => {
+                        followUnfollow(_id);
+                      }}
+                    >
+                      Follow
+                    </span>
+                  )}
+                </div>
+              </li>
+            )
+          )
+        ) : noUserFound ? (
+          <h3 className="errormsg">No such user is there...</h3>
+        ) : (
+          <h3 className="errormsg">Followed all</h3>
+        )}
+      </div>
     </div>
   );
 }

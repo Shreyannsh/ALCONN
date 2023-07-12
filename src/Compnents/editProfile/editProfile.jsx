@@ -109,6 +109,7 @@ export const EditProfile = (props) => {
                 type="file"
                 style={{ display: "contents" }}
                 onChange={(e) => setUplaodedImage(e?.target?.files[0])}
+                accept="image/jpeg, image/png, image/gif"
               />
             </label>
           </div>
