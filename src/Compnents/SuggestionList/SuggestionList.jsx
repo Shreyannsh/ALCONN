@@ -10,11 +10,14 @@ import { featureContext } from "../../Context/FeatureContext/FeatureContext";
 export default function SuggestionList(props) {
   const { authState, filteredUsers, setFilteredUsers } =
     useContext(authContext);
-  const { follow } = useContext(featureContext);
+  const { follow, unfollow } = useContext(featureContext);
   const [noUserFound, setNoUserFound] = useState(false);
-
+  const [searchedText, setSearchedText] = useState("");
+  console.log(searchedText);
   const followingList = authState?.singleUserDetail?.following;
-
+  // console.log(followingList);
+  const followingListId = followingList?.map((follower) => follower._id);
+  //console.log(followingListId);
   const displayFilterList = () => {
     const filteredSuggestionList = authState.usersList?.reduce((acc, crr) => {
       const match = followingList?.find((user) => user._id === crr._id);
@@ -29,10 +32,11 @@ export default function SuggestionList(props) {
     );
   };
 
-  const searchUser = (e) => {
+  const searchUser = () => {
+    console.log(searchedText);
     const value =
-      props.searchText !== undefined ? props.searchText : e?.target?.value;
-    console.log(props.searchText, "props.searchText");
+      props.searchText !== undefined ? props.searchText : searchedText;
+
     console.log(value);
 
     if (value) {
@@ -68,11 +72,16 @@ export default function SuggestionList(props) {
 
   const followUnfollow = (id) => {
     const person = authState.usersList.find((user) => user._id === id);
-
-    follow(id);
-
-    setFilteredUsers(filteredUsers.filter(({ _id }) => _id !== id));
-    toast(`Following ${person.username}`);
+    if (followingListId?.includes(id)) {
+      unfollow(id);
+      setSearchedText("");
+      toast(`Unfollowed ${person.username}`);
+    } else {
+      follow(id);
+      setSearchedText("");
+      setFilteredUsers(filteredUsers.filter(({ _id }) => _id !== id));
+      toast(`Following ${person.username}`);
+    }
   };
 
   useEffect(() => {
@@ -81,7 +90,7 @@ export default function SuggestionList(props) {
 
   useEffect(() => {
     searchUser();
-  }, [props.searchText]);
+  }, [props.searchText, searchedText]);
 
   return (
     <div className="suggestionList">
@@ -89,7 +98,8 @@ export default function SuggestionList(props) {
         style={{ display: props.mobile ? "none" : "block" }}
         className="searchBox"
         placeholder="Search friend"
-        onChange={(e) => searchUser(e)}
+        value={searchedText}
+        onChange={(e) => setSearchedText(e.target.value)}
         type="text"
       />
 
@@ -119,7 +129,7 @@ export default function SuggestionList(props) {
                         followUnfollow(_id);
                       }}
                     >
-                      Follow
+                      {followingListId?.includes(_id) ? "Following" : "Follow"}
                     </span>
                   )}
                 </div>

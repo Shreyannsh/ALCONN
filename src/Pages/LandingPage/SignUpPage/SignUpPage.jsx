@@ -23,8 +23,7 @@ export default function SignUpPage() {
 
   const signUpBtn = () => {
     const signUpValues = Object.values(authState.signUpDetails).includes("");
-    console.log(Object.values(authState.signUpDetails));
-    console.log(signUpValues);
+
     if (signUpValues) {
       toast.error(" Enter all fields to signup ");
     } else if (authState.signUpDetails.password.length < 8) {

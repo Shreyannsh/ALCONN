@@ -5,15 +5,15 @@ import {
   MdOutlineBookmark,
   MdOutlineShare,
 } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { GoComment } from "react-icons/go";
+import EditPost from "../EditPost/EditPost";
 import { useContext, useState } from "react";
 import { HiDotsHorizontal } from "react-icons/hi";
-import { GoComment } from "react-icons/go";
+import PostOptions from "../PostOptions/PostOptions";
 import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
-
 import { authContext } from "../../Context/authContext/authContext";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
-import PostOptions from "../PostOptions/PostOptions";
-import EditPost from "../EditPost/EditPost";
 
 export default function PostComponent({ postDetails }) {
   const { likePost, dislikePost, addBookmark, removeBookmark } =
@@ -67,10 +67,10 @@ export default function PostComponent({ postDetails }) {
       <div className="postComponent">
         <div className="header">
           <img className="postImagePic" src={user?.profilePic} alt="Pic" />
-          <p className="fullName">
+          <Link to={`/profile/${user._id}`} className="fullName">
             {" "}
             {user?.firstName} {user?.lastName}{" "}
-          </p>
+          </Link>
           <p className="createdDate"> {formattedDate} </p>
         </div>
 

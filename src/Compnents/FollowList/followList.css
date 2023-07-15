@@ -51,6 +51,13 @@
   border-radius: 5px;
 }
 
+.followList .image-pic {
+  position: absolute;
+  border-radius: 40px;
+  height: 3rem;
+  width: 3rem;
+}
+
 .suggestedUser .fullName {
   margin-left: 3.5rem;
   margin-top: -0rem;
