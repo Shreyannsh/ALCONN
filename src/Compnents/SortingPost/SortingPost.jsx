@@ -29,7 +29,7 @@ export default function SortingPost(props) {
 
     authDispatch({ type: "allPostList", payload: sortByDate });
   };
-  console.log(trending);
+
   return (
     <div className="sortingOptionsParent">
       <div className="sortingOptions">

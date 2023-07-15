@@ -13,11 +13,11 @@ export default function SuggestionList(props) {
   const { follow, unfollow } = useContext(featureContext);
   const [noUserFound, setNoUserFound] = useState(false);
   const [searchedText, setSearchedText] = useState("");
-  console.log(searchedText);
+
   const followingList = authState?.singleUserDetail?.following;
-  // console.log(followingList);
+
   const followingListId = followingList?.map((follower) => follower._id);
-  //console.log(followingListId);
+
   const displayFilterList = () => {
     const filteredSuggestionList = authState.usersList?.reduce((acc, crr) => {
       const match = followingList?.find((user) => user._id === crr._id);
@@ -33,11 +33,8 @@ export default function SuggestionList(props) {
   };
 
   const searchUser = () => {
-    console.log(searchedText);
     const value =
       props.searchText !== undefined ? props.searchText : searchedText;
-
-    console.log(value);
 
     if (value) {
       const searchedUser = authState.usersList.filter(

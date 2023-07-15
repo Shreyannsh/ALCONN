@@ -48,6 +48,37 @@ export default function AuthProvider({ children }) {
     }
   };
 
+  const editUser = async (userData) => {
+    console.log(userData);
+    try {
+      const response = await fetch("/api/users/edit", {
+        method: "POST",
+        headers: { authorization: localStorage.getItem("encodedToken") },
+        body: JSON.stringify({
+          userData: {
+            profilePic: userData?.profilePic,
+            title: userData?.title,
+            bio: userData?.bio,
+            website: userData?.website,
+          },
+        }),
+      });
+      userList();
+
+      const updatedUser = response.data.user;
+      console.log(updatedUser);
+      // const updatedUserList = authState.usersList.map((user)=>{
+      //   if(user._id === updatedUserList._id){
+      //     return {...user,...updatedUser}
+      //   }else{
+      //     return user;
+      //   }
+      // })
+    } catch (error) {
+      toast(error?.response?.data?.errors[0]);
+    }
+  };
+
   const allPosts = async () => {
     try {
       const response = await axios.get("/api/posts");
@@ -136,6 +167,12 @@ export default function AuthProvider({ children }) {
     userList();
   }, []);
 
+  useEffect(() => {
+    userDetail();
+  }, [authState.usersList]);
+
+  console.log(authState);
+
   return (
     <div>
       <authContext.Provider
@@ -154,6 +191,7 @@ export default function AuthProvider({ children }) {
           isActive,
           setIsActive,
           allPosts,
+          editUser,
         }}
       >
         {children}

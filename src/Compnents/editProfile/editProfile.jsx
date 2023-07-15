@@ -9,13 +9,21 @@ import { authContext } from "../../Context/authContext/authContext";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
 
 export const EditProfile = (props) => {
-  const { authDispatch, authState } = useContext(authContext);
+  const { authDispatch, authState, editUser } = useContext(authContext);
   const { editedImageUrl, setEditedImageUrl } = useContext(featureContext);
   const [editImage, setEditImage] = useState(false);
-
   const [imageLoading, setImageLoading] = useState(false);
   const [uploadedImage, setUplaodedImage] = useState();
   const [showAvatarList, setShowAvatarList] = useState(false);
+
+  const userData = {
+    title: authState.descriptionUpdate.title,
+    bio: authState.descriptionUpdate.bio,
+    website: authState.descriptionUpdate.website,
+    profilePic: editedImageUrl,
+  };
+
+  console.log(userData);
 
   const cancelBtn = () => {
     setUplaodedImage(null);
@@ -24,7 +32,7 @@ export const EditProfile = (props) => {
   };
 
   const updateDesc = () => {
-    authDispatch({ type: "updateDesc", payload: editedImageUrl });
+    editUser(userData);
     toast("Profile updated!");
     props.onClose();
   };
@@ -57,6 +65,8 @@ export const EditProfile = (props) => {
       } catch (error) {
         toast.error("Server Error");
       }
+    } else {
+      setEditedImageUrl(authState.singleUserDetail.profilcPic);
     }
   };
 

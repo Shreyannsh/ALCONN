@@ -45,7 +45,7 @@ export const users = [
     bookmarks: [],
     title: "Actor",
     bio: "Have Fun with life.",
-    website: "",
+    website: "shreyashtiwarii.netlify.app",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
