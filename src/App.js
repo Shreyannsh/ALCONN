@@ -93,7 +93,7 @@ function App() {
                 <Route path="/explore" element={<Explore />} />
                 <Route path="/bookmarks" element={<Bookmarks />} />
                 <Route path="/likedpost" element={<LikedPost />} />
-                <Route path="/profile/:userId" element={<Profile />} />
+                <Route path="/profile/:userName" element={<Profile />} />
               </Routes>
             </div>
             <div className="suggestionPage">

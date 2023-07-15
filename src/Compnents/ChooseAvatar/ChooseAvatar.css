@@ -18,3 +18,13 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.setBtn {
+  background-color: var(--dark-blue);
+  margin-left: 5px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 2px 6px;
+  cursor: pointer;
+}

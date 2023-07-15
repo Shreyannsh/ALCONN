@@ -54,7 +54,7 @@ export default function ProfileOption() {
       >
         <Link
           className="link"
-          to={`/profile/${authState.singleUserDetail._id}`}
+          to={`/profile/${authState.singleUserDetail.username}`}
         >
           <div className="profile" onClick={() => profilePage()}>
             <span className="icon">

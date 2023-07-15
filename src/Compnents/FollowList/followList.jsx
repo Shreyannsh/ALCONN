@@ -19,7 +19,7 @@ export default function FollowList(props) {
             <li style={{ listStyle: "none" }} key={user._id}>
               <Link
                 onClick={() => props.onClose()}
-                to={`/profile/${user._id}`}
+                to={`/profile/${user.username}`}
                 className="suggestedUser"
               >
                 <img className="image-pic" src={user.profilePic} alt="" />

@@ -113,9 +113,9 @@ export default function SuggestionList(props) {
         {filteredUsers?.length !== 0 ? (
           filteredUsers?.map(
             ({ firstName, lastName, username, _id, profilePic }) => (
-              <li style={{ listStyle: "none" }} key={_id}>
+              <li style={{ listStyle: "none" }} key={username}>
                 <div className="suggestedUser">
-                  <Link className="linkk" to={`/profile/${_id}`}>
+                  <Link className="linkk" to={`/profile/${username}`}>
                     <img className="image-picc" src={profilePic} alt="" />
                     <p className="fullNamee">
                       {firstName} {lastName}

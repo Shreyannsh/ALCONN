@@ -32,13 +32,15 @@ export default function Profile() {
 
   const navigate = useNavigate();
 
-  const { userId } = useParams();
+  const { userName } = useParams();
 
   useEffect(() => {
     setIsActive("");
   }, []);
 
-  const userDetail = authState?.usersList?.find((user) => user._id === userId);
+  const userDetail = authState?.usersList?.find(
+    (user) => user.username === userName
+  );
 
   const match = authState?.singleUserDetail?.username?.includes(
     userDetail.username
@@ -76,11 +78,11 @@ export default function Profile() {
 
   const followBtn = () => {
     if (following) {
-      unfollow(userId);
+      unfollow(userDetail._id);
       toast(`Unfollowed ${userDetail.username}`);
       setFilteredUsers([...filteredUsers, userDetail]);
     } else {
-      follow(userId);
+      follow(userDetail._id);
       toast(`Following ${userDetail.username}`);
       setFilteredUsers(
         authState?.usersList?.filter(({ _id }) => _id !== userDetail._id)

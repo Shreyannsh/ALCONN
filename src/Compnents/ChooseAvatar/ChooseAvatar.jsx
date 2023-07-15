@@ -65,18 +65,7 @@ export default function ChooseAvatar(props) {
       />
 
       <div>
-        <button
-          style={{
-            backgroundColor: "var(--dark-blue)",
-            marginLeft: "5px",
-            color: "white",
-            borderRadius: "5px",
-            border: "none",
-            padding: "2px 6px",
-            cursor: "pointer",
-          }}
-          onClick={() => props.onClose()}
-        >
+        <button className="setBtn" onClick={() => props.onClose()}>
           Set
         </button>
       </div>

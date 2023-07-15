@@ -67,7 +67,7 @@ export default function PostComponent({ postDetails }) {
       <div className="postComponent">
         <div className="header">
           <img className="postImagePic" src={user?.profilePic} alt="Pic" />
-          <Link to={`/profile/${user._id}`} className="fullName">
+          <Link to={`/profile/${user.username}`} className="fullName">
             {" "}
             {user?.firstName} {user?.lastName}{" "}
           </Link>

@@ -88,7 +88,7 @@ export default function MobileNavBar() {
           </div>
         )}
       </Link>
-      <Link to={`/profile/${authState.singleUserDetail._id}`}>
+      <Link to={`/profile/${authState.username}`}>
         <img src={loggedInUser?.profilePic} alt="" className="navBarPic" />
       </Link>
     </div>
