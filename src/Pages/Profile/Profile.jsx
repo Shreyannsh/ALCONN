@@ -162,7 +162,6 @@ export default function Profile() {
             <a
               href={authState.singleUserDetail?.website}
               target="_blank"
-              rel="noreferrer"
               className="website"
             >
               {authState?.singleUserDetail?.website}

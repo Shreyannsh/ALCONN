@@ -66,7 +66,7 @@
   cursor: pointer;
 }
 
-.editProfileComponent .textArea {
+.editProfileComponent .editBio {
   width: 15rem;
   height: 3rem;
   resize: none;

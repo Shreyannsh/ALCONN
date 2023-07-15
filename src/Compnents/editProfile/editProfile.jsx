@@ -136,7 +136,7 @@ export const EditProfile = (props) => {
         />
         <p>Bio</p>
         <textarea
-          className="textArea"
+          className="editBio"
           name="bio"
           value={authState.descriptionUpdate.bio}
           onChange={(e) =>
