@@ -248,7 +248,7 @@ export default function Profile() {
       <div style={{ display: showBookmarkedPosts ? "block" : "none" }}>
         {bookMarkedPosts?.length > 0 ? (
           bookMarkedPosts?.map((post) => (
-            <li>
+            <li className="list">
               <PostComponent postDetails={post} />
             </li>
           ))
