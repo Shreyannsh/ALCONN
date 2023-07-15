@@ -56,7 +56,7 @@ export default function Profile() {
     (post) => post?.username === userDetail?.username
   );
 
-  const bookMarkedPosts = userDetail?.bookmarks?.map((id) =>
+  const bookMarkedPosts = authState?.bookmarks?.map((id) =>
     authState.allPostList.find((post) => post._id === id)
   );
 
