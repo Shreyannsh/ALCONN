@@ -217,6 +217,7 @@ export default function FeatureProvider({ children }) {
           addPost,
           deletePost,
           setTrending,
+          trending,
           editPost,
           follow,
           unfollow,

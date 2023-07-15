@@ -19,9 +19,4 @@
   cursor: pointer;
   border: 2px solid var(--light-gray);
   border-radius: 5px;
-  background-color: rgb(250, 227, 153);
-}
-
-.sortingOption:hover {
-  background-color: rgb(243, 205, 78);
 }

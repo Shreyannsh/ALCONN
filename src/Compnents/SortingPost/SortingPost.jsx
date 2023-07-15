@@ -7,7 +7,7 @@ import { featureContext } from "../../Context/FeatureContext/FeatureContext";
 
 export default function SortingPost(props) {
   const { authState, authDispatch } = useContext(authContext);
-  const { setTrending } = useContext(featureContext);
+  const { trending, setTrending } = useContext(featureContext);
 
   if (!props.show) {
     return null;
@@ -22,20 +22,37 @@ export default function SortingPost(props) {
   };
 
   const sortByDate = () => {
+    setTrending(false);
     const sortByDate = authState.allPostList.sort(
       (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
     );
 
     authDispatch({ type: "allPostList", payload: sortByDate });
   };
-
+  console.log(trending);
   return (
     <div className="sortingOptionsParent">
       <div className="sortingOptions">
-        <button className="sortingOption" onClick={() => sortByLikes()}>
+        <button
+          style={{
+            backgroundColor: trending
+              ? " rgb(250, 203, 49)"
+              : "rgb(250, 227, 153)",
+          }}
+          className="sortingOption"
+          onClick={() => sortByLikes()}
+        >
           Trending
         </button>
-        <button className="sortingOption" onClick={() => sortByDate()}>
+        <button
+          style={{
+            backgroundColor: trending
+              ? "rgb(250, 227, 153)"
+              : " rgb(250, 203, 49)",
+          }}
+          className="sortingOption"
+          onClick={() => sortByDate()}
+        >
           Latest
         </button>
       </div>
