@@ -160,19 +160,15 @@ export default function Profile() {
         <div className="description">
           <div>
             <p className="title">{userDetail?.title}</p>
-            <p className="bio">{userDetail.bio}</p>
-            <a
-              href={authState.singleUserDetail?.website}
-              target="_blank"
-              className="website"
-            >
-              {authState?.singleUserDetail?.website}
+            <p className="bio">{userDetail?.bio}</p>
+            <a href={userDetail?.website} target="_blank" className="website">
+              {userDetail?.website}
             </a>
           </div>
         </div>
 
         <p className="profile-footer">
-          <span> {authState.postList.length} Posts </span>{" "}
+          <span> {filteredPost.length} Posts </span>{" "}
           <span
             onClick={() => followingFollowerList("following")}
             className="follow-Btn"
