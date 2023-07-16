@@ -1,7 +1,7 @@
 .mainPage {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   position: relative;
 }
 
@@ -12,13 +12,17 @@
   --white: rgb(255, 255, 255);
 }
 
-.centerPage {
+p {
+  max-width: 100%;
+}
+
+/* .centerPage {
   display: flex;
   flex-wrap: wrap;
   padding-left: 3rem;
   margin-right: 10rem;
   min-width: 32rem;
-}
+} */
 
 .mobileAddPostBtn {
   position: fixed;
@@ -51,6 +55,7 @@
 .brandBar {
   display: flex;
   position: fixed;
+  width: 110vw;
   justify-content: space-between;
   background-color: white;
   right: 0;
@@ -65,6 +70,7 @@
 .brandBar .searchBox {
   margin-top: 0.5rem;
   margin-right: 1.5rem;
+  flex-wrap: wrap;
   height: 2.3rem;
   width: 10rem;
   border-radius: 20px;
@@ -76,7 +82,7 @@
 }
 
 .cancelButton {
-  position: fixed;
+  position: absolute;
   right: 2.5rem;
   top: 1.6rem;
   font-size: 1.5rem;
@@ -85,7 +91,7 @@
 .mobileSuggestion {
   display: flex;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   background-color: white;
   margin-top: 1rem;
   margin-left: -7rem;
@@ -109,10 +115,9 @@
 }
 
 @media (max-width: 786px) {
-  .mainPage .centerPage {
-    display: flex;
+  .mainPage {
     justify-content: center;
-    margin-right: 0rem;
+    margin: auto;
   }
 }
 

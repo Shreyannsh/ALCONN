@@ -39,12 +39,13 @@ export default function Home() {
         </span>
       </p>
       <SortingPost show={showSortingOptions} />
-
-      {authState?.allPostList?.map((post) => (
-        <li key={post._id} className="postList">
-          <PostComponent postDetails={post} />
-        </li>
-      ))}
+      <div className="postFullList">
+        {authState?.allPostList?.map((post) => (
+          <li key={post._id} className="postList">
+            <PostComponent postDetails={post} />
+          </li>
+        ))}
+      </div>
     </div>
   );
 }

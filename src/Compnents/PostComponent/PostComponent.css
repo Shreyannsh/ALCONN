@@ -2,8 +2,10 @@
   border: 1px solid var(--light-gray);
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   width: 100%;
+  /* flex-wrap: wrap; */
+  /* margin: auto;
+  max-width: 500px; */
   margin-top: 2rem;
   margin-bottom: 3rem;
   padding-top: 1rem;
@@ -56,12 +58,10 @@
 }
 
 .content {
-  display: flex;
   padding-left: 0.5rem;
   margin-right: 2rem;
   font-size: 17px;
   width: 25rem;
-  flex-wrap: wrap;
   word-break: break-word;
 }
 
