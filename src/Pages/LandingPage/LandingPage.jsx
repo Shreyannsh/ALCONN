@@ -36,7 +36,7 @@ export default function LandingPage() {
           <i>Stay Always Connceted</i>
         </p>
       </div>
-      <div>
+      <div className="login-section">
         <h1>ALCONN</h1>
         <div className="loginPage">
           <p className="loginTitle">Login to Alconn</p>

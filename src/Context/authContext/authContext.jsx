@@ -49,7 +49,6 @@ export default function AuthProvider({ children }) {
   };
 
   const editUser = async (userData) => {
-    console.log(userData);
     try {
       const response = await fetch("/api/users/edit", {
         method: "POST",
@@ -64,16 +63,6 @@ export default function AuthProvider({ children }) {
         }),
       });
       userList();
-
-      const updatedUser = response.data.user;
-      console.log(updatedUser);
-      // const updatedUserList = authState.usersList.map((user)=>{
-      //   if(user._id === updatedUserList._id){
-      //     return {...user,...updatedUser}
-      //   }else{
-      //     return user;
-      //   }
-      // })
     } catch (error) {
       toast(error?.response?.data?.errors[0]);
     }
@@ -170,8 +159,6 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     userDetail();
   }, [authState.usersList]);
-
-  console.log(authState);
 
   return (
     <div>

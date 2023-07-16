@@ -1,4 +1,6 @@
+import "./MobileNavBar.css";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import {
   AiOutlineHome,
@@ -13,7 +15,6 @@ import {
   MdOutlineBookmarkBorder,
   MdOutlineBookmark,
 } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 import { authContext } from "../../Context/authContext/authContext";
 
@@ -88,7 +89,7 @@ export default function MobileNavBar() {
           </div>
         )}
       </Link>
-      <Link to={`/profile/${authState.username}`}>
+      <Link to={`/profile/${authState.singleUserDetail.username}`}>
         <img src={loggedInUser?.profilePic} alt="" className="navBarPic" />
       </Link>
     </div>

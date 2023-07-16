@@ -1,6 +1,7 @@
 .mainPage {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   position: relative;
 }
 
@@ -50,7 +51,6 @@
   position: fixed;
   justify-content: space-between;
   background-color: white;
-
   right: 0;
   left: 0;
   z-index: 10;
@@ -60,11 +60,22 @@
 .brandTitle {
   display: flex;
 }
+.brandBar .searchBox {
+  margin-right: 2rem;
+  margin-top: 1rem;
+  height: 2.3rem;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(212, 212, 212);
+  font-size: medium;
+  padding-left: 1.5rem;
+  box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.6);
+}
 
 .cancelButton {
-  position: absolute;
-  right: 4rem;
-  top: 2rem;
+  position: fixed;
+  right: 3.2rem;
+  top: 2.1rem;
   font-size: 1.5rem;
 }
 
@@ -79,19 +90,6 @@
   padding-top: 0rem;
   max-height: 30rem;
   overflow-y: scroll;
-}
-
-.brandBar .searchBox {
-  margin-right: 3rem;
-  margin-top: 1rem;
-  width: 14rem;
-  height: 2.3rem;
-  border-radius: 20px;
-  border: none;
-  background-color: rgb(212, 212, 212);
-  font-size: medium;
-  padding-left: 1.5rem;
-  box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.6);
 }
 
 .suggestionPage {
@@ -114,7 +112,7 @@
   }
 }
 
-@media (min-width: 962px) {
+@media (min-width: 786px) {
   .mobibar,
   .brandBar,
   .mobileAddPostBtn {
