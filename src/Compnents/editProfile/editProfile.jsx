@@ -23,8 +23,6 @@ export const EditProfile = (props) => {
     profilePic: editedImageUrl,
   };
 
-  console.log(userData);
-
   const cancelBtn = () => {
     setUplaodedImage(null);
     setEditedImageUrl(null);
