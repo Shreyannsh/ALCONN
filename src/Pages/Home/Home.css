@@ -1,7 +1,7 @@
 .homePage {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .addPostHome {
@@ -33,8 +33,8 @@
 }
 
 .postFullList {
-  width: 90vw;
-  max-width: 500px;
+  width: 100%;
+  /* max-width: 500px; */
   margin: auto;
   /* display: grid;
   justify-content: center; */

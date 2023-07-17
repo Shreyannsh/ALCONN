@@ -102,12 +102,12 @@ function App() {
             <div className="profileOptionPage">
               <ProfileOption />
             </div>
-            {/* <div>
+            <div>
               <AiOutlinePlus
                 className="mobileAddPostBtn"
                 onClick={() => mobileAddPostBtn()}
               />
-            </div> */}
+            </div>
             <AddPost onClose={() => setShow(!show)} show={show} mode={mode} />
             <div className="mobibar">
               <MobileNavBar />

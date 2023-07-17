@@ -1,7 +1,7 @@
 .mainPage {
   display: flex;
   justify-content: space-around;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   position: relative;
 }
 
@@ -16,13 +16,15 @@ p {
   max-width: 100%;
 }
 
-/* .centerPage {
+.centerPage {
   display: flex;
+  justify-content: center;
+  margin: auto;
   flex-wrap: wrap;
-  padding-left: 3rem;
+  /*padding-left: 3rem;
   margin-right: 10rem;
-  min-width: 32rem;
-} */
+  min-width: 32rem; */
+}
 
 .mobileAddPostBtn {
   position: fixed;
@@ -55,8 +57,9 @@ p {
 .brandBar {
   display: flex;
   position: fixed;
-  width: 110vw;
+  width: 100%;
   justify-content: space-between;
+  /* flex-wrap: wrap; */
   background-color: white;
   right: 0;
   left: 0;
@@ -117,7 +120,7 @@ p {
 @media (max-width: 786px) {
   .mainPage {
     justify-content: center;
-    margin: auto;
+    margin: 0rem 0rem;
   }
 }
 

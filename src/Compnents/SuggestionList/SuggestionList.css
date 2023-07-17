@@ -1,10 +1,11 @@
 .suggestionList {
   margin-top: 3.3rem;
-  margin-right: -8rem;
-  margin-left: -2rem;
+  margin-right: 0rem;
+  margin-left: 0rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .suggestionList .searchBox {
