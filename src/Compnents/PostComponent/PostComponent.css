@@ -2,10 +2,10 @@
   border: 1px solid var(--light-gray);
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90vw;
   flex-wrap: wrap;
-  /* margin: auto;
-  max-width: 500px; */
+  margin: auto;
+  max-width: 500px;
   margin-top: 2rem;
   margin-bottom: 3rem;
   padding-top: 1rem;
@@ -17,6 +17,7 @@
 
 .header {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .header .postImagePic {
@@ -62,7 +63,7 @@
   margin-right: 2rem;
   font-size: 17px;
   width: 25rem;
-  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .postImage {
