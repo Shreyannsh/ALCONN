@@ -18,6 +18,7 @@
 .header {
   display: flex;
   flex-wrap: wrap;
+  width: 100vw;
 }
 
 .header .postImagePic {
@@ -40,12 +41,13 @@
 .createdDate {
   margin-top: 3px;
   font-size: small;
+  word-break: break-all;
 }
 
 .options {
   position: absolute;
   margin-top: 0rem;
-  margin-left: 29rem;
+  right: 5%;
   font-size: x-large;
   cursor: pointer;
 }

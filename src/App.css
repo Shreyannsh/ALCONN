@@ -130,7 +130,7 @@ p {
 @media (max-width: 786px) {
   .mainPage {
     justify-content: center;
-    width: 90vw;
+    width: 100vw;
     margin: auto;
   }
 }
