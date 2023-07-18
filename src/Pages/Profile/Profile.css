@@ -1,5 +1,6 @@
 .profilePage {
-  min-width: 32rem;
+  width: 100vw;
+  max-width: 500px;
   margin-top: 3.8rem;
   position: relative;
   display: flex;
