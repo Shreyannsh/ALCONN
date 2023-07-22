@@ -30,7 +30,7 @@ export default function PostComponent({ postDetails }) {
     postDetails.username
   );
 
-  const likedBy = postDetails.likes.likedBy.find(
+  const likedBy = postDetails?.likes?.likedBy?.find(
     ({ _id }) => _id === authState.singleUserDetail._id
   );
 
@@ -67,11 +67,11 @@ export default function PostComponent({ postDetails }) {
       <div className="postComponent">
         <div className="header">
           <img className="postImagePic" src={user?.profilePic} alt="Pic" />
-          <Link to={`/profile/${user.username}`} className="fullName">
+          <Link to={`/profile/${user?.username}`} className="fullName">
             {" "}
             {user?.firstName} {user?.lastName}{" "}
           </Link>
-          <p className="createdDate"> {formattedDate} </p>
+          <span className="createdDate"> {formattedDate} </span>
         </div>
 
         {accountHolder ? (
@@ -82,7 +82,7 @@ export default function PostComponent({ postDetails }) {
         ) : (
           ""
         )}
-        <p className="userName">@{user?.username}</p>
+        <span className="userName">@{user?.username}</span>
         <div>
           <PostOptions
             onClose={() => setShowOptions(false)}
@@ -109,7 +109,7 @@ export default function PostComponent({ postDetails }) {
             ) : (
               <BsSuitHeart />
             )}
-            <span className="likeCount">{postDetails.likes.likeCount}</span>
+            <span className="likeCount">{postDetails?.likes?.likeCount}</span>
           </span>
           <span className="footer-icon">
             <GoComment />

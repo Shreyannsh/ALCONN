@@ -33,16 +33,18 @@
 }
 
 .postFullList {
-  width: 90vw;
+  /* width: 90vw;
   max-width: 500px;
-  margin: auto;
   /* display: grid;
-  justify-content: center; */
-  border: 1px solid red;
+  justify-content: center; 
+  border: 1px solid red; */
 }
 
 @media (max-width: 962px) {
   .addPostHome {
     display: none;
+  }
+  .heading-latestPost {
+    margin-top: -1rem;
   }
 }

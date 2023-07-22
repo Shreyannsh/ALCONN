@@ -1,5 +1,4 @@
 .profilePage {
-  width: 100vw;
   max-width: 500px;
   margin-top: 3.8rem;
   position: relative;
@@ -8,7 +7,6 @@
 }
 
 .background-Image {
-  width: 32rem;
   height: 8rem;
   background: var(--light-blue);
   border-top-left-radius: 10px;
@@ -16,12 +14,21 @@
   box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.6);
 }
 
+.imageSection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+}
+
 .profilePage .image {
-  position: absolute;
-  margin: 2.5rem 11.5rem;
-  border-radius: 70px;
-  height: 9rem;
-  width: 9rem;
+  position: relative;
+  margin-top: -5rem;
+  border-radius: 100%;
+  max-height: auto;
+  max-width: 9rem;
+  width: 100vw;
 }
 
 .profilePage .signout {
@@ -36,6 +43,7 @@
 .profileInfo {
   display: flex;
   flex-direction: column;
+  margin-top: -4rem;
 }
 
 .profileInfo .name {
@@ -50,14 +58,13 @@
 }
 
 .profilePage .emptyMsg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5rem;
+  margin-left: 0rem;
   border: 1.5px solid gainsboro;
   box-shadow: 0.5px 0.5px 2px 0px rgb(0, 0, 0, 0.6);
   padding: 5rem 0rem;
   border-radius: 10px;
+  max-width: 500px;
+  width: 90vw;
 }
 
 .edit-btn {
@@ -106,8 +113,10 @@
 .description {
   display: flex;
   flex-direction: column;
+  /* flex-wrap: wrap; */
   align-items: center;
   margin-top: 0rem;
+  /* width: 100vw; */
 }
 
 .title {
@@ -122,7 +131,6 @@
   margin-top: -0.5rem;
   font-size: 17px;
   text-align: center;
-  width: 25rem;
 }
 
 .website {
@@ -158,4 +166,59 @@
 .follow-Btn:hover {
   cursor: pointer;
   color: rgb(253, 194, 0);
+}
+
+@media (max-width: 786px) {
+  .profilePage {
+    max-width: 500px;
+    margin-top: 5.8rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+  }
+}
+
+@media (max-width: 449px) {
+  .profilePage p {
+    font-size: 19px;
+  }
+  .profilePage .image {
+    margin-top: -4rem;
+    max-width: 6.5rem;
+  }
+
+  .profileInfo .name {
+    font-size: small;
+    font-weight: bold;
+  }
+
+  .profileInfo .username {
+    font-size: small;
+  }
+
+  .profileInfo {
+    margin-top: -2rem;
+  }
+  .edit-btn {
+    font-size: small;
+    margin-right: 2.5rem;
+  }
+
+  .profilePage .signout {
+    top: 6.7rem;
+    font-size: medium;
+  }
+
+  .background-Image {
+    height: 5.5rem;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    margin: 0px 2px;
+  }
+
+  .profilePage .follow-btn {
+    margin-top: 1rem;
+    margin-right: 1rem;
+  }
 }

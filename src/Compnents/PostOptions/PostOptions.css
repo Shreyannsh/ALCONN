@@ -7,6 +7,7 @@
 }
 
 .postOptions {
+  background-color: white;
   border: 1px solid;
   position: absolute;
   padding: 5px 5px;
@@ -25,4 +26,16 @@
 .option:hover {
   background-color: var(--light-gray);
   cursor: pointer;
+}
+
+@media (max-width: 786px) {
+  .postOptionsParent {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -3.5rem;
+    right: -3rem;
+    top: 6rem;
+    position: absolute;
+    width: 100vw;
+  }
 }

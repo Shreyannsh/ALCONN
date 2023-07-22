@@ -1,25 +1,25 @@
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
 
+import { MdCancel } from "react-icons/md";
+import { useContext, useState } from "react";
+import { AiOutlinePlus } from "react-icons/ai";
+import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
 
-import SideBar from "./Compnents/SideBar/SideBar";
 import Home from "./Pages/Home/Home";
+import Profile from "./Pages/Profile/Profile";
 import Explore from "./Pages/Explore/Explore";
+import SideBar from "./Compnents/SideBar/SideBar";
+import AddPost from "./Compnents/AddPost/AddPost";
 import Bookmarks from "./Pages/Bookmarks/Bookmarks";
 import LikedPost from "./Pages/LikedPost/LikedPost";
 import LandingPage from "./Pages/LandingPage/LandingPage";
-import { useContext, useState } from "react";
 import { authContext } from "./Context/authContext/authContext";
-import SuggestionList from "./Compnents/SuggestionList/SuggestionList";
-import ProfileOption from "./Compnents/ProfileOption/ProfileOption";
-import Profile from "./Pages/Profile/Profile";
-import SignUpPage from "./Pages/LandingPage/SignUpPage/SignUpPage";
 import MobileNavBar from "./Compnents/MobileNavBar/MobileNavBar";
-import AddPost from "./Compnents/AddPost/AddPost";
-import { AiOutlinePlus } from "react-icons/ai";
-import { MdCancel } from "react-icons/md";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import SignUpPage from "./Pages/LandingPage/SignUpPage/SignUpPage";
+import ProfileOption from "./Compnents/ProfileOption/ProfileOption";
+import SuggestionList from "./Compnents/SuggestionList/SuggestionList";
 
 function App() {
   const { isLogin } = useContext(authContext);
@@ -27,6 +27,7 @@ function App() {
   const [mode, setMode] = useState("");
   const [isMobile, setIsMobile] = useState(false);
   const [searchUser, setSearchUser] = useState("");
+
   const cancel = () => {
     setIsMobile(false);
     setSearchUser("");
@@ -67,7 +68,7 @@ function App() {
                 <input
                   className="searchBox"
                   value={searchUser}
-                  placeholder="Search friend"
+                  placeholder="Search"
                   onClick={() => setIsMobile(true)}
                   onChange={(e) => setSearchUser(e.target.value)}
                   type="text"

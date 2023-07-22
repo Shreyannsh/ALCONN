@@ -131,6 +131,7 @@ export default function FeatureProvider({ children }) {
         body: {},
       });
       const { bookmarks } = await response.json();
+      userList();
       authDispatch({ type: "bookmarks", payload: bookmarks });
       toast("Post Bookmarked !");
     } catch (error) {
@@ -146,6 +147,7 @@ export default function FeatureProvider({ children }) {
         body: {},
       });
       const { bookmarks } = await response.json();
+      userList();
       authDispatch({ type: "bookmarks", payload: bookmarks });
       toast("Post removed from Bookmark !");
     } catch (error) {

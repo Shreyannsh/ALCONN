@@ -56,7 +56,7 @@ export default function Profile() {
     (post) => post?.username === userDetail?.username
   );
 
-  const bookMarkedPosts = authState?.bookmarks?.map((id) =>
+  const bookMarkedPosts = userDetail?.bookmarks?.map((id) =>
     authState.allPostList.find((post) => post._id === id)
   );
 
@@ -129,16 +129,17 @@ export default function Profile() {
       <div className="background-Image"></div>
 
       {match ? (
-        <p onClick={() => signOut()} className="signout">
+        <div onClick={() => signOut()} className="signout">
           <span className="icon">
             <GoSignOut />
           </span>
-        </p>
+        </div>
       ) : (
         ""
       )}
-
-      <img className="image" src={userDetail.profilePic} alt="Pic" />
+      <div className="imageSection">
+        <img className="image" src={userDetail.profilePic} alt="Pic" />
+      </div>
 
       <div className="profileInfo">
         <p className="name">
@@ -148,9 +149,9 @@ export default function Profile() {
         <p className="username">@{userDetail?.username}</p>
 
         {match ? (
-          <p onClick={() => editProfile()} className="edit-btn">
+          <span onClick={() => editProfile()} className="edit-btn">
             Edit Profile
-          </p>
+          </span>
         ) : (
           <p className="follow-btn" onClick={() => followBtn()}>
             {followingMatched ? "Following" : "Follow"}
@@ -158,37 +159,40 @@ export default function Profile() {
         )}
 
         <div className="description">
-          <div>
-            <p className="title">{userDetail?.title}</p>
-            <p className="bio">{userDetail?.bio}</p>
-            <a href={userDetail?.website} target="_blank" className="website">
-              {userDetail?.website}
-            </a>
-          </div>
+          <p className="title">
+            <b>{userDetail?.title}</b>
+          </p>
+          <p className="bio">{userDetail?.bio}</p>
+          <a href={userDetail?.website} target="_blank" className="website">
+            {userDetail?.website}
+          </a>
         </div>
 
         <p className="profile-footer">
-          <span> {filteredPost.length} Posts </span>{" "}
+          <span>
+            <b> {filteredPost.length} Posts </b>
+          </span>{" "}
           <span
             onClick={() => followingFollowerList("following")}
             className="follow-Btn"
           >
-            {userDetail?.following?.length} Following{" "}
+            <b> {userDetail?.following?.length} Following </b>
           </span>
           <span
             onClick={() => followingFollowerList("follower")}
             className="follow-Btn"
           >
             {" "}
-            {userDetail?.followers?.length} Follower{" "}
+            <b> {userDetail?.followers?.length} Follower </b>
           </span>
         </p>
       </div>
       <div className="listHeadings">
         <p
+          className="postOptionProfile"
           style={{
             backgroundColor: showPosts ? "rgb(243, 205, 78)" : "white",
-            padding: "10px 15px",
+            padding: "10px 35px",
             borderRadius: "5px",
             cursor: "pointer",
           }}
@@ -197,9 +201,11 @@ export default function Profile() {
           Posts
         </p>
         <p
+          className="postOptionProfile"
           style={{
             backgroundColor: showLikedPosts ? "rgb(243, 205, 78)" : "white",
-            padding: "10px 10px",
+            padding: "10px 30px",
+            marginLeft: "-6px",
             borderRadius: "5px",
             cursor: "pointer",
           }}
@@ -208,6 +214,7 @@ export default function Profile() {
           Liked Posts
         </p>
         <p
+          className="postOptionProfile"
           style={{
             backgroundColor: showBookmarkedPosts
               ? "rgb(243, 205, 78)"
@@ -218,7 +225,7 @@ export default function Profile() {
           }}
           onClick={() => showBookmarkedPost()}
         >
-          Bookmarked Post{" "}
+          Bookmark Post{" "}
         </p>
       </div>
 

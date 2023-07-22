@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9;
+  z-index: 19;
 }
 
 .addPostComponent {
@@ -132,7 +132,7 @@
     border: 1px solid var(--light-gray);
     display: flex;
     flex-direction: column;
-    height: 8rem;
+    height: 9rem;
     min-width: 23rem;
     margin-top: 2rem;
     padding-top: 1.5rem;
@@ -164,5 +164,9 @@
     border: none;
     resize: none;
     box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.6);
+  }
+
+  .addPostComponentFooter {
+    margin-bottom: 0.8rem;
   }
 }

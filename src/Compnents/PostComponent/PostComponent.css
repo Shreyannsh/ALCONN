@@ -5,11 +5,13 @@
   width: 90vw;
   flex-wrap: wrap;
   margin: auto;
+  min-width: 280px;
   max-width: 500px;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 3rem;
-  padding-top: 1rem;
-  padding-left: 0.5rem;
+  /* margin-right: 2rem; */
+  /* margin-left: 1rem; */
+  padding: 1rem 0.5rem;
   position: relative;
   border-radius: 5px;
   box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.5);
@@ -17,8 +19,9 @@
 
 .header {
   display: flex;
-  flex-wrap: wrap;
-  width: 100vw;
+  width: 100%;
+  /* flex-wrap: wrap;
+   */
 }
 
 .header .postImagePic {
@@ -55,6 +58,7 @@
 .userName {
   display: flex;
   justify-content: flex-start;
+  width: 80%;
   margin-top: -2rem;
   margin-left: 4.3rem;
   color: rgb(168, 168, 168);
@@ -62,9 +66,9 @@
 
 .content {
   padding-left: 0.5rem;
-  margin-right: 2rem;
+  margin-right: 0rem;
   font-size: 17px;
-  width: 25rem;
+  /* width: 25rem; */
   word-break: break-word;
 }
 
@@ -88,6 +92,7 @@
   flex-wrap: wrap;
   padding-left: 15px;
   margin-top: 1rem;
+  width: 80%;
 }
 
 .footer-icon {
@@ -95,4 +100,20 @@
   margin-bottom: 0.5rem;
   font-size: 21px;
   cursor: pointer;
+}
+
+@media (max-width: 395px) {
+  .createdDate {
+    margin-top: 6px;
+    font-size: xx-small;
+    word-break: break-all;
+  }
+
+  .options {
+    position: absolute;
+    margin-top: 0rem;
+    right: 2%;
+    font-size: x-large;
+    cursor: pointer;
+  }
 }
