@@ -142,15 +142,10 @@
 @media (max-width: 768px) {
   .landingImage {
     display: none;
-    height: 20rem;
-    width: 20rem;
-    margin-right: 2rem;
-    margin-top: 8rem;
   }
-  .landingImage p {
-    font-size: 22px;
-  }
-  .landingPage {
+  .login-section {
+    /* width: 100%; */
+    margin-top: 3rem;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;

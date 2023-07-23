@@ -192,7 +192,7 @@
     flex-direction: column;
     width: 100vw;
   }
-  .signout {
+  .profilePage .signout {
     display: block;
   }
   .edit-btn {

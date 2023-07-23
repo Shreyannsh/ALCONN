@@ -11,6 +11,7 @@ export const posts = [
     _id: uuid(),
     content:
       "Keep it simple and straight. just the way i like it. it should be minimal. it has to be useful.",
+    image: "../../assets/postImage01.jpg",
     likes: {
       likeCount: 39,
       likedBy: [],
@@ -23,6 +24,7 @@ export const posts = [
   {
     _id: uuid(),
     content: "Keep beleiving in your yourself",
+    image: "../../assets/postImage02.jpg",
     likes: {
       likeCount: 80,
       likedBy: [],
