@@ -40,9 +40,20 @@ export default function AddPost(props) {
     }
   };
 
+  const updateVaues = () => {
+    setPostData({
+      postContent: props.postContent,
+      postImageUrl: props.postImage,
+    });
+  };
+
   useEffect(() => {
     getImage();
   }, [uploadedImage]);
+
+  useEffect(() => {
+    updateVaues();
+  }, [props.edit]);
 
   if (!props.show) {
     return null;
@@ -64,6 +75,13 @@ export default function AddPost(props) {
   const loggedInUser = authState.usersList.find(
     (user) => user._id === authState.singleUserDetail._id
   );
+
+  const cancelUploadImage = () => {
+    setPostData({ ...postData, postImageUrl: null });
+  };
+
+  console.log(postData.postImageUrl);
+  console.log(uploadedImage);
 
   return (
     <div className={props.mode === "sideBar" ? "parentModall" : ""}>
@@ -108,17 +126,31 @@ export default function AddPost(props) {
                         <img
                           style={{ display: uploadedImage ? "block" : "none" }}
                           className="thumbnail"
-                          src={postData.postImageUrl}
+                          src={postData?.postImageUrl}
                           alt=""
                         />
                         <span
                           className="cancelImage"
-                          onClick={() => setUploadedImage("")}
+                          onClick={() => cancelUploadImage()}
                         >
                           x
                         </span>
                       </div>
                     )}
+                  </div>
+                ) : postData.postImageUrl ? (
+                  <div>
+                    <img
+                      className="thumbnail"
+                      src={postData?.postImageUrl}
+                      alt=""
+                    />
+                    <span
+                      className="cancelImage"
+                      onClick={() => cancelUploadImage()}
+                    >
+                      x
+                    </span>
                   </div>
                 ) : (
                   ""

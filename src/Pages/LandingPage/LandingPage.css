@@ -30,6 +30,7 @@
   width: 100%;
   filter: brightness(100%) saturate(150%) hue-rotate(347deg);
 }
+
 .landingPage h1 {
   color: var(--light-blue);
   font-size: 3rem;
@@ -144,7 +145,6 @@
     display: none;
   }
   .login-section {
-    /* width: 100%; */
     margin-top: 3rem;
     flex-direction: column;
     align-items: center;

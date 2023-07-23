@@ -62,6 +62,7 @@ export default function PostComponent({ postDetails }) {
 
   const formattedDate = createdDate.toDateString();
 
+  // console.log(postDetails);
   return (
     <div>
       <div className="postComponent">
@@ -95,12 +96,17 @@ export default function PostComponent({ postDetails }) {
             show={editModalShow}
             postId={postDetails._id}
             postContent={postDetails.content}
+            postImage={postDetails.image}
           />
         </div>
 
         <p className="content">{postDetails?.content}</p>
 
-        <img src={postDetails?.image} alt="" className="postImage" />
+        {postDetails?.image ? (
+          <img src={postDetails?.image} alt="pic" className="postImage" />
+        ) : (
+          ""
+        )}
 
         <div className="postComponentFooter">
           <span className="footer-icon" onClick={() => likeDislike()}>

@@ -13,6 +13,8 @@ export default function EditPost(props) {
         mode="sideBar"
         edit={true}
         postId={props.postId}
+        postContent={props.postContent}
+        postImage={props.postImage}
       />
     </div>
   );
