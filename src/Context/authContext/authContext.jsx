@@ -36,6 +36,7 @@ export default function AuthProvider({ children }) {
   const [filteredUsers, setFilteredUsers] = useState();
   const [isActive, setIsActive] = useState("");
   const [isLogin, setIsLogin] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const navigate = useNavigate();
 
@@ -179,6 +180,8 @@ export default function AuthProvider({ children }) {
           setIsActive,
           allPosts,
           editUser,
+          isMobile,
+          setIsMobile,
         }}
       >
         {children}

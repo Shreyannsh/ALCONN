@@ -37,7 +37,6 @@
   }
   .sortingOption {
     padding: 4px 3px;
-    /* margin-right: 1rem; */
     font-size: medium;
     cursor: pointer;
     border: 2px solid var(--light-gray);

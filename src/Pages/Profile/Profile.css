@@ -19,19 +19,20 @@
   justify-content: center;
   flex-wrap: wrap;
   position: relative;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .profilePage .image {
   position: relative;
   margin-top: -5rem;
   border-radius: 100%;
-  max-height: auto;
-  max-width: 9rem;
-  width: 100vw;
+  height: 9rem;
+  width: 9rem;
+  /* width: 100vw; */
 }
 
 .profilePage .signout {
+  display: none;
   position: absolute;
   right: 0rem;
   margin-left: 5px;
@@ -47,6 +48,10 @@
 }
 
 .profileInfo .name {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
+  max-width: 30%;
   font-size: larger;
   font-weight: 500;
   margin-left: 5px;
@@ -72,7 +77,7 @@
   display: flex;
   align-self: flex-end;
   margin-top: 1.3rem;
-  margin-right: 3rem;
+  margin-right: 0.5rem;
   background-color: rgb(212, 212, 212);
   box-shadow: 0px 0.5px 1px 0px rgb(0, 0, 0, 0.6);
   color: rgb(65, 63, 63);
@@ -131,6 +136,7 @@
   margin-top: -0.5rem;
   font-size: 17px;
   text-align: center;
+  overflow-wrap: break-word;
 }
 
 .website {
@@ -167,6 +173,15 @@
   cursor: pointer;
   color: rgb(253, 194, 0);
 }
+/* 
+@media (max-width: 906px) {
+  .signout {
+    display: none;
+  }
+  .edit-btn {
+    margin-right: 0rem;
+  }
+} */
 
 @media (max-width: 786px) {
   .profilePage {
@@ -177,6 +192,12 @@
     flex-direction: column;
     width: 100vw;
   }
+  .signout {
+    display: block;
+  }
+  .edit-btn {
+    margin-right: 3rem;
+  }
 }
 
 @media (max-width: 449px) {
@@ -185,16 +206,17 @@
   }
   .profilePage .image {
     margin-top: -4rem;
-    max-width: 6.5rem;
+    width: 6.5rem;
+    height: 6.5rem;
   }
 
   .profileInfo .name {
-    font-size: small;
+    font-size: 14px;
     font-weight: bold;
   }
 
   .profileInfo .username {
-    font-size: small;
+    font-size: 14px;
   }
 
   .profileInfo {
@@ -206,14 +228,13 @@
   }
 
   .profilePage .signout {
+    display: block;
     top: 6.7rem;
     font-size: medium;
   }
 
   .background-Image {
     height: 5.5rem;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
     margin: 0px 2px;
   }
 

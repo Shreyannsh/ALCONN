@@ -1,8 +1,8 @@
 import "./AddPost.css";
 
-import { useContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { BsImageFill } from "react-icons/bs";
+import { useContext, useState, useEffect } from "react";
 
 import { authContext } from "../../Context/authContext/authContext";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";

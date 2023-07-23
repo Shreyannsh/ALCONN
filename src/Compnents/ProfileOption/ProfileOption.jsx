@@ -1,9 +1,9 @@
 import "./ProfileOption.css";
 
-import { useContext, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { BsFillPersonFill } from "react-icons/bs";
+import { useContext, useState } from "react";
 import { GoSignOut } from "react-icons/go";
 import { toast } from "react-toastify";
 

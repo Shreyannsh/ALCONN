@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   align-items: stretch;
   background-color: rgb(248, 252, 252);
-  height: 36.5rem;
+  height: 100vw;
 }
 
 .landingImage {

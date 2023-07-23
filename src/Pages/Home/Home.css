@@ -1,7 +1,6 @@
 .homePage {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
 }
 
 .addPostHome {
@@ -30,14 +29,6 @@
 .systemBtn:hover {
   color: var(--dark-blue);
   cursor: pointer;
-}
-
-.postFullList {
-  /* width: 90vw;
-  max-width: 500px;
-  /* display: grid;
-  justify-content: center; 
-  border: 1px solid red; */
 }
 
 @media (max-width: 962px) {

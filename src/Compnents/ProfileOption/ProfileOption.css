@@ -72,3 +72,20 @@
   background-color: var(--light-gray);
   box-shadow: 1px 2px 2px 0px rgb(0, 0, 0, 0.6);
 }
+
+@media (max-width: 1050px) {
+  .profileName-profileOption,
+  .arrow {
+    display: none;
+  }
+  .profileOption .image-pic-profileOption {
+    margin-top: 0px;
+    border-radius: 40px;
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+  .profileDropDown {
+    margin-left: -0.5rem;
+    margin-top: 1rem;
+  }
+}

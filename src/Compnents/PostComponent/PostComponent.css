@@ -9,8 +9,6 @@
   max-width: 500px;
   margin-top: 1rem;
   margin-bottom: 3rem;
-  /* margin-right: 2rem; */
-  /* margin-left: 1rem; */
   padding: 1rem 0.5rem;
   position: relative;
   border-radius: 5px;
@@ -20,8 +18,6 @@
 .header {
   display: flex;
   width: 100%;
-  /* flex-wrap: wrap;
-   */
 }
 
 .header .postImagePic {
@@ -68,7 +64,6 @@
   padding-left: 0.5rem;
   margin-right: 0rem;
   font-size: 17px;
-  /* width: 25rem; */
   word-break: break-word;
 }
 
@@ -100,6 +95,23 @@
   margin-bottom: 0.5rem;
   font-size: 21px;
   cursor: pointer;
+}
+
+@media (max-width: 961px) {
+  .postComponent {
+    width: 400px;
+  }
+}
+
+@media (max-width: 895px) {
+  .postComponent {
+    width: 325px;
+  }
+}
+@media (max-width: 786px) {
+  .postComponent {
+    width: 90vw;
+  }
 }
 
 @media (max-width: 395px) {

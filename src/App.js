@@ -22,10 +22,9 @@ import ProfileOption from "./Compnents/ProfileOption/ProfileOption";
 import SuggestionList from "./Compnents/SuggestionList/SuggestionList";
 
 function App() {
-  const { isLogin } = useContext(authContext);
+  const { isLogin, isMobile, setIsMobile } = useContext(authContext);
   const [show, setShow] = useState(false);
   const [mode, setMode] = useState("");
-  const [isMobile, setIsMobile] = useState(false);
   const [searchUser, setSearchUser] = useState("");
 
   const cancel = () => {

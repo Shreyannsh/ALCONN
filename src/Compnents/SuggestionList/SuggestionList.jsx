@@ -8,7 +8,7 @@ import { authContext } from "../../Context/authContext/authContext";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
 
 export default function SuggestionList(props) {
-  const { authState, filteredUsers, setFilteredUsers } =
+  const { authState, filteredUsers, setFilteredUsers, setIsMobile } =
     useContext(authContext);
   const { follow, unfollow } = useContext(featureContext);
   const [noUserFound, setNoUserFound] = useState(false);
@@ -69,6 +69,7 @@ export default function SuggestionList(props) {
 
   const followUnfollow = (id) => {
     const person = authState.usersList.find((user) => user._id === id);
+    setIsMobile(false);
     if (followingListId?.includes(id)) {
       unfollow(id);
       setSearchedText("");

@@ -17,6 +17,7 @@
   background-color: rgb(212, 212, 212);
   font-size: medium;
   padding-left: 1.5rem;
+  box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.6);
 }
 
 .suggestionList .suggestionTitle {
@@ -25,24 +26,25 @@
 }
 
 .suggestedUserList {
+  width: 100%;
   margin-left: 1rem;
   max-height: 25rem;
   overflow-y: scroll;
 }
 
 .suggestedUser {
-  width: 100%;
-  height: 3.8rem;
+  height: 3vh;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   flex-wrap: wrap;
+  position: relative;
 }
-.suggestionList .follow-btnn {
+
+.suggestedUser .follow-btnn {
   display: flex;
   align-self: flex-end;
-  margin-right: 1rem;
-  /* margin-left: 4rem; */
+  margin-right: 1.5rem;
   max-width: 4rem;
   border: 1px solid;
   padding: 5px 15px;
@@ -56,14 +58,16 @@
 
 .suggestedUser .linkk {
   text-decoration: none;
+  position: absolute;
 }
 
-.suggestedUser .fullNamee {
+.linkk .fullNamee {
   margin-left: 3.5rem;
   margin-top: -3rem;
   color: black;
   font-weight: 500;
   display: flex;
+  max-width: 65%;
   flex-wrap: wrap;
 }
 
