@@ -27,6 +27,7 @@ function App() {
   const [show, setShow] = useState(false);
   const [mode, setMode] = useState("");
   const [searchUser, setSearchUser] = useState("");
+  const token = localStorage.getItem("encodedToken");
 
   const cancel = () => {
     setIsMobile(false);
@@ -56,99 +57,100 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignUpPage />} />
       </Routes>
-
-      <div style={{ position: "relative" }}>
-        <div className="mainPage">
-          <div className="brandBar">
-            <div className="brandTitle">
-              <img className="logo" src="../../assets/blue.png" alt="" />
-              <p className="brand-name">ALCONN</p>
-            </div>
-            <div className="searchBoxDiv">
-              <input
-                className="searchBox"
-                value={searchUser}
-                placeholder="Search"
-                onClick={() => setIsMobile(true)}
-                onChange={(e) => setSearchUser(e.target.value)}
-                type="text"
-              />
-              <span>
-                <MdCancel className="cancelButton" onClick={() => cancel()} />
-              </span>
-              <div
-                className="mobileSuggestion"
-                style={{ display: isMobile ? "block" : "none" }}
-              >
-                <SuggestionList mobile={isMobile} searchText={searchUser} />
+      {token && (
+        <div style={{ position: "relative" }}>
+          <div className="mainPage">
+            <div className="brandBar">
+              <div className="brandTitle">
+                <img className="logo" src="../../assets/blue.png" alt="" />
+                <p className="brand-name">ALCONN</p>
+              </div>
+              <div className="searchBoxDiv">
+                <input
+                  className="searchBox"
+                  value={searchUser}
+                  placeholder="Search"
+                  onClick={() => setIsMobile(true)}
+                  onChange={(e) => setSearchUser(e.target.value)}
+                  type="text"
+                />
+                <span>
+                  <MdCancel className="cancelButton" onClick={() => cancel()} />
+                </span>
+                <div
+                  className="mobileSuggestion"
+                  style={{ display: isMobile ? "block" : "none" }}
+                >
+                  <SuggestionList mobile={isMobile} searchText={searchUser} />
+                </div>
               </div>
             </div>
-          </div>
-          <div className="rightBar">
-            <SideBar />
-          </div>
-          <div className="centerPage">
-            <Routes>
-              <Route
-                path="/home"
-                element={
-                  <RequiredAuth>
-                    <Home />
-                  </RequiredAuth>
-                }
+            <div className="rightBar">
+              <SideBar />
+            </div>
+            <div className="centerPage">
+              <Routes>
+                <Route
+                  path="/home"
+                  element={
+                    <RequiredAuth>
+                      <Home />
+                    </RequiredAuth>
+                  }
+                />
+                <Route
+                  path="/explore"
+                  element={
+                    <RequiredAuth>
+                      <Explore />
+                    </RequiredAuth>
+                  }
+                />
+                <Route
+                  path="/bookmarks"
+                  element={
+                    <RequiredAuth>
+                      <Bookmarks />
+                    </RequiredAuth>
+                  }
+                />
+                <Route
+                  path="/likedpost"
+                  element={
+                    <RequiredAuth>
+                      <LikedPost />
+                    </RequiredAuth>
+                  }
+                />
+                <Route
+                  path="/profile/:userName"
+                  element={
+                    <RequiredAuth>
+                      <Profile />
+                    </RequiredAuth>
+                  }
+                />
+              </Routes>
+            </div>
+            <div className="suggestionPage">
+              <SuggestionList />
+            </div>
+            <div className="profileOptionPage">
+              <ProfileOption />
+            </div>
+            <div>
+              <AiOutlinePlus
+                className="mobileAddPostBtn"
+                onClick={() => mobileAddPostBtn()}
               />
-              <Route
-                path="/explore"
-                element={
-                  <RequiredAuth>
-                    <Explore />
-                  </RequiredAuth>
-                }
-              />
-              <Route
-                path="/bookmarks"
-                element={
-                  <RequiredAuth>
-                    <Bookmarks />
-                  </RequiredAuth>
-                }
-              />
-              <Route
-                path="/likedpost"
-                element={
-                  <RequiredAuth>
-                    <LikedPost />
-                  </RequiredAuth>
-                }
-              />
-              <Route
-                path="/profile/:userName"
-                element={
-                  <RequiredAuth>
-                    <Profile />
-                  </RequiredAuth>
-                }
-              />
-            </Routes>
-          </div>
-          <div className="suggestionPage">
-            <SuggestionList />
-          </div>
-          <div className="profileOptionPage">
-            <ProfileOption />
-          </div>
-          <div>
-            <AiOutlinePlus
-              className="mobileAddPostBtn"
-              onClick={() => mobileAddPostBtn()}
-            />
-          </div>{" "}
-          <AddPost onClose={() => setShow(!show)} show={show} mode={mode} />
-          <div className="mobibar">
-            <MobileNavBar />
+            </div>{" "}
+            <AddPost onClose={() => setShow(!show)} show={show} mode={mode} />
+            <div className="mobibar">
+              <MobileNavBar />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
