@@ -114,6 +114,7 @@ export default function Profile() {
   const signOut = () => {
     navigate("/");
     setIsLogin(false);
+    localStorage.clear();
     toast("Successfully Logged Out");
   };
 
@@ -131,8 +132,8 @@ export default function Profile() {
           <div className="background-Image"></div>
 
           {match ? (
-            <div onClick={() => signOut()} className="signout">
-              <span className="icon">
+            <div className="signout">
+              <span onClick={() => signOut()} className="icon">
                 <GoSignOut />
               </span>
             </div>
