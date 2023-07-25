@@ -62,7 +62,6 @@ export default function PostComponent({ postDetails }) {
 
   const formattedDate = createdDate.toDateString();
 
-  // console.log(postDetails);
   return (
     <div>
       <div className="postComponent">

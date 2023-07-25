@@ -80,9 +80,6 @@ export default function AddPost(props) {
     setPostData({ ...postData, postImageUrl: null });
   };
 
-  console.log(postData.postImageUrl);
-  console.log(uploadedImage);
-
   return (
     <div className={props.mode === "sideBar" ? "parentModall" : ""}>
       <div

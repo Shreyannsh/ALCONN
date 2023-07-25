@@ -20,12 +20,14 @@ export default function ProfileOption() {
   };
 
   const profilePage = () => {
-    setShow(!show);
+    setShow(false);
   };
 
   const signOut = () => {
     navigate("/");
     setIsLogin(false);
+    setShow(false);
+    localStorage.clear();
     toast("Successfully Logged Out");
   };
 

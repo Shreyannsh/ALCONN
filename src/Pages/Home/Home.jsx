@@ -17,9 +17,11 @@ export default function Home() {
     setSortingOptions(!showSortingOptions);
   };
 
-  useEffect(() => {
-    userDetail();
-  }, [isLogin]);
+  const token = localStorage.getItem("encodedToken");
+
+  // useEffect(() => {
+  //   userDetail();
+  // }, []);
 
   useEffect(() => {
     setIsActive("home");

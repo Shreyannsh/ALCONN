@@ -17,6 +17,7 @@ import LikedPost from "./Pages/LikedPost/LikedPost";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import { authContext } from "./Context/authContext/authContext";
 import MobileNavBar from "./Compnents/MobileNavBar/MobileNavBar";
+import RequiredAuth from "./Compnents/RequiredAuth/RequiredAuth";
 import SignUpPage from "./Pages/LandingPage/SignUpPage/SignUpPage";
 import ProfileOption from "./Compnents/ProfileOption/ProfileOption";
 import SuggestionList from "./Compnents/SuggestionList/SuggestionList";
@@ -52,73 +53,102 @@ function App() {
         theme="light"
       />
       <Routes>
+        <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignUpPage />} />
       </Routes>
 
-      {isLogin ? (
-        <div style={{ position: "relative" }}>
-          <div className="mainPage">
-            <div className="brandBar">
-              <div className="brandTitle">
-                <img className="logo" src="../../assets/blue.png" alt="" />
-                <p className="brand-name">ALCONN</p>
-              </div>
-              <div className="searchBoxDiv">
-                <input
-                  className="searchBox"
-                  value={searchUser}
-                  placeholder="Search"
-                  onClick={() => setIsMobile(true)}
-                  onChange={(e) => setSearchUser(e.target.value)}
-                  type="text"
-                />
-                <span>
-                  <MdCancel className="cancelButton" onClick={() => cancel()} />
-                </span>
-                <div
-                  className="mobileSuggestion"
-                  style={{ display: isMobile ? "block" : "none" }}
-                >
-                  <SuggestionList mobile={isMobile} searchText={searchUser} />
-                </div>
-              </div>
+      <div style={{ position: "relative" }}>
+        <div className="mainPage">
+          <div className="brandBar">
+            <div className="brandTitle">
+              <img className="logo" src="../../assets/blue.png" alt="" />
+              <p className="brand-name">ALCONN</p>
             </div>
-
-            <div className="rightBar">
-              <SideBar />
-            </div>
-            <div className="centerPage">
-              <Routes>
-                <Route path="/home" element={<Home />} />
-                <Route path="/explore" element={<Explore />} />
-                <Route path="/bookmarks" element={<Bookmarks />} />
-                <Route path="/likedpost" element={<LikedPost />} />
-                <Route path="/profile/:userName" element={<Profile />} />
-              </Routes>
-            </div>
-            <div className="suggestionPage">
-              <SuggestionList />
-            </div>
-            <div className="profileOptionPage">
-              <ProfileOption />
-            </div>
-            <div>
-              <AiOutlinePlus
-                className="mobileAddPostBtn"
-                onClick={() => mobileAddPostBtn()}
+            <div className="searchBoxDiv">
+              <input
+                className="searchBox"
+                value={searchUser}
+                placeholder="Search"
+                onClick={() => setIsMobile(true)}
+                onChange={(e) => setSearchUser(e.target.value)}
+                type="text"
               />
-            </div>
-            <AddPost onClose={() => setShow(!show)} show={show} mode={mode} />
-            <div className="mobibar">
-              <MobileNavBar />
+              <span>
+                <MdCancel className="cancelButton" onClick={() => cancel()} />
+              </span>
+              <div
+                className="mobileSuggestion"
+                style={{ display: isMobile ? "block" : "none" }}
+              >
+                <SuggestionList mobile={isMobile} searchText={searchUser} />
+              </div>
             </div>
           </div>
+          <div className="rightBar">
+            <SideBar />
+          </div>
+          <div className="centerPage">
+            <Routes>
+              <Route
+                path="/home"
+                element={
+                  <RequiredAuth>
+                    <Home />
+                  </RequiredAuth>
+                }
+              />
+              <Route
+                path="/explore"
+                element={
+                  <RequiredAuth>
+                    <Explore />
+                  </RequiredAuth>
+                }
+              />
+              <Route
+                path="/bookmarks"
+                element={
+                  <RequiredAuth>
+                    <Bookmarks />
+                  </RequiredAuth>
+                }
+              />
+              <Route
+                path="/likedpost"
+                element={
+                  <RequiredAuth>
+                    <LikedPost />
+                  </RequiredAuth>
+                }
+              />
+              <Route
+                path="/profile/:userName"
+                element={
+                  <RequiredAuth>
+                    <Profile />
+                  </RequiredAuth>
+                }
+              />
+            </Routes>
+          </div>
+          <div className="suggestionPage">
+            <SuggestionList />
+          </div>
+          <div className="profileOptionPage">
+            <ProfileOption />
+          </div>
+          <div>
+            <AiOutlinePlus
+              className="mobileAddPostBtn"
+              onClick={() => mobileAddPostBtn()}
+            />
+          </div>{" "}
+          <AddPost onClose={() => setShow(!show)} show={show} mode={mode} />
+          <div className="mobibar">
+            <MobileNavBar />
+          </div>
         </div>
-      ) : (
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-        </Routes>
-      )}
+      </div>
     </div>
   );
 }

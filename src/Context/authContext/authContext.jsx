@@ -1,9 +1,9 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import { createContext, useState, useReducer, useEffect } from "react";
 
 import { authReducer } from "../../Reducer/authReducer";
-import { useNavigate } from "react-router-dom";
 
 export const authContext = createContext();
 
@@ -98,9 +98,10 @@ export default function AuthProvider({ children }) {
   };
 
   const userDetail = async () => {
+    const userNameLocal = localStorage.getItem("loginUserName");
     try {
       const user = authState.usersList.find(
-        (user) => user.username === authState.userName
+        (user) => user.username === userNameLocal
       );
       const response = await axios.get(`/api/users/${user._id}`);
       authDispatch({ type: "singleUserDetail", payload: response.data.user });
@@ -119,6 +120,8 @@ export default function AuthProvider({ children }) {
       const encodedToken = response.data.encodedToken;
 
       localStorage.setItem("encodedToken", encodedToken);
+      localStorage.setItem("loginUserName", authState.userName);
+
       setIsLogin(true);
       userPostList();
       allPosts();
@@ -155,6 +158,7 @@ export default function AuthProvider({ children }) {
 
   useEffect(() => {
     userList();
+    allPosts();
   }, []);
 
   useEffect(() => {
