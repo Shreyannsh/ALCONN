@@ -8,7 +8,7 @@ Hang out at https://alconn.vercel.app/
 
 ### Concepts used -:
 
-1.Made on React 2. React hooks - a. useState b. useContext c. useReducer 3.React Router 5.Functional Programming 6. CSS properties includes - Flex,Grid and more
+1.Made on React 2. React hooks - a. useState b. useContext c. useReducer 3.React Router 5.Functional Programming 6. CSS properties includes - Flex,Grid 7. loaders, alerts and more...
 
 ### Features -:
 - Create a Post
@@ -34,7 +34,7 @@ Hang out at https://alconn.vercel.app/
   - Sign-up
   - Login
   - Logout
-
+-**Responsive for multiple devices  **  
 ## Snaps
 
 ### Home
@@ -43,6 +43,10 @@ Hang out at https://alconn.vercel.app/
 ### Profile
 ![Profile](https://github.com/Shreyannsh/MySocialMediaLatestApp/assets/111145568/65bb7518-c994-49e3-9f83-26a25136999c)
 
+### Edit Profile
+![avatars](https://github.com/Shreyannsh/ALCONN/assets/111145568/b8b6e671-43c4-4bae-82d1-cbcf7cfa18dc)
+
 ### SingUp 
 ![signup](https://github.com/Shreyannsh/MySocialMediaLatestApp/assets/111145568/22e41a07-fbbd-44bd-8716-5226f9fb9d90)
+
 
