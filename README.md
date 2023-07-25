@@ -34,7 +34,9 @@ Hang out at https://alconn.vercel.app/
   - Sign-up
   - Login
   - Logout
--**Responsive for multiple devices  **  
+
+### Responsive for multiple devices    
+
 ## Snaps
 
 ### Home
