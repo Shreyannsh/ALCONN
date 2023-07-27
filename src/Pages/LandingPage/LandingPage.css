@@ -147,7 +147,7 @@
 @media (max-width: 433px) {
   .landingPage {
     width: 50vh;
-    margin-left: 2rem;
+    margin: auto;
   }
 }
 
