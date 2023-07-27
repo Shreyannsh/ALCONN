@@ -137,6 +137,13 @@
   }
 
   .signUpPage {
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 0rem;
+  }
+  .parent h1 {
+    color: var(--light-blue);
+    font-size: 3rem;
+    margin-top: 1.8rem;
+    text-align: center;
   }
 }
