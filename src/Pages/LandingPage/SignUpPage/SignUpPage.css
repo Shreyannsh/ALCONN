@@ -3,15 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 0;
-  margin-top: -1.8rem;
+  padding-top: 0.5rem;
+  /* width: 100vh; */
   background-color: rgb(248, 252, 252);
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 .parent h1 {
   color: var(--light-blue);
   font-size: 3rem;
+  margin-top: -1.8rem;
   text-align: center;
 }
 
@@ -21,6 +22,7 @@
   align-items: center;
   position: relative;
   max-width: 400px;
+  width: 100vh;
   padding: 0rem 2rem 1rem 2rem;
   margin-bottom: 1rem;
   margin-top: -1rem;
@@ -127,4 +129,14 @@
 
 .alreadyHaveAnAccount:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 786px) {
+  .parent {
+    min-width: 500px;
+  }
+
+  .signUpPage {
+    margin: 0 auto;
+  }
 }

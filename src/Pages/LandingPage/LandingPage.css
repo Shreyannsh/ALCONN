@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   align-items: stretch;
   background-color: rgb(248, 252, 252);
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 .landingImage {
@@ -35,6 +35,8 @@
   color: var(--light-blue);
   font-size: 3rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 .hidePasswordComponent {
   position: absolute;
@@ -50,8 +52,10 @@
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  width: 396px;
+  max-width: 396px;
+  width: 100vh;
   display: flex;
+  /* justify-content: center; */
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
   background-color: white;
@@ -140,14 +144,15 @@
   background-color: rgb(39, 145, 18);
 }
 
+@media (max-width: 433px) {
+  .landingPage {
+    width: 50vh;
+    margin-left: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .landingImage {
     display: none;
-  }
-  .login-section {
-    margin-top: 3rem;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
   }
 }

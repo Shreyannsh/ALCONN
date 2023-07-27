@@ -118,4 +118,7 @@
     max-height: 25rem;
     overflow-y: scroll;
   }
+  .suggestedUser .follow-btnn {
+    margin-right: 1.5rem;
+  }
 }
