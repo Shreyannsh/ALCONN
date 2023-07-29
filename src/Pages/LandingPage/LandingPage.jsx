@@ -37,7 +37,7 @@ export default function LandingPage() {
         </p>
       </div>
       <div className="login-section">
-        <h1>ALCONN</h1>
+        <h1 className="brandNameLanding">ALCONN</h1>
         <div className="loginPage">
           <p className="loginTitle">Login to Alconn</p>
           <p onClick={() => guestLogin()} className="guestLogin">
