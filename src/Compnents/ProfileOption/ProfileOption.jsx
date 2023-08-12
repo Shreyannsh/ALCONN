@@ -65,7 +65,7 @@ export default function ProfileOption() {
             Profile
           </div>
         </Link>
-        <p onClick={() => signOut()} className="signout">
+        <p onClick={() => signOut()} className="signoutProfileOption">
           <span className="icon">
             <GoSignOut />
           </span>

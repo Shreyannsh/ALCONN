@@ -22,7 +22,7 @@
   /* width: 100%; */
 }
 
-.profilePage .image {
+.image {
   position: relative;
   margin-top: -5rem;
   border-radius: 100%;
@@ -31,12 +31,12 @@
   /* width: 100vw; */
 }
 
-.profilePage .signout {
+.signout {
   display: none;
   position: absolute;
   right: 0rem;
   margin-left: 5px;
-  top: 8.6rem;
+  top: 9.4rem;
   font-size: x-large;
   cursor: pointer;
 }
@@ -192,7 +192,7 @@
     flex-direction: column;
     width: 100vw;
   }
-  .profilePage .signout {
+  .signout {
     display: block;
   }
   .edit-btn {
@@ -228,8 +228,8 @@
   }
 
   .profilePage .signout {
-    display: block;
-    top: 6.7rem;
+    top: 7.6rem;
+    right: 10px;
     font-size: medium;
   }
 

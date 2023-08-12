@@ -90,46 +90,11 @@ function App() {
             </div>
             <div className="centerPage">
               <Routes>
-                <Route
-                  path="/home"
-                  element={
-                    <RequiredAuth>
-                      <Home />
-                    </RequiredAuth>
-                  }
-                />
-                <Route
-                  path="/explore"
-                  element={
-                    <RequiredAuth>
-                      <Explore />
-                    </RequiredAuth>
-                  }
-                />
-                <Route
-                  path="/bookmarks"
-                  element={
-                    <RequiredAuth>
-                      <Bookmarks />
-                    </RequiredAuth>
-                  }
-                />
-                <Route
-                  path="/likedpost"
-                  element={
-                    <RequiredAuth>
-                      <LikedPost />
-                    </RequiredAuth>
-                  }
-                />
-                <Route
-                  path="/profile/:userName"
-                  element={
-                    <RequiredAuth>
-                      <Profile />
-                    </RequiredAuth>
-                  }
-                />
+                <Route path="/home" element={<Home />} />
+                <Route path="/explore" element={<Explore />} />
+                <Route path="/bookmarks" element={<Bookmarks />} />
+                <Route path="/likedpost" element={<LikedPost />} />
+                <Route path="/profile/:userName" element={<Profile />} />
               </Routes>
             </div>
             <div className="suggestionPage">

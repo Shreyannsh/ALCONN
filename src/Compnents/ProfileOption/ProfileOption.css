@@ -51,7 +51,7 @@
   text-decoration: none;
 }
 
-.signout {
+.signoutProfileOption {
   padding: 3px 3px;
   margin-right: 5px;
   margin-bottom: 7px;
@@ -67,7 +67,7 @@
   cursor: pointer;
 }
 
-.signout:hover,
+.signoutProfileOption:hover,
 .profile:hover {
   background-color: var(--light-gray);
   box-shadow: 1px 2px 2px 0px rgb(0, 0, 0, 0.6);

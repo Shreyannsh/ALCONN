@@ -132,10 +132,8 @@ export default function Profile() {
           <div className="background-Image"></div>
 
           {match ? (
-            <div className="signout">
-              <span onClick={() => signOut()} className="icon">
-                <GoSignOut />
-              </span>
+            <div>
+              <GoSignOut className="signout" onClick={() => signOut()} />
             </div>
           ) : (
             ""

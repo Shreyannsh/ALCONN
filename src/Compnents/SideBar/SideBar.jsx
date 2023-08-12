@@ -119,7 +119,9 @@ export default function SideBar() {
 
         <button onClick={() => postBtn()} className="post-btn">
           <span className="postName"> Post</span>
+
           <span className="postSign">
+            {/* it will be render when screen size will decrease for tab  */}
             <AiOutlinePlus />
           </span>
         </button>

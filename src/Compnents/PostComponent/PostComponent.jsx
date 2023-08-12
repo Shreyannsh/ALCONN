@@ -6,8 +6,8 @@ import {
   MdOutlineShare,
 } from "react-icons/md";
 import { Link } from "react-router-dom";
+import AddPost from "../AddPost/AddPost";
 import { GoComment } from "react-icons/go";
-import EditPost from "../EditPost/EditPost";
 import { useContext, useState } from "react";
 import { HiDotsHorizontal } from "react-icons/hi";
 import PostOptions from "../PostOptions/PostOptions";
@@ -90,9 +90,11 @@ export default function PostComponent({ postDetails }) {
             setEditModalShow={setEditModalShow}
             postId={postDetails._id}
           />
-          <EditPost
+          <AddPost
             onClose={() => setEditModalShow(false)}
             show={editModalShow}
+            mode="sideBar"
+            edit={true}
             postId={postDetails._id}
             postContent={postDetails.content}
             postImage={postDetails.image}

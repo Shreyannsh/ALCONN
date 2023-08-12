@@ -122,10 +122,9 @@ export default function AuthProvider({ children }) {
       localStorage.setItem("encodedToken", encodedToken);
       localStorage.setItem("loginUserName", authState.userName);
 
-      setIsLogin(true);
+      //setIsLogin(true);
       userPostList();
       allPosts();
-
       userDetail();
       toast("Successfully Logged In");
       navigate("/home");
@@ -145,7 +144,7 @@ export default function AuthProvider({ children }) {
     try {
       const response = await axios.post("/api/auth/signup", cred);
       const encodedToken = response.data.encodedToken;
-      localStorage.setItem("encodedToken", encodedToken);
+      //  localStorage.setItem("encodedToken", encodedToken);
       userList();
       authDispatch({ type: "userName", payload: cred.username });
       authDispatch({ type: "loginPassword", payload: cred.password });

@@ -18,20 +18,6 @@ export default function SuggestionList(props) {
 
   const followingListId = followingList?.map((follower) => follower._id);
 
-  const displayFilterList = () => {
-    const filteredSuggestionList = authState.usersList?.reduce((acc, crr) => {
-      const match = followingList?.find((user) => user._id === crr._id);
-
-      return match ? acc : [...acc, crr];
-    }, []);
-
-    setFilteredUsers(
-      filteredSuggestionList?.filter(
-        ({ _id }) => _id !== authState.singleUserDetail._id
-      )
-    );
-  };
-
   const searchUser = () => {
     const value =
       props.searchText !== undefined ? props.searchText : searchedText;
@@ -50,7 +36,9 @@ export default function SuggestionList(props) {
         setNoUserFound(false);
       }
       setFilteredUsers(searchedUser);
-    } else {
+    }
+    //here else part is helping to render the suggestion list when no value is provided in search bar
+    else {
       const followersIds = followingList?.map((user) => user._id);
       const nonFollowedUsers = authState.usersList?.reduce((acc, crr) => {
         if (
@@ -83,16 +71,13 @@ export default function SuggestionList(props) {
   };
 
   useEffect(() => {
-    displayFilterList();
-  }, [authState]);
-
-  useEffect(() => {
     searchUser();
   }, [props.searchText, searchedText]);
 
   return (
     <div className="suggestionList">
       <input
+        // search bar is defined seprately for mobile
         style={{ display: props.mobile ? "none" : "block" }}
         className="searchBox"
         placeholder="Search friend"
