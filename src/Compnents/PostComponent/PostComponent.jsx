@@ -90,6 +90,7 @@ export default function PostComponent({ postDetails }) {
             setEditModalShow={setEditModalShow}
             postId={postDetails._id}
           />
+
           <AddPost
             onClose={() => setEditModalShow(false)}
             show={editModalShow}
