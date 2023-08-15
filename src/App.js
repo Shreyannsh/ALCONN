@@ -17,7 +17,6 @@ import LikedPost from "./Pages/LikedPost/LikedPost";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import { authContext } from "./Context/authContext/authContext";
 import MobileNavBar from "./Compnents/MobileNavBar/MobileNavBar";
-import RequiredAuth from "./Compnents/RequiredAuth/RequiredAuth";
 import SignUpPage from "./Pages/LandingPage/SignUpPage/SignUpPage";
 import ProfileOption from "./Compnents/ProfileOption/ProfileOption";
 import SuggestionList from "./Compnents/SuggestionList/SuggestionList";
