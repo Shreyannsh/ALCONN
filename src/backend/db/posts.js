@@ -18,7 +18,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "Shreyansh007",
-    createdAt: "12:00 PM July 12,  2022",
+    createdAt: "12:00 PM August 12,  2023",
     updatedAt: formatDate(),
   },
   {
@@ -31,7 +31,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "Shreyansh007",
-    createdAt: " 12:00 PM August 13, 2022",
+    createdAt: " 12:00 PM August 13, 2023",
     updatedAt: formatDate(),
   },
   {
