@@ -19,10 +19,6 @@ export default function Home() {
 
   const token = localStorage.getItem("encodedToken");
 
-  // useEffect(() => {
-  //   userDetail();
-  // }, []);
-
   useEffect(() => {
     setIsActive("home");
   }, [isActive]);

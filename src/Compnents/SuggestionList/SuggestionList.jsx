@@ -37,10 +37,11 @@ export default function SuggestionList(props) {
       }
       setFilteredUsers(searchedUser);
     }
-    //here else part is helping to render the suggestion list when no value is provided in search bar
+    //here else part is helping to render the suggestion list when no value is provided in search bar and in general too
     else {
       const followersIds = followingList?.map((user) => user._id);
       const nonFollowedUsers = authState.usersList?.reduce((acc, crr) => {
+        console.log(crr._id, authState.singleUserDetail._id);
         if (
           !followersIds?.includes(crr._id) &&
           crr._id !== authState.singleUserDetail._id
@@ -72,7 +73,7 @@ export default function SuggestionList(props) {
 
   useEffect(() => {
     searchUser();
-  }, [props.searchText, searchedText]);
+  }, [props.searchText, searchedText, authState]);
 
   return (
     <div className="suggestionList">
