@@ -141,10 +141,16 @@ export default function AuthProvider({ children }) {
 
     try {
       const response = await axios.post("/api/auth/signup", cred);
-      const encodedToken = response.data.encodedToken;
+
       userList();
-      authDispatch({ type: "userName", payload: cred.username });
-      authDispatch({ type: "loginPassword", payload: cred.password });
+      authDispatch({
+        type: "userName",
+        payload: response.data.createdUser.username,
+      });
+      authDispatch({
+        type: "loginPassword",
+        payload: response.data.createdUser.password,
+      });
       toast("Signed Up Successfully");
       navigate("/");
     } catch (error) {
