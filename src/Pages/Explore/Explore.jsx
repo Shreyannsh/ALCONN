@@ -15,11 +15,19 @@ export default function Explore() {
   return (
     <div className="explorePage">
       <p className="pageName">Explore</p>
-      {authState?.allPostList?.map((post) => (
-        <li style={{ listStyle: "none" }}>
-          <PostComponent postDetails={post} />
-        </li>
-      ))}
+      {authState?.allPostList.length > 0 ? (
+        <div>
+          {authState?.allPostList?.map((post) => (
+            <li style={{ listStyle: "none" }}>
+              <PostComponent postDetails={post} />
+            </li>
+          ))}
+        </div>
+      ) : (
+        <div>
+          <img src="../../assets/loader.gif" alt="" />
+        </div>
+      )}
     </div>
   );
 }

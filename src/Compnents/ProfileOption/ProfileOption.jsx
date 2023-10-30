@@ -1,9 +1,9 @@
 import "./ProfileOption.css";
 
-import { useContext, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { BsFillPersonFill } from "react-icons/bs";
+import { useContext, useState } from "react";
 import { GoSignOut } from "react-icons/go";
 import { toast } from "react-toastify";
 
@@ -20,12 +20,14 @@ export default function ProfileOption() {
   };
 
   const profilePage = () => {
-    setShow(!show);
+    setShow(false);
   };
 
   const signOut = () => {
     navigate("/");
     setIsLogin(false);
+    setShow(false);
+    localStorage.clear();
     toast("Successfully Logged Out");
   };
 
@@ -36,8 +38,14 @@ export default function ProfileOption() {
   return (
     <div className="profileOptionSection">
       <div onClick={() => profileOption()} className="profileOption">
-        <img className="image-pic" src={loggedInUser?.profilePic} alt="Pic" />
-        <p className="profileName">{authState?.singleUserDetail?.firstName}</p>
+        <img
+          className="image-pic-profileOption"
+          src={loggedInUser?.profilePic}
+          alt="Pic"
+        />
+        <p className="profileName-profileOption">
+          {authState?.singleUserDetail?.firstName}
+        </p>
         <span className="arrow">
           {show ? <IoIosArrowUp /> : <IoIosArrowDown />}
         </span>
@@ -46,18 +54,18 @@ export default function ProfileOption() {
         style={{ display: show ? "block" : "none" }}
         className="profileDropDown"
       >
-        <div className="profile" onClick={() => profilePage()}>
-          <Link
-            className="link"
-            to={`/profile/${authState.singleUserDetail._id}`}
-          >
+        <Link
+          className="link"
+          to={`/profile/${authState.singleUserDetail.username}`}
+        >
+          <div className="profile" onClick={() => profilePage()}>
             <span className="icon">
               <BsFillPersonFill />
             </span>
             Profile
-          </Link>
-        </div>
-        <p onClick={() => signOut()} className="signout">
+          </div>
+        </Link>
+        <p onClick={() => signOut()} className="signoutProfileOption">
           <span className="icon">
             <GoSignOut />
           </span>

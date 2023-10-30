@@ -10,7 +10,7 @@
 
 .editProfileComponent {
   width: 20rem;
-  height: 21rem;
+  height: 23rem;
   border-radius: 15px;
   background-color: #fff;
   padding: 0px 20px;
@@ -66,7 +66,7 @@
   cursor: pointer;
 }
 
-.editProfileComponent .textArea {
+.editProfileComponent .editBio {
   width: 15rem;
   height: 3rem;
   resize: none;
@@ -89,5 +89,6 @@
 }
 .editFooter button {
   cursor: pointer;
-  margin: 0px 10px;
+  margin: 10px 10px;
+  padding: 5px 5px;
 }

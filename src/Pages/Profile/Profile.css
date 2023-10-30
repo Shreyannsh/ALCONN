@@ -1,5 +1,5 @@
 .profilePage {
-  min-width: 32rem;
+  max-width: 500px;
   margin-top: 3.8rem;
   position: relative;
   display: flex;
@@ -7,7 +7,6 @@
 }
 
 .background-Image {
-  width: 32rem;
   height: 8rem;
   background: var(--light-blue);
   border-top-left-radius: 10px;
@@ -15,19 +14,27 @@
   box-shadow: 0px 2px 2px 0px rgb(0, 0, 0, 0.6);
 }
 
-.profilePage .image {
-  position: absolute;
-  margin: 2.5rem 11.5rem;
-  border-radius: 70px;
+.imageSection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.image {
+  position: relative;
+  margin-top: -5rem;
+  border-radius: 100%;
   height: 9rem;
   width: 9rem;
 }
 
-.profilePage .signout {
+.signout {
+  display: none;
   position: absolute;
   right: 0rem;
   margin-left: 5px;
-  top: 8.6rem;
+  top: 9.4rem;
   font-size: x-large;
   cursor: pointer;
 }
@@ -35,9 +42,14 @@
 .profileInfo {
   display: flex;
   flex-direction: column;
+  margin-top: -4rem;
 }
 
 .profileInfo .name {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
+  max-width: 30%;
   font-size: larger;
   font-weight: 500;
   margin-left: 5px;
@@ -49,14 +61,13 @@
 }
 
 .profilePage .emptyMsg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5rem;
+  margin-left: 0rem;
   border: 1.5px solid gainsboro;
   box-shadow: 0.5px 0.5px 2px 0px rgb(0, 0, 0, 0.6);
   padding: 5rem 0rem;
   border-radius: 10px;
+  max-width: 500px;
+  width: 90vw;
 }
 
 .edit-btn {
@@ -64,7 +75,7 @@
   display: flex;
   align-self: flex-end;
   margin-top: 1.3rem;
-  margin-right: 3rem;
+  margin-right: 0.5rem;
   background-color: rgb(212, 212, 212);
   box-shadow: 0px 0.5px 1px 0px rgb(0, 0, 0, 0.6);
   color: rgb(65, 63, 63);
@@ -105,8 +116,10 @@
 .description {
   display: flex;
   flex-direction: column;
+  /* flex-wrap: wrap; */
   align-items: center;
   margin-top: 0rem;
+  /* width: 100vw; */
 }
 
 .title {
@@ -121,7 +134,7 @@
   margin-top: -0.5rem;
   font-size: 17px;
   text-align: center;
-  width: 25rem;
+  overflow-wrap: break-word;
 }
 
 .website {
@@ -157,4 +170,74 @@
 .follow-Btn:hover {
   cursor: pointer;
   color: rgb(253, 194, 0);
+}
+/* 
+@media (max-width: 906px) {
+  .signout {
+    display: none;
+  }
+  .edit-btn {
+    margin-right: 0rem;
+  }
+} */
+
+@media (max-width: 786px) {
+  .profilePage {
+    max-width: 500px;
+    margin-top: 5.8rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+  }
+  .signout {
+    display: block;
+  }
+  .edit-btn {
+    margin-right: 3rem;
+  }
+}
+
+@media (max-width: 449px) {
+  .profilePage p {
+    font-size: 19px;
+  }
+  .profilePage .image {
+    margin-top: -4rem;
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+
+  .profileInfo .name {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .profileInfo .username {
+    font-size: 14px;
+  }
+
+  .profileInfo {
+    margin-top: -2rem;
+  }
+  .edit-btn {
+    font-size: small;
+    margin-right: 2.5rem;
+  }
+
+  .profilePage .signout {
+    top: 7.6rem;
+    right: 10px;
+    font-size: medium;
+  }
+
+  .background-Image {
+    height: 5.5rem;
+    margin: 0px 2px;
+  }
+
+  .profilePage .follow-btn {
+    margin-top: 1rem;
+    margin-right: 1rem;
+  }
 }

@@ -17,9 +17,7 @@ export default function Home() {
     setSortingOptions(!showSortingOptions);
   };
 
-  useEffect(() => {
-    userDetail();
-  }, [isLogin]);
+  const token = localStorage.getItem("encodedToken");
 
   useEffect(() => {
     setIsActive("home");
@@ -28,23 +26,31 @@ export default function Home() {
   return (
     <div className="homePage">
       <p className="pageTitle">Home</p>
-      <div className="addPostHome">
-        <AddPost show={true} />
-      </div>
-
-      <p className="heading-latestPost">
-        Latest Posts{" "}
-        <span onClick={() => sortingOptionsBtn()}>
-          <GiSettingsKnobs className="systemBtn" />
-        </span>
-      </p>
-      <SortingPost show={showSortingOptions} />
-
-      {authState?.allPostList?.map((post) => (
-        <li key={post._id} className="postList">
-          <PostComponent postDetails={post} />
-        </li>
-      ))}
+      {authState?.allPostList.length > 0 ? (
+        <div>
+          <div className="addPostHome">
+            <AddPost show={true} />
+          </div>
+          <p className="heading-latestPost">
+            Latest Posts{" "}
+            <span onClick={() => sortingOptionsBtn()}>
+              <GiSettingsKnobs className="systemBtn" />
+            </span>
+          </p>
+          <SortingPost show={showSortingOptions} />
+          <div className="postFullList">
+            {authState?.allPostList?.map((post) => (
+              <li key={post._id} className="postList">
+                <PostComponent postDetails={post} />
+              </li>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div>
+          <img src="../../assets/loader.gif" alt="" />
+        </div>
+      )}
     </div>
   );
 }

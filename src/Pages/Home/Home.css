@@ -1,7 +1,6 @@
 .homePage {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
 }
 
 .addPostHome {
@@ -35,5 +34,8 @@
 @media (max-width: 962px) {
   .addPostHome {
     display: none;
+  }
+  .heading-latestPost {
+    margin-top: -1rem;
   }
 }

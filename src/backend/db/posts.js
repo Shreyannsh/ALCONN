@@ -11,25 +11,27 @@ export const posts = [
     _id: uuid(),
     content:
       "Keep it simple and straight. just the way i like it. it should be minimal. it has to be useful.",
+    image: "../../assets/postImage01.jpg",
     likes: {
       likeCount: 39,
       likedBy: [],
       dislikedBy: [],
     },
     username: "Shreyansh007",
-    createdAt: "12:00 PM July 12,  2022",
+    createdAt: "12:00 PM August 12,  2023",
     updatedAt: formatDate(),
   },
   {
     _id: uuid(),
-    content: "Keep beleiving in your yourself",
+    content: "Keep believing in your yourself",
+    image: "../../assets/postImage02.jpg",
     likes: {
       likeCount: 80,
       likedBy: [],
       dislikedBy: [],
     },
     username: "Shreyansh007",
-    createdAt: " 12:00 PM August 13, 2022",
+    createdAt: " 12:00 PM August 13, 2023",
     updatedAt: formatDate(),
   },
   {

@@ -5,15 +5,15 @@ import {
   MdOutlineBookmark,
   MdOutlineShare,
 } from "react-icons/md";
+import { Link } from "react-router-dom";
+import AddPost from "../AddPost/AddPost";
+import { GoComment } from "react-icons/go";
 import { useContext, useState } from "react";
 import { HiDotsHorizontal } from "react-icons/hi";
-import { GoComment } from "react-icons/go";
+import PostOptions from "../PostOptions/PostOptions";
 import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
-
 import { authContext } from "../../Context/authContext/authContext";
 import { featureContext } from "../../Context/FeatureContext/FeatureContext";
-import PostOptions from "../PostOptions/PostOptions";
-import EditPost from "../EditPost/EditPost";
 
 export default function PostComponent({ postDetails }) {
   const { likePost, dislikePost, addBookmark, removeBookmark } =
@@ -30,7 +30,7 @@ export default function PostComponent({ postDetails }) {
     postDetails.username
   );
 
-  const likedBy = postDetails.likes.likedBy.find(
+  const likedBy = postDetails?.likes?.likedBy?.find(
     ({ _id }) => _id === authState.singleUserDetail._id
   );
 
@@ -67,11 +67,11 @@ export default function PostComponent({ postDetails }) {
       <div className="postComponent">
         <div className="header">
           <img className="postImagePic" src={user?.profilePic} alt="Pic" />
-          <p className="fullName">
+          <Link to={`/profile/${user?.username}`} className="fullName">
             {" "}
             {user?.firstName} {user?.lastName}{" "}
-          </p>
-          <p className="createdDate"> {formattedDate} </p>
+          </Link>
+          <span className="createdDate"> {formattedDate} </span>
         </div>
 
         {accountHolder ? (
@@ -82,7 +82,7 @@ export default function PostComponent({ postDetails }) {
         ) : (
           ""
         )}
-        <p className="userName">@{user?.username}</p>
+        <span className="userName">@{user?.username}</span>
         <div>
           <PostOptions
             onClose={() => setShowOptions(false)}
@@ -90,17 +90,25 @@ export default function PostComponent({ postDetails }) {
             setEditModalShow={setEditModalShow}
             postId={postDetails._id}
           />
-          <EditPost
+
+          <AddPost
             onClose={() => setEditModalShow(false)}
             show={editModalShow}
+            mode="sideBar"
+            edit={true}
             postId={postDetails._id}
             postContent={postDetails.content}
+            postImage={postDetails.image}
           />
         </div>
 
         <p className="content">{postDetails?.content}</p>
 
-        <img src={postDetails?.image} alt="" className="postImage" />
+        {postDetails?.image ? (
+          <img src={postDetails?.image} alt="pic" className="postImage" />
+        ) : (
+          ""
+        )}
 
         <div className="postComponentFooter">
           <span className="footer-icon" onClick={() => likeDislike()}>
@@ -109,7 +117,7 @@ export default function PostComponent({ postDetails }) {
             ) : (
               <BsSuitHeart />
             )}
-            <span className="likeCount">{postDetails.likes.likeCount}</span>
+            <span className="likeCount">{postDetails?.likes?.likeCount}</span>
           </span>
           <span className="footer-icon">
             <GoComment />

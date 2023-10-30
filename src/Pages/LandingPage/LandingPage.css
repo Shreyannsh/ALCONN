@@ -1,9 +1,10 @@
 .landingPage {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   align-items: stretch;
   background-color: rgb(248, 252, 252);
-  height: 36.5rem;
+  height: 100vh;
 }
 
 .landingImage {
@@ -29,10 +30,13 @@
   width: 100%;
   filter: brightness(100%) saturate(150%) hue-rotate(347deg);
 }
+
 .landingPage h1 {
   color: var(--light-blue);
   font-size: 3rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 .hidePasswordComponent {
   position: absolute;
@@ -48,9 +52,10 @@
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  width: 396px;
+  max-width: 396px;
+  width: 100vh;
   display: flex;
-  flex-direction: column;
+  /* justify-content: center; */
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
   background-color: white;
@@ -139,16 +144,15 @@
   background-color: rgb(39, 145, 18);
 }
 
+@media (max-width: 433px) {
+  .landingPage {
+    width: 50vh;
+    margin: auto;
+  }
+}
+
 @media (max-width: 768px) {
   .landingImage {
     display: none;
-    height: 20rem;
-    width: 20rem;
-    margin-right: 2rem;
-    margin-top: 8rem;
-  }
-
-  .landingImage p {
-    font-size: 22px;
   }
 }

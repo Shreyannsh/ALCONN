@@ -19,9 +19,27 @@
   cursor: pointer;
   border: 2px solid var(--light-gray);
   border-radius: 5px;
-  background-color: rgb(250, 227, 153);
 }
 
-.sortingOption:hover {
-  background-color: rgb(243, 205, 78);
+@media (max-width: 786px) {
+  .sortingOptionsParent {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0.8rem;
+    margin-top: -1.4rem;
+    margin-bottom: 1rem;
+    padding: 0px 10px;
+  }
+  .sortingOptions {
+    padding: 0px 10px;
+    margin-top: -0.8rem;
+    font-size: smaller;
+  }
+  .sortingOption {
+    padding: 4px 3px;
+    font-size: medium;
+    cursor: pointer;
+    border: 2px solid var(--light-gray);
+    border-radius: 5px;
+  }
 }

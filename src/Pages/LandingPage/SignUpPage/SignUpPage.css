@@ -3,14 +3,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 0;
-  margin-top: -1.8rem;
+  padding-top: 0.5rem;
   background-color: rgb(248, 252, 252);
+  height: 100vh;
 }
 
 .parent h1 {
   color: var(--light-blue);
   font-size: 3rem;
+  margin-top: -1.8rem;
   text-align: center;
 }
 
@@ -19,7 +20,8 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 400px;
+  max-width: 400px;
+  width: 100vh;
   padding: 0rem 2rem 1rem 2rem;
   margin-bottom: 1rem;
   margin-top: -1rem;
@@ -30,7 +32,7 @@
 
 .signUpPage .hidePasswordComponentSignUp {
   position: absolute;
-  margin-top: 14rem;
+  margin-top: 13.8rem;
   margin-left: 80%;
   font-size: larger;
   cursor: pointer;
@@ -39,7 +41,7 @@
 
 .signUpPage .hidePasswordComponentSignUp2 {
   position: absolute;
-  margin-top: 17rem;
+  margin-top: 16.8rem;
   margin-left: 80%;
   font-size: larger;
   cursor: pointer;
@@ -126,4 +128,21 @@
 
 .alreadyHaveAnAccount:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 786px) {
+  .parent {
+    min-width: 500px;
+  }
+
+  .signUpPage {
+    margin: auto;
+    margin-top: 0rem;
+  }
+  .parent h1 {
+    color: var(--light-blue);
+    font-size: 3rem;
+    margin-top: 1.8rem;
+    text-align: center;
+  }
 }

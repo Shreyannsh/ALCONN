@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 2.8rem;
-  margin-left: 1.5rem;
+  margin-left: 2.5rem;
   position: fixed;
 }
 
@@ -15,15 +15,15 @@
   position: relative;
 }
 
-.profileOption .image-pic {
+.profileOption .image-pic-profileOption {
   margin-top: 8px;
   border-radius: 40px;
   height: 2.5rem;
   width: 2.5rem;
 }
 
-.profileOption .profileName {
-  margin-left: 3rem;
+.profileOption .profileName-profileOption {
+  margin-left: 0.5rem;
 }
 
 .arrow {
@@ -51,7 +51,7 @@
   text-decoration: none;
 }
 
-.signout {
+.signoutProfileOption {
   padding: 3px 3px;
   margin-right: 5px;
   margin-bottom: 7px;
@@ -67,8 +67,25 @@
   cursor: pointer;
 }
 
-.signout:hover,
+.signoutProfileOption:hover,
 .profile:hover {
   background-color: var(--light-gray);
   box-shadow: 1px 2px 2px 0px rgb(0, 0, 0, 0.6);
+}
+
+@media (max-width: 1050px) {
+  .profileName-profileOption,
+  .arrow {
+    display: none;
+  }
+  .profileOption .image-pic-profileOption {
+    margin-top: -10px;
+    border-radius: 40px;
+    height: 4rem;
+    width: 4rem;
+  }
+  .profileDropDown {
+    margin-left: -1rem;
+    margin-top: 0.5rem;
+  }
 }

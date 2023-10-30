@@ -26,6 +26,12 @@ export default function SignUpPage() {
 
     if (signUpValues) {
       toast.error(" Enter all fields to signup ");
+    } else if (authState.signUpDetails.password.length < 8) {
+      toast.error("Password must be minimum 8 characters");
+    } else if (
+      authState.signUpDetails.password !== authState.signUpDetails.rePassword
+    ) {
+      toast.error("Passwords do not match");
     } else {
       signUp();
     }

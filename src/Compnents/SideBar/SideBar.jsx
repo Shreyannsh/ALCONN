@@ -1,19 +1,21 @@
 import "./SideBar.css";
 
 import {
+  AiOutlinePlus,
   AiOutlineHome,
   AiFillHome,
   AiOutlineLike,
   AiFillLike,
 } from "react-icons/ai";
+
 import {
   MdOutlineExplore,
   MdExplore,
   MdOutlineBookmarkBorder,
   MdOutlineBookmark,
 } from "react-icons/md";
-import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
 
 import AddPost from "../../Compnents/AddPost/AddPost";
 import ProfileOption from "../ProfileOption/ProfileOption";
@@ -41,7 +43,7 @@ export default function SideBar() {
                 <span>
                   <AiFillHome className="icons" />{" "}
                 </span>{" "}
-                <span>
+                <span className="sidePageName">
                   <b>Home</b>
                 </span>
               </div>
@@ -50,7 +52,7 @@ export default function SideBar() {
                 <span>
                   <AiOutlineHome className="icons" />{" "}
                 </span>{" "}
-                <span>Home</span>
+                <span className="sidePageName">Home</span>
               </div>
             )}
           </Link>
@@ -60,7 +62,7 @@ export default function SideBar() {
                 <span>
                   <MdExplore className="icons" />
                 </span>{" "}
-                <span>
+                <span className="sidePageName">
                   <b>Explore</b>
                 </span>
               </div>
@@ -69,7 +71,7 @@ export default function SideBar() {
                 <span>
                   <MdOutlineExplore className="icons" />
                 </span>{" "}
-                <span>Explore</span>
+                <span className="sidePageName">Explore</span>
               </div>
             )}
           </Link>
@@ -79,7 +81,7 @@ export default function SideBar() {
                 <span>
                   <MdOutlineBookmark className="icons" />
                 </span>{" "}
-                <span>
+                <span className="sidePageName">
                   <b>Bookmarks</b>{" "}
                 </span>
               </div>
@@ -88,7 +90,7 @@ export default function SideBar() {
                 <span>
                   <MdOutlineBookmarkBorder className="icons" />
                 </span>{" "}
-                <span>Bookmarks </span>
+                <span className="sidePageName">Bookmarks </span>
               </div>
             )}
           </Link>
@@ -99,7 +101,7 @@ export default function SideBar() {
                 <span>
                   <AiFillLike className="icons" />
                 </span>
-                <span>
+                <span className="sidePageName">
                   {" "}
                   <b>Liked Post</b>{" "}
                 </span>
@@ -109,16 +111,21 @@ export default function SideBar() {
                 <span>
                   <AiOutlineLike className="icons" />
                 </span>
-                <span> Liked Post </span>
+                <span className="sidePageName"> Liked Post </span>
               </div>
             )}
           </Link>
         </div>
 
         <button onClick={() => postBtn()} className="post-btn">
-          Post
+          <span className="postName"> Post</span>
+
+          <span className="postSign">
+            {/* it will be render when screen size will decrease for tab  */}
+            <AiOutlinePlus />
+          </span>
         </button>
-        <div className="profileOption">
+        <div className="profileOptionSide">
           <ProfileOption />
         </div>
       </div>

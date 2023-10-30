@@ -2,12 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 0rem;
-  margin-right: 0rem;
   margin-top: 1rem;
   font-size: x-large;
   position: fixed;
-  min-width: 17rem;
 }
 
 .pages {
@@ -107,18 +104,55 @@
   background-color: var(--dark-blue);
 }
 
-.left-side-bar .profileOption {
-  margin-left: 2rem;
+.profileOptionSide {
+  margin-left: -3rem;
+  font-size: 20px;
+  display: none;
+  display: flex;
+  flex-wrap: wrap;
+  display: none;
+}
+.postSign {
   display: none;
 }
 
 @media (max-width: 1166px) {
-  .left-side-bar .profileOption {
+  .left-side-bar .profileOptionSide {
     display: block;
   }
 }
 
-@media (max-width: 962px) {
+@media (max-width: 1050px) {
+  .sidePageName {
+    display: none;
+  }
+  .postName {
+    display: none;
+  }
+  .postSign {
+    display: block;
+  }
+  .icons {
+    font-size: 2.5rem;
+  }
+  .platform-name {
+    margin-left: -2rem;
+  }
+  .pages {
+    margin-left: 1rem;
+  }
+  .post-btn {
+    margin-left: 0.9rem;
+    padding: 10px 5px 0px 5px;
+    font-size: 2.5rem;
+    border-radius: 100%;
+  }
+  .profileOptionSide {
+    margin-left: -1.7rem;
+  }
+}
+
+@media (max-width: 786px) {
   .left-side-bar {
     display: none;
   }

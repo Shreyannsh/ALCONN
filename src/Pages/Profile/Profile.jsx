@@ -32,13 +32,15 @@ export default function Profile() {
 
   const navigate = useNavigate();
 
-  const { userId } = useParams();
+  const { userName } = useParams();
 
   useEffect(() => {
     setIsActive("");
   }, []);
 
-  const userDetail = authState?.usersList?.find((user) => user._id === userId);
+  const userDetail = authState?.usersList?.find(
+    (user) => user.username === userName
+  );
 
   const match = authState?.singleUserDetail?.username?.includes(
     userDetail.username
@@ -76,11 +78,11 @@ export default function Profile() {
 
   const followBtn = () => {
     if (following) {
-      unfollow(userId);
+      unfollow(userDetail._id);
       toast(`Unfollowed ${userDetail.username}`);
       setFilteredUsers([...filteredUsers, userDetail]);
     } else {
-      follow(userId);
+      follow(userDetail._id);
       toast(`Following ${userDetail.username}`);
       setFilteredUsers(
         authState?.usersList?.filter(({ _id }) => _id !== userDetail._id)
@@ -112,153 +114,162 @@ export default function Profile() {
   const signOut = () => {
     navigate("/");
     setIsLogin(false);
+    localStorage.clear();
     toast("Successfully Logged Out");
   };
 
   return (
     <div className="profilePage">
-      <FollowList
-        onClose={() => setFollowListShow(false)}
-        show={followListShow}
-        list={followList}
-        mode={mode}
-      />
-      <EditProfile onClose={() => setShow(!show)} show={show} />
-      <div className="background-Image"></div>
+      {userDetail ? (
+        <div>
+          <FollowList
+            onClose={() => setFollowListShow(false)}
+            show={followListShow}
+            list={followList}
+            mode={mode}
+          />
+          <EditProfile onClose={() => setShow(!show)} show={show} />
+          <div className="background-Image"></div>
 
-      {match ? (
-        <p onClick={() => signOut()} className="signout">
-          <span className="icon">
-            <GoSignOut />
-          </span>
-        </p>
-      ) : (
-        ""
-      )}
+          {match ? (
+            <div>
+              <GoSignOut className="signout" onClick={() => signOut()} />
+            </div>
+          ) : (
+            ""
+          )}
+          <div className="imageSection">
+            <img className="image" src={userDetail.profilePic} alt="Pic" />
+          </div>
 
-      <img className="image" src={userDetail.profilePic} alt="Pic" />
+          <div className="profileInfo">
+            <p className="name">
+              {userDetail?.firstName} {userDetail?.lastName}
+            </p>
 
-      <div className="profileInfo">
-        <p className="name">
-          {userDetail?.firstName} {userDetail?.lastName}
-        </p>
+            <p className="username">@{userDetail?.username}</p>
 
-        <p className="username">@{userDetail?.username}</p>
+            {match ? (
+              <span onClick={() => editProfile()} className="edit-btn">
+                Edit Profile
+              </span>
+            ) : (
+              <p className="follow-btn" onClick={() => followBtn()}>
+                {followingMatched ? "Following" : "Follow"}
+              </p>
+            )}
 
-        {match ? (
-          <p onClick={() => editProfile()} className="edit-btn">
-            Edit Profile
-          </p>
-        ) : (
-          <p className="follow-btn" onClick={() => followBtn()}>
-            {followingMatched ? "Following" : "Follow"}
-          </p>
-        )}
+            <div className="description">
+              <p className="title">
+                <b>{userDetail?.title}</b>
+              </p>
+              <p className="bio">{userDetail?.bio}</p>
+              <a href={userDetail?.website} target="_blank" className="website">
+                {userDetail?.website}
+              </a>
+            </div>
 
-        <div className="description">
-          <div>
-            <p className="title">{userDetail?.title}</p>
-            <p className="bio">{userDetail.bio}</p>
-            <a
-              href={authState.singleUserDetail?.website}
-              target="_blank"
-              rel="noreferrer"
-              className="website"
+            <p className="profile-footer">
+              <span>
+                <b> {filteredPost.length} Posts </b>
+              </span>{" "}
+              <span
+                onClick={() => followingFollowerList("following")}
+                className="follow-Btn"
+              >
+                <b> {userDetail?.following?.length} Following </b>
+              </span>
+              <span
+                onClick={() => followingFollowerList("follower")}
+                className="follow-Btn"
+              >
+                {" "}
+                <b> {userDetail?.followers?.length} Follower </b>
+              </span>
+            </p>
+          </div>
+          <div className="listHeadings">
+            <p
+              className="postOptionProfile"
+              style={{
+                backgroundColor: showPosts ? "rgb(243, 205, 78)" : "white",
+                padding: "10px 35px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+              onClick={() => showPost()}
             >
-              {authState?.singleUserDetail?.website}
-            </a>
+              Posts
+            </p>
+            <p
+              className="postOptionProfile"
+              style={{
+                backgroundColor: showLikedPosts ? "rgb(243, 205, 78)" : "white",
+                padding: "10px 30px",
+                marginLeft: "-6px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+              onClick={() => showLikedPost()}
+            >
+              Liked Posts
+            </p>
+            <p
+              className="postOptionProfile"
+              style={{
+                backgroundColor: showBookmarkedPosts
+                  ? "rgb(243, 205, 78)"
+                  : "white",
+                padding: "10px 10px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+              onClick={() => showBookmarkedPost()}
+            >
+              Bookmark Post{" "}
+            </p>
+          </div>
+
+          <div style={{ display: showPosts ? "block" : "none" }}>
+            {filteredPost.length > 0 ? (
+              filteredPost.map((post) => (
+                <li key={post._id} className="postList">
+                  <PostComponent postDetails={post} />
+                </li>
+              ))
+            ) : (
+              <h2 className="emptyMsg">Add a Post!</h2>
+            )}
+          </div>
+          <div style={{ display: showLikedPosts ? "block" : "none" }}>
+            {likedPostByUser.length > 0 ? (
+              likedPostByUser?.map((likedPost) => (
+                <li className="list">
+                  <PostComponent postDetails={likedPost} />
+                </li>
+              ))
+            ) : (
+              <h2 className="emptyMsg">No Liked Posts!</h2>
+            )}
+          </div>
+
+          <div style={{ display: showBookmarkedPosts ? "block" : "none" }}>
+            {bookMarkedPosts?.length > 0 ? (
+              bookMarkedPosts?.map((post) => (
+                <li className="list">
+                  <PostComponent postDetails={post} />
+                </li>
+              ))
+            ) : (
+              <h2 className="emptyMsg">No Bookmark Posts!</h2>
+            )}
           </div>
         </div>
-
-        <p className="profile-footer">
-          <span> {authState.postList.length} Posts </span>{" "}
-          <span
-            onClick={() => followingFollowerList("following")}
-            className="follow-Btn"
-          >
-            {userDetail?.following?.length} Following{" "}
-          </span>
-          <span
-            onClick={() => followingFollowerList("follower")}
-            className="follow-Btn"
-          >
-            {" "}
-            {userDetail?.followers?.length} Follower{" "}
-          </span>
-        </p>
-      </div>
-      <div className="listHeadings">
-        <p
-          style={{
-            backgroundColor: showPosts ? "rgb(243, 205, 78)" : "white",
-            padding: "10px 15px",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-          onClick={() => showPost()}
-        >
-          Posts
-        </p>
-        <p
-          style={{
-            backgroundColor: showLikedPosts ? "rgb(243, 205, 78)" : "white",
-            padding: "10px 10px",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-          onClick={() => showLikedPost()}
-        >
-          Liked Posts
-        </p>
-        <p
-          style={{
-            backgroundColor: showBookmarkedPosts
-              ? "rgb(243, 205, 78)"
-              : "white",
-            padding: "10px 10px",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-          onClick={() => showBookmarkedPost()}
-        >
-          Bookmarked Post{" "}
-        </p>
-      </div>
-
-      <div style={{ display: showPosts ? "block" : "none" }}>
-        {filteredPost.length > 0 ? (
-          filteredPost.map((post) => (
-            <li key={post._id} className="postList">
-              <PostComponent postDetails={post} />
-            </li>
-          ))
-        ) : (
-          <h2 className="emptyMsg">Add a Post!</h2>
-        )}
-      </div>
-      <div style={{ display: showLikedPosts ? "block" : "none" }}>
-        {likedPostByUser.length > 0 ? (
-          likedPostByUser?.map((likedPost) => (
-            <li className="list">
-              <PostComponent postDetails={likedPost} />
-            </li>
-          ))
-        ) : (
-          <h2 className="emptyMsg">No Liked Posts!</h2>
-        )}
-      </div>
-
-      <div style={{ display: showBookmarkedPosts ? "block" : "none" }}>
-        {bookMarkedPosts?.length > 0 ? (
-          bookMarkedPosts?.map((post) => (
-            <li>
-              <PostComponent postDetails={post} />
-            </li>
-          ))
-        ) : (
-          <h2 className="emptyMsg">No Bookmark Posts!</h2>
-        )}
-      </div>
+      ) : (
+        <div>
+          <img src="../../assets/loader.gif" alt="" />
+        </div>
+      )}
     </div>
   );
 }

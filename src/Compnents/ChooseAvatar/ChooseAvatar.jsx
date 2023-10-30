@@ -65,7 +65,9 @@ export default function ChooseAvatar(props) {
       />
 
       <div>
-        <button onClick={() => props.onClose()}>Set</button>
+        <button className="setBtn" onClick={() => props.onClose()}>
+          Set
+        </button>
       </div>
     </div>
   );
