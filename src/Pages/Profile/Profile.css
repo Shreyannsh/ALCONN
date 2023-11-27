@@ -1,5 +1,5 @@
 .profilePage {
-  max-width: 500px;
+  width: 100%;
   margin-top: 3.8rem;
   position: relative;
   display: flex;
@@ -116,10 +116,8 @@
 .description {
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
   align-items: center;
   margin-top: 0rem;
-  /* width: 100vw; */
 }
 
 .title {
@@ -183,12 +181,12 @@
 
 @media (max-width: 786px) {
   .profilePage {
-    max-width: 500px;
+    /* max-width: 500px; */
     margin-top: 5.8rem;
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
   }
   .signout {
     display: block;

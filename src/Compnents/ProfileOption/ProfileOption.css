@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 2.8rem;
-  margin-left: 2.5rem;
+  margin-left: 1rem;
   position: fixed;
 }
 
@@ -11,7 +11,6 @@
   display: flex;
   flex-direction: row;
   cursor: pointer;
-  justify-content: space-between;
   position: relative;
 }
 
@@ -32,7 +31,6 @@
 }
 
 .profileDropDown {
-  display: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,7 +71,18 @@
   box-shadow: 1px 2px 2px 0px rgb(0, 0, 0, 0.6);
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1166px) {
+  .profileOption {
+    font-size: large;
+    margin-left: -1rem;
+  }
+
+  .profileDropDown {
+    font-size: large;
+    margin-left: -1rem;
+  }
+}
+@media (max-width: 950px) {
   .profileName-profileOption,
   .arrow {
     display: none;

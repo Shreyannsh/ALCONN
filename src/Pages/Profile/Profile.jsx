@@ -266,7 +266,7 @@ export default function Profile() {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="loader">
           <img src="../../assets/loader.gif" alt="" />
         </div>
       )}

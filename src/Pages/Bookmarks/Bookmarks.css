@@ -1,12 +1,3 @@
-.emptyMsg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 0rem;
-  border: 1.5px solid gainsboro;
-  box-shadow: 0.5px 0.5px 2px 0px rgb(0, 0, 0, 0.6);
-  padding: 5rem 0rem;
-  border-radius: 10px;
-  max-width: 500px;
-  width: 100vw;
+.bookMarkPage {
+  width: 100%;
 }

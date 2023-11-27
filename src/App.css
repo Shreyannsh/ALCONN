@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-  padding: 0rem 2rem;
+  padding: 0rem 0.5rem;
+  margin-top: -1.5rem;
 }
 
 :root {
@@ -19,6 +20,8 @@ p {
 .centerPage {
   display: flex;
   justify-content: center;
+  width: 50%;
+  margin-left: 1rem;
 }
 
 .mobileAddPostBtn {
@@ -94,9 +97,32 @@ p {
   font-size: 1.2rem;
 }
 
+.emptyMsg {
+  text-align: center;
+  margin-left: 0rem;
+  border: 1.5px solid gainsboro;
+  box-shadow: 0.5px 0.5px 2px 0px rgb(0, 0, 0, 0.6);
+  padding: 5rem 0rem;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 1166px) {
   .profileOptionPage {
     display: none;
+  }
+}
+
+@media (max-width: 950px) {
+  .centerPage {
+    margin-left: -2rem;
+    margin-top: -0.5rem;
   }
 }
 
@@ -108,7 +134,8 @@ p {
   .centerPage {
     display: flex;
     justify-content: center;
-    width: 100vw;
+    margin-top: 4rem;
+    width: 90%;
   }
   .suggestionPage {
     display: none;
@@ -123,8 +150,19 @@ p {
   }
 }
 
-@media (max-width: 961px) {
-  .centerPage {
-    width: 325px;
+@media (max-width: 330px) {
+  .brandBar .searchBox {
+    font-size: 12px;
+    padding-left: 10px;
+  }
+
+  .brand-name {
+    margin: 0rem 0rem;
+    margin-top: 10px;
+    font-size: 1.7rem;
+    font-weight: bolder;
+    cursor: pointer;
+    color: var(--dark-blue);
+    padding: 0px 0px 5px 15px;
   }
 }

@@ -1,6 +1,7 @@
 .homePage {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .addPostHome {
@@ -11,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 1.5rem;
-  padding: 5px 15px;
+  padding: 5px 0px;
   margin-bottom: 0rem;
 }
 

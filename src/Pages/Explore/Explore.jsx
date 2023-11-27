@@ -14,7 +14,7 @@ export default function Explore() {
 
   return (
     <div className="explorePage">
-      <p className="pageName">Explore</p>
+      <h1 className="pageName">Explore</h1>
       {authState?.allPostList.length > 0 ? (
         <div>
           {authState?.allPostList?.map((post) => (
@@ -24,7 +24,7 @@ export default function Explore() {
           ))}
         </div>
       ) : (
-        <div>
+        <div className="loader">
           <img src="../../assets/loader.gif" alt="" />
         </div>
       )}

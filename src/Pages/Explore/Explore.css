@@ -1,12 +1,10 @@
+.explorePage {
+  width: 100%;
+}
+
 .pageName {
   text-align: left;
   font-size: x-large;
   margin-top: 3.5rem;
   font-weight: 400;
-}
-
-@media (max-width: 786px) {
-  .pageName {
-    font-size: large;
-  }
 }
