@@ -34,7 +34,9 @@ export default function SideBar() {
   return (
     <div>
       <div className="left-side-bar">
-        <p className="platform-name">ALCONN</p>
+        <Link to="/home" className="titleLink">
+          <p className="platform-name">ALCONN</p>
+        </Link>
 
         <div className="pages">
           <Link to="/home" className="home-btn">

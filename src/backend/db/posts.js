@@ -24,7 +24,7 @@ export const posts = [
   {
     _id: uuid(),
     content: "Keep believing in your yourself",
-    image: "../../assets/postImage02.jpg",
+    image: "../../assets/perfect day image.jpg",
     likes: {
       likeCount: 80,
       likedBy: [],

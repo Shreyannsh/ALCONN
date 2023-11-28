@@ -21,6 +21,10 @@
   justify-content: space-between;
 }
 
+.titleLink {
+  text-decoration: none;
+}
+
 .platform-name {
   font-size: xx-large;
   font-weight: bolder;
@@ -28,6 +32,10 @@
   color: var(--dark-blue);
   padding: 5px 10px;
   border-radius: 10px;
+}
+
+.platform-name:hover {
+  color: var(--light-blue);
 }
 
 .home-btn {
