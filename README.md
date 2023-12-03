@@ -1,7 +1,7 @@
 # ALCONN
 
 ### Description-:
-ALCONN is a Social Media App to connect with people. ALCONN is a Social Media App to connect with people. 
+ALCONN is a RESPONSIVE Social Media App to connect with people. 
 Hang out at https://alconn.vercel.app/
 
 ![landing page](https://github.com/Shreyannsh/MySocialMediaLatestApp/assets/111145568/84a2ad5c-71fa-4b37-a5c1-05b538f5b02b)
