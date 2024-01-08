@@ -82,10 +82,7 @@ export default function AddPost(props) {
 
   return (
     <div className={props.mode === "sideBar" ? "parentModall" : ""}>
-      <div
-        className="addPostComponent"
-        style={{ height: props.edit && "13rem" }}
-      >
+      <div className="addPostComponent">
         <p className="editPostTitle">{props?.edit && "Edit Post"}</p>
         <img className="image-pic" src={loggedInUser?.profilePic} alt="Pic" />
 
