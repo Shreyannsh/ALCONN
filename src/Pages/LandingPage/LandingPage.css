@@ -147,11 +147,10 @@
 @media (max-width: 433px) {
   .landingPage {
     width: 50vh;
-    margin: auto;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 786px) {
   .landingImage {
     display: none;
   }

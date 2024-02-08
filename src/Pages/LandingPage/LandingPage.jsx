@@ -78,11 +78,10 @@ export default function LandingPage() {
             Log in
           </button>
           <div className="loginFooter">
-            {" "}
             <p className="forgottenAccount">Forgotten password?</p>{" "}
             <Link to="/signup" className="signup">
               Sign up for Alconn
-            </Link>{" "}
+            </Link>
           </div>
         </div>
       </div>
