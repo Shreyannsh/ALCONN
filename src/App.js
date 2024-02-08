@@ -52,8 +52,11 @@ function App() {
         pauseOnHover
         theme="light"
       />
-
-      {token ? (
+      <Routes>
+        <Route path="/" element={token ? <Home /> : <LandingPage />} />
+        <Route path="/signup" element={token ? <Home /> : <SignUpPage />} />
+      </Routes>
+      {token && (
         <div style={{ position: "relative" }}>
           <div className="mainPage">
             <div className="brandBar">
@@ -111,11 +114,6 @@ function App() {
             </div>
           </div>
         </div>
-      ) : (
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-        </Routes>
       )}
     </div>
   );
