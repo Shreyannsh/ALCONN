@@ -112,10 +112,12 @@ function App() {
           </div>
         </div>
       ) : (
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-        </Routes>
+        <div>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+          </Routes>
+        </div>
       )}
     </div>
   );
