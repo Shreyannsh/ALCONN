@@ -53,8 +53,8 @@ function App() {
         theme="light"
       />
       <Routes>
-        <Route path="/" element={token ? <Home /> : <LandingPage />} />
-        <Route path="/signup" element={token ? <Home /> : <SignUpPage />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
       </Routes>
       {token && (
         <div style={{ position: "relative" }}>
