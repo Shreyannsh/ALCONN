@@ -8,6 +8,11 @@
   z-index: 19;
 }
 
+.sideAddPostComponent {
+  max-width: 600px;
+  width: 100%;
+}
+
 .addPostComponent {
   border: 1px solid var(--light-gray);
   display: flex;

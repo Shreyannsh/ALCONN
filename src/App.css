@@ -55,7 +55,6 @@ p {
 .brandBar {
   display: flex;
   position: fixed;
-
   justify-content: space-between;
   gap: 1rem;
   background-color: white;

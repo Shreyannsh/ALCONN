@@ -41,7 +41,7 @@ export default function SuggestionList(props) {
     else {
       const followersIds = followingList?.map((user) => user._id);
       const nonFollowedUsers = authState.usersList?.reduce((acc, crr) => {
-        console.log(crr._id, authState.singleUserDetail._id);
+        //console.log(crr._id, authState.singleUserDetail._id);
         if (
           !followersIds?.includes(crr._id) &&
           crr._id !== authState.singleUserDetail._id
