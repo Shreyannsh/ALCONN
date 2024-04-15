@@ -1,6 +1,8 @@
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 
+import Mockman from "mockman-js";
+
 import { MdCancel } from "react-icons/md";
 import { useContext, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -52,6 +54,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
+      {/* <Mockman /> */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignUpPage />} />
